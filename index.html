@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="theme-color" content="#0b1f3a"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0d12"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Apex Motors - Buy Cars Online</title>
 <meta name="description" content="Browse, finance and buy certified new and used cars online. Free returns for 7 days, 3-year warranty, delivered to your door.">
 <style>
-:root{--navy:#0b1f3a;--bg:#f3f6fb;--card:#fff;--ink:#0b1f3a;--mut:#56667f;--line:#dbe3ef;--acc:#f5a30b;--acc2:#e09100;--onacc:#0b1f3a;--err:#c0262d;--ok:#13795b;--img:linear-gradient(180deg,#eef3fa,#d9e2ef);--r:14px;--sh:0 6px 24px rgba(11,31,58,.10)}
-@media(prefers-color-scheme:dark){:root{--bg:#08111f;--card:#0f1c32;--ink:#eaf0fa;--mut:#93a3bd;--line:#1f3250;--err:#ff6b6b;--img:linear-gradient(180deg,#1b3050,#12213a);--sh:0 6px 24px rgba(0,0,0,.45)}}
+:root{color-scheme:dark;--navy:#06080c;--bg:#0a0d12;--card:#121821;--ink:#f1f4f9;--mut:#9aa7ba;--line:#243042;--acc:#ffb020;--acc2:#f29d00;--onacc:#0a0d12;--err:#ff6b6b;--ok:#3ddc97;--img:linear-gradient(180deg,#1a2332,#101722);--r:14px;--sh:0 10px 30px rgba(0,0,0,.45)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .wrap{max-width:1240px;margin:0 auto;padding:0 16px}
 .topbar{background:var(--navy);color:#eaf0fa;font-size:13px;text-align:center;padding:7px 12px}
-header.site{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid var(--line)}
+header.site{position:sticky;top:0;z-index:30;background:rgba(10,13,18,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .hrow{display:flex;align-items:center;gap:14px;height:64px}
 .logo{font-weight:800;font-size:22px;letter-spacing:-.5px}.logo b{color:var(--acc)}
 nav.main{display:flex;gap:4px}nav.main a{padding:8px 10px;border-radius:8px;font-weight:600;font-size:15px}nav.main a:hover{background:var(--bg)}
@@ -38,7 +37,7 @@ section.blk{padding:40px 0}.blk h2{font-size:28px;margin:0 0 6px;letter-spacing:
 .cat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px;text-align:center;font-weight:700;transition:.15s}.cat:hover{transform:translateY(-3px);box-shadow:var(--sh)}.cat svg{width:100%;height:auto}
 .trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.trust div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}.trust b{display:block;margin-bottom:4px}.trust span{color:var(--mut);font-size:14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.15s;position:relative}.card .img img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:8px}.gal .main img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:10px}.thumbs img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:6px}.card.sold .img{opacity:.55;filter:grayscale(.6)}.card:hover{box-shadow:var(--sh);transform:translateY(-2px)}
+.card{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));transition:transform .2s ease,box-shadow .2s,border-color .2s;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.15s;position:relative}.card .img img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:8px}.gal .main img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:10px}.thumbs img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:6px}.card.sold .img{opacity:.55;filter:grayscale(.6)}.card:hover{box-shadow:var(--sh);border-color:#3a4b66}
 .card .img{background:var(--img);padding:14px 10px 4px;display:block}.card .img svg{width:100%;height:auto;display:block}
 .card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
 .card h3{margin:0;font-size:17px}.meta{color:var(--mut);font-size:13.5px}
@@ -121,11 +120,93 @@ main.enter>*{animation:rise .45s ease backwards}
 .drawer.open .scrim{animation:fade .25s ease}.drawer.open>aside{animation:slidein .3s cubic-bezier(.2,.8,.2,1)}
 .drawer.open>aside[style*="translate"]{animation:zoomin .25s ease}
 .gal .main{transition:transform .3s}.gal .main:hover{transform:scale(1.01)}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto}.rv{opacity:1}}
+
+
+/* ===== v3: niche-animated dark theme (inspired by dealer/automotive sites) ===== */
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}[data-lenis-prevent]{overscroll-behavior:contain}
+html,body{overflow-x:clip}
+.loader{position:fixed;inset:0;z-index:300;background:#06080c;display:grid;place-items:center;animation:lout .7s cubic-bezier(.7,0,.2,1) 1.6s forwards}
+@keyframes lout{to{transform:translateY(-100%);visibility:hidden}}
+.l-in{text-align:center}.l-wheel{width:46px;height:46px;border:4px solid #1d2736;border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+.l-in b{font-size:28px;letter-spacing:1px}.l-in em{color:var(--acc);font-style:normal}
+.l-bar{display:block;width:190px;height:3px;background:#1d2736;border-radius:3px;margin:18px auto 0;overflow:hidden}.l-bar i{display:block;height:100%;background:var(--acc);transform-origin:left;transform:scaleX(0);animation:lbar 1.4s ease forwards}
+@keyframes lbar{to{transform:scaleX(1)}}
+.curtain{position:fixed;inset:0;z-index:250;background:var(--acc);transform:scaleY(0);transform-origin:bottom;pointer-events:none;transition:transform .45s cubic-bezier(.7,0,.3,1)}.curtain.cover{transform:scaleY(1);transition-duration:.32s}.curtain.top{transform-origin:top}
+.glow{position:fixed;left:0;top:0;width:460px;height:460px;margin:-230px 0 0 -230px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,32,.12),transparent 65%);pointer-events:none;z-index:5;mix-blend-mode:screen}
+.btn{position:relative;overflow:hidden;transform:translate(var(--mx,0px),var(--my,0px))}.btn:hover{transform:translate(var(--mx,0px),calc(var(--my,0px) - 1px))}
+.btn:not(.ghost)::after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .65s}.btn:not(.ghost):hover::after{left:140%}
+.split .sp{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.split .w{display:inline-block;transform:translateY(118%);transition:transform .95s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0)*55ms)}
+.split.in .w{transform:none}.split.hold .w{transition-delay:calc(1.45s + var(--i,0)*60ms)}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--acc);margin:0 0 14px}
+/* hero carousel */
+.hero2{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#0a0d12}
+.hero2-bg{position:absolute;inset:-20%;background:radial-gradient(700px 420px at 75% 40%,rgba(255,176,32,.16),transparent 62%),radial-gradient(600px 380px at 8% 85%,rgba(90,130,210,.14),transparent 60%);animation:bgshift 14s ease-in-out infinite alternate}
+@keyframes bgshift{to{transform:translate(3%,-3%) scale(1.08)}}
+.hero2-in{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center;padding-top:54px;padding-bottom:46px}
+.hero2 h1{font-size:clamp(36px,5.4vw,68px);line-height:1.02;letter-spacing:-1.8px;margin:0 0 16px}
+.hero2 .lead{color:#b5c0d1;font-size:18px;max-width:520px;margin:0}
+.hero2 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.hero2 .tm{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;color:#b5c0d1;font-size:14px}.hero2 .tm span::before{content:"\2713 ";color:var(--ok);font-weight:800}
+.hero2-stage{position:relative;min-height:clamp(300px,34vw,420px)}
+.hero2-stage::before{content:"";position:absolute;left:6%;right:6%;bottom:16%;height:36%;background:radial-gradient(closest-side,rgba(255,176,32,.34),transparent);filter:blur(16px)}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;pointer-events:none;transition:opacity .6s}.slide.on{opacity:1;pointer-events:auto}
+.slide .car{transform:translateX(-70px);opacity:0;transition:transform .95s cubic-bezier(.16,1,.3,1),opacity .6s}.slide.on .car{transform:none;opacity:1}
+.slide .car svg{width:100%;height:auto;display:block}.slide .car img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:18px;display:block}
+.slide.on .wh{animation:spinout 1.2s cubic-bezier(.15,.8,.2,1)}
+.slide-meta{display:flex;flex-direction:column;gap:2px;margin-top:6px;transform:translateY(14px);opacity:0;transition:transform .7s .25s,opacity .7s .25s}.slide.on .slide-meta{transform:none;opacity:1}
+.slide-meta b{font-size:20px}.slide-meta span{color:var(--mut);font-size:14px}.slide-meta .chip{color:var(--onacc);font-size:12px}.chip{align-self:flex-start;background:var(--acc);color:var(--onacc);font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;margin-bottom:6px}
+.hctl{position:absolute;right:0;bottom:-6px;display:flex;gap:8px;align-items:center;z-index:3}.hctl button{background:none;border:0;color:var(--ink);cursor:pointer}
+.hdot{width:9px;height:9px;border-radius:50%;background:#34435b!important;transition:.3s}.hdot[aria-current=true]{background:var(--acc)!important;width:26px;border-radius:6px}
+.hprev,.hnext{width:38px;height:38px;border-radius:50%;border:1px solid var(--line)!important;font-size:22px}.hprev:hover,.hnext:hover{background:var(--card)!important;border-color:var(--acc)!important}
+/* marquee */
+.marquee{overflow:hidden;border-bottom:1px solid var(--line);background:#0d1219;padding:16px 0}
+.marquee small{display:block;text-align:center;color:var(--mut);font-size:12px;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:10px}
+.mtrack{display:flex;gap:30px;width:max-content;animation:mq 30s linear infinite}.marquee:hover .mtrack{animation-play-state:paused}
+.mtrack a{font-size:clamp(22px,3.2vw,38px);font-weight:800;letter-spacing:-.5px;color:transparent;-webkit-text-stroke:1px #55688a;white-space:nowrap;transition:.25s}.mtrack a:hover{color:var(--acc);-webkit-text-stroke-color:var(--acc)}
+.mtrack i{color:var(--acc);font-style:normal;font-size:22px;align-self:center}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* services */
+.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.svc{position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg,#151d2a,#0f151d);border-radius:var(--r);padding:22px;cursor:pointer;text-align:left;color:var(--ink);font:inherit;transition:transform .3s,border-color .3s}
+.svc::after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--px,50%) var(--py,50%),rgba(255,176,32,.2),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.svc:hover{transform:translateY(-5px);border-color:var(--acc)}.svc:hover::after{opacity:1}
+.svc .ic{width:50px;height:50px;border-radius:14px;background:rgba(255,176,32,.12);display:grid;place-items:center;font-size:24px;margin-bottom:14px;transition:transform .4s}.svc:hover .ic{transform:rotate(-8deg) scale(1.12)}
+.svc b{display:block;font-size:17px;margin-bottom:4px}.svc span{color:var(--mut);font-size:14.5px}
+/* stats */
+.stats4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.stat{border:1px solid var(--line);border-radius:var(--r);padding:26px 10px;background:var(--card)}
+.stat b{display:block;font-size:clamp(34px,5vw,56px);letter-spacing:-1.5px;color:var(--acc)}.stat span{color:var(--mut);font-size:14px}
+/* steps */
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.steps4::before{content:"";position:absolute;top:26px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--acc),#3a4b66);transform:scaleX(0);transform-origin:left;transition:transform 1.6s cubic-bezier(.2,.7,.2,1) .2s}.steps4.in::before{transform:scaleX(1)}
+.step{text-align:center;position:relative}.step .n{width:54px;height:54px;border-radius:50%;background:var(--card);border:2px solid var(--acc);color:var(--acc);display:grid;place-items:center;font-weight:800;margin:0 auto 12px;position:relative;z-index:1}
+.step b{display:block}.step span{color:var(--mut);font-size:14px}
+/* reviews */
+.rvw{position:relative;min-height:190px;max-width:760px;margin:0 auto;text-align:center}
+.rvw blockquote{position:absolute;inset:0;margin:0;opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s;pointer-events:none}.rvw blockquote.on{opacity:1;transform:none;pointer-events:auto}
+.rvw p{font-size:clamp(18px,2.4vw,24px);line-height:1.45;margin:8px 0 14px}.rvw cite{color:var(--mut);font-style:normal}
+.rdots{display:flex;gap:8px;justify-content:center;margin-top:8px}.rdots button{width:9px;height:9px;border-radius:50%;border:0;background:#34435b;cursor:pointer;transition:.3s}.rdots button[aria-current=true]{background:var(--acc);width:26px;border-radius:6px}
+/* just-in row */
+.hs-head{display:flex;justify-content:space-between;align-items:end;gap:12px;padding-top:40px}.hs-head h2{font-size:28px;margin:0 0 6px;letter-spacing:-.5px}.hs-head .sub{color:var(--mut);margin:0 0 16px}.harr{display:flex;gap:8px;margin-bottom:16px}
+.htrack{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 16px 22px max(16px,calc((100vw - 1240px)/2 + 16px));scrollbar-width:thin}
+.htrack .card{flex:0 0 min(78vw,310px);scroll-snap-align:start}
+/* floating actions */
+.fab{position:fixed;right:16px;bottom:16px;z-index:45;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.fab .wa{width:52px;height:52px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:26px;box-shadow:0 8px 22px rgba(0,0,0,.45);transition:transform .2s}.fab .wa:hover{transform:scale(1.1) rotate(-6deg)}
+.fab .enq{border:0;border-radius:999px;background:var(--acc);color:var(--onacc);font-weight:800;padding:14px 20px;box-shadow:0 8px 22px rgba(0,0,0,.45);animation:ring 2.6s infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,176,32,.55),0 8px 22px rgba(0,0,0,.45)}70%,100%{box-shadow:0 0 0 18px rgba(255,176,32,0),0 8px 22px rgba(0,0,0,.45)}}
+body[data-page="/checkout"] .fab,body[data-page="/admin"] .fab{display:none}
+.nl{display:flex;gap:6px;margin-top:8px}.nl input{flex:1;min-width:0;height:40px;border-radius:10px;border:1px solid #2c3a52;background:#0d131c;color:#fff;padding:0 10px;font:inherit}.nl button{height:40px;padding:0 14px;border-radius:10px}
+.card .img svg,.card .img img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.card:hover .img svg,.card:hover .img img{transform:scale(1.07)}
+@media(max-width:900px){.hero2-in{grid-template-columns:1fr;padding-top:36px}.stats4{grid-template-columns:repeat(2,1fr)}.steps4{grid-template-columns:1fr;gap:22px;text-align:left}.steps4::before{display:none}.step{display:flex;gap:14px;text-align:left;align-items:center}.step .n{margin:0;flex:0 0 54px}body.pdp-page .fab{bottom:86px}.hctl{position:static;justify-content:center;margin-top:8px}}
+@media(max-width:560px){.fab .enq{padding:12px 16px}.hs-head{flex-direction:row}.mtrack{gap:20px}}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient></defs></svg>
+<div class="loader" id="loader" aria-hidden="true"><div class="l-in"><div class="l-wheel"></div><b>APEX<em>.</em>MOTORS</b><span class="l-bar"><i></i></span></div></div>
+<div class="curtain" id="curtain" aria-hidden="true"></div>
 <a class="sr" href="#main">Skip to content</a>
 <div class="topbar" id="topbar"></div>
 <header class="site"><div class="wrap hrow">
@@ -136,16 +217,18 @@ main.enter>*{animation:rise .45s ease backwards}
   <div class="search" role="search">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
     <input id="q" type="search" placeholder="Search make, model, SUV, electric..." autocomplete="off" aria-label="Search cars" aria-controls="ac" aria-autocomplete="list">
-    <div class="ac" id="ac" role="listbox"></div>
+    <div class="ac" id="ac" role="listbox" data-lenis-prevent></div>
   </div>
   <button class="iconbtn" id="wishBtn" aria-label="Saved cars">&#9825; <span class="lbl">Saved</span> <span class="badge" id="wishN">0</span></button>
   <button class="iconbtn" id="cartBtn" aria-label="Open cart">&#128722; <span class="lbl">Cart</span> <span class="badge" id="cartN">0</span></button>
 </div></header>
 <main id="main"></main>
 <footer class="site"><div class="wrap cols" id="foot"></div></footer>
-<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Cart"><div class="scrim" id="scrim"></div><aside id="cartPanel"></aside></div>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Cart"><div class="scrim" id="scrim"></div><aside id="cartPanel" data-lenis-prevent></aside></div>
+<div class="fab"><a class="wa" id="waBtn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">&#128172;</a><button class="enq" id="enqBtn">Enquire now</button></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script>
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
 /* ===== DEALER CONFIG: edit this block to white-label the site for a new dealer ===== */
@@ -228,18 +311,33 @@ function card(c){
 }
 
 /* ---------- views ---------- */
+let firstHome=true;
+const RVW=[['Rahul M.','Bought a 2021 SUV','Everything was exactly as listed. The inspection report matched the car and delivery was on time.'],['Anita K.','Part-exchanged her hatchback','They valued my old car fairly and the whole process took two days. No pressure at all.'],['Daniel W.','Bought an electric sedan','Booked a test drive online, drove it the next morning and reserved it the same day. Painless.'],['Sofia R.','Bought a used coupe','Loved the 7-day return promise. I did not need it, but it made me confident to buy.'],['Imran H.','Bought a pickup','Transparent price with the total cost shown upfront. No surprise fees at the end.']];
 function home(){
-  const bodies=['SUV','Sedan','Coupe','Hatchback','Truck'],live=visible().filter(c=>!c.sold);
-  return `<section class="hero"><div class="wrap"><div><h1>Quality pre-owned cars. Buy online or visit us.</h1><p>Every car is inspected on 200 points, history-checked and covered by our warranty. Reserve online in minutes, with a ${CONFIG.returnDays}-day money-back guarantee.</p>
-  <div class="cta"><a class="btn" href="#/cars">Browse ${live.length} cars</a><a class="btn ghost" href="#/sell">Sell your car</a></div>
-  <div class="stats"><div><b>${CONFIG.returnDays} days</b>free returns</div><div><b>200 pt</b>inspection</div><div><b>History</b>checked</div></div></div>
-  <div>${carSVG('Coupe','#c8202f','side','Featured car')}</div></div></section>
-  <div class="wrap"><section class="blk"><h2>Shop by body type</h2><p class="sub">Pick a shape, then narrow with filters.</p><div class="cats">${bodies.map(b=>`<a class="cat" href="#/cars?body=${b}">${carSVG(b,'#8a93a0','side',b)}${b}</a>`).join('')}</div></section>
-  <section class="blk"><h2>Just in</h2><p class="sub">Freshly inspected and ready to drive.</p><div class="grid">${[...live].slice(0,6).map(card).join('')}</div></section>
+  const live=visible().filter(c=>!c.sold),bodies=['SUV','Sedan','Coupe','Hatchback','Truck'];
+  const feat=[...live].sort((a,b)=>b.rating-a.rating).slice(0,4);
+  const brands=[...new Set(live.map(c=>c.make))];
+  const mq=brands.map(m=>`<a href="#/cars?q=${encodeURIComponent(m)}">${esc(m.toUpperCase())}</a><i>&#10022;</i>`).join('');
+  const hold=firstHome?' hold':'';firstHome=false;
+  const SV=[['&#128295;','200-point inspection','Every car checked mechanically and cosmetically before it is listed.'],['&#128179;','Easy finance','Instant monthly estimates. Checking your rate does not affect your credit score.'],['&#128260;','Sell or trade in','Free valuation. We buy any make, any condition, and reply within a day.'],['&#128737;','Warranty included',CONFIG.warranty+'.'],['&#128666;','Home delivery','Delivered from '+money(DELIV)+', or collect free from our showroom.'],['&#8617;',CONFIG.returnDays+'-day returns','Change your mind? Return it within '+CONFIG.returnDays+' days for a full refund.']];
+  return `<section class="hero2" id="hero2"><div class="hero2-bg"></div><div class="wrap hero2-in"><div>
+    <p class="eyebrow">Pre-owned, properly checked</p><h1 class="split hero-h${hold}">Quality pre-owned cars. Buy online or visit us.</h1>
+    <p class="lead">Every car is inspected on 200 points, history-checked and covered by our warranty. Reserve online in minutes with a ${CONFIG.returnDays}-day money-back guarantee.</p>
+    <div class="cta"><a class="btn mag" href="#/cars">Browse ${live.length} cars</a><a class="btn ghost mag" href="#/sell">Sell your car</a></div>
+    <div class="tm"><span>200-point inspection</span><span>History checked</span><span>${CONFIG.returnDays}-day returns</span></div></div>
+    <div class="hero2-stage" aria-roledescription="carousel" aria-label="Featured cars">${feat.map(c=>`<a class="slide" href="#/car/${c.id}" aria-label="${esc(c.name)}"><div class="car">${c.photos&&c.photos[0]?`<img src="${c.photos[0]}" alt="${esc(c.name)}">`:carSVG(c.body,COL[c.colors[0]][1],'side',c.name)}</div><div class="slide-meta"><span class="chip">${esc(c.badge)}</span><b>${c.year} ${esc(c.name)}</b><span>${money(c.price)} &middot; ${c.miles.toLocaleString()} mi &middot; ${c.fuel}</span></div></a>`).join('')}
+      <div class="hctl"><button class="hprev" aria-label="Previous car">&#8249;</button>${feat.map((c,i)=>`<button class="hdot" aria-label="Show car ${i+1}"></button>`).join('')}<button class="hnext" aria-label="Next car">&#8250;</button></div></div></div></section>
+  <div class="marquee"><small>Brands we stock</small><div class="mtrack">${mq}${mq}</div></div>
+  <div class="wrap home"><section class="blk"><h2>Shop by body type</h2><p class="sub">Pick a shape, then narrow with filters.</p><div class="cats">${bodies.map(b=>`<a class="cat" href="#/cars?body=${b}">${carSVG(b,'#8a93a0','side',b)}${b}</a>`).join('')}</div></section></div>
+  <section class="hshow"><div class="wrap hs-head"><div><h2>Just in</h2><p class="sub">Freshly inspected and ready to drive. Swipe or use the arrows.</p></div><div class="harr"><button class="iconbtn hp" aria-label="Scroll left">&#8249;</button><button class="iconbtn hn" aria-label="Scroll right">&#8250;</button></div></div><div class="htrack" id="htrack" tabindex="0" aria-label="New arrivals">${live.slice(0,8).map(card).join('')}</div></section>
+  <div class="wrap home"><section class="blk"><h2>Everything you need, in one place</h2><p class="sub">From the first click to the keys in your hand.</p><div class="svcs">${SV.map(x=>`<button class="svc" data-lead="enquiry:"><div class="ic">${x[0]}</div><b>${x[1]}</b><span>${x[2]}</span></button>`).join('')}</div></section>
+  <section class="blk"><div class="stats4"><div class="stat"><b data-count="${live.length}">${live.length}</b><span>cars in stock</span></div><div class="stat"><b data-count="200">200</b><span>point inspection</span></div><div class="stat"><b data-count="${CONFIG.returnDays}">${CONFIG.returnDays}</b><span>day money-back</span></div><div class="stat"><b data-count="4.7" data-dec="1">4.7</b><span>average rating &#9733;</span></div></div></section>
   <section class="blk"><h2>Price drops</h2><p class="sub">Reduced this week.</p><div class="grid">${live.filter(c=>c.was>c.price).slice(0,3).map(card).join('')}</div><p><a class="btn ghost" href="#/cars?deals=1">See all deals</a></p></section>
-  <section class="blk"><div class="box" style="display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div><h2 style="margin:0">Want to sell or trade in your car?</h2><p class="sub" style="margin:4px 0 0">Get a free valuation. We buy any make, any condition.</p></div><a class="btn" href="#/sell">Get my valuation</a></div></section>
-  <section class="blk"><h2>Why buy from ${esc(CONFIG.name)}</h2><div class="trust"><div><b>${CONFIG.returnDays}-day returns</b><span>Not happy? Return it for a full refund.</span></div><div><b>200-point inspection</b><span>Every car checked, findings listed on its page.</span></div><div><b>History checked</b><span>Ownership, accident and finance checks on every car.</span></div><div><b>Warranty included</b><span>${esc(CONFIG.warranty)}.</span></div></div></section></div>`;
+  <section class="blk"><h2>How it works</h2><p class="sub">Four simple steps.</p><div class="steps4"><div class="step"><div class="n">01</div><div><b>Browse &amp; filter</b><span>Find cars by budget, fuel and body type.</span></div></div><div class="step"><div class="n">02</div><div><b>Book a test drive</b><span>Pick a day, we will have it ready.</span></div></div><div class="step"><div class="n">03</div><div><b>Reserve online</b><span>Refundable deposit or pay in full.</span></div></div><div class="step"><div class="n">04</div><div><b>Drive home</b><span>Delivered, or collect from our showroom.</span></div></div></div></section>
+  <section class="blk"><h2 style="text-align:center">What customers say</h2><p class="sub" style="text-align:center">Sample reviews shown. Replace with your real customer reviews.</p><div class="rvw" id="rvw">${RVW.map(r=>`<blockquote><div class="stars">${stars(5)}</div><p>&ldquo;${esc(r[2])}&rdquo;</p><cite>${esc(r[0])} &middot; ${esc(r[1])}</cite></blockquote>`).join('')}</div><div class="rdots">${RVW.map((r,i)=>`<button aria-label="Review ${i+1}"></button>`).join('')}</div></section>
+  <section class="blk"><div class="box" style="display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div><h2 style="margin:0">Want to sell or trade in your car?</h2><p class="sub" style="margin:4px 0 0">Get a free valuation. We buy any make, any condition.</p></div><a class="btn mag" href="#/sell">Get my valuation</a></div></section></div>`;
 }
+const wishPage=()=>{const ids=wish.map(carById).filter(c=>c&&visible().includes(c));return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / Saved cars</div><h2 style="margin:12px 0 16px">Saved cars (${ids.length})</h2>${ids.length?`<div class="grid">${ids.map(card).join('')}</div>`:'<div class="empty"><h3>No saved cars yet</h3><p>Tap the heart on any car to save it here. No login needed.</p><a class="btn" href="#/cars">Browse cars</a></div>'}</div>`};
 function parseQ(){const h=location.hash.slice(1),i=h.indexOf('?');const p=new URLSearchParams(i<0?'':h.slice(i+1));return p}
 function list(){
   const p=parseQ(),sel=k=>p.get(k)?p.get(k).split(','):[],body=sel('body'),fuel=sel('fuel'),trans=sel('trans'),q=(p.get('q')||'').toLowerCase().trim();
@@ -296,8 +394,8 @@ function readLead(root=document){const g=i=>$('#'+i,root).value.trim();let ok=tr
 function addLead(l){const L=store.get('apex.leads',[]);L.unshift({...l,at:new Date().toISOString(),id:Date.now()});store.set('apex.leads',L)}
 function leadModal(kind,id){const c=id&&carById(id),title=kind==='drive'?'Book a test drive':'Ask about this car';
   const m=document.createElement('div');m.className='drawer open';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label',title);
-  m.innerHTML=`<div class="scrim"></div><aside style="top:50%;bottom:auto;left:50%;right:auto;transform:translate(-50%,-50%);width:min(520px,94%);border-radius:16px;padding:20px;max-height:92vh;overflow:auto"><div style="display:flex;justify-content:space-between"><h2 style="margin:0">${title}</h2><button class="iconbtn" data-x aria-label="Close">&times;</button></div>${c?`<p class="meta">${c.year} ${esc(c.name)} &middot; ${money(c.price)}</p>`:''}<form novalidate>${leadFields(true)}${kind==='drive'?`<div class="two"><div class="f"><label for="ld">Preferred date</label><input id="ld" type="date" min="${new Date().toISOString().slice(0,10)}"></div><div class="f"><label for="lt">Time</label><select id="lt"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div></div>`:`<div class="f"><label for="lm">Your question</label><input id="lm" placeholder="e.g. Is the service history complete?"></div>`}<button class="btn block" type="submit">${kind==='drive'?'Request test drive':'Send enquiry'}</button><p class="note">${esc(CONFIG.name)} will call you back. Open ${esc(CONFIG.hours)}.</p></form></aside>`;
-  document.body.appendChild(m);const close=()=>m.remove();m.querySelector('.scrim').onclick=close;m.querySelector('[data-x]').onclick=close;$('#ln1',m).focus();
+  m.innerHTML=`<div class="scrim"></div><aside data-lenis-prevent style="top:50%;bottom:auto;left:50%;right:auto;transform:translate(-50%,-50%);width:min(520px,94%);border-radius:16px;padding:20px;max-height:92vh;overflow:auto"><div style="display:flex;justify-content:space-between"><h2 style="margin:0">${title}</h2><button class="iconbtn" data-x aria-label="Close">&times;</button></div>${c?`<p class="meta">${c.year} ${esc(c.name)} &middot; ${money(c.price)}</p>`:''}<form novalidate>${leadFields(true)}${kind==='drive'?`<div class="two"><div class="f"><label for="ld">Preferred date</label><input id="ld" type="date" min="${new Date().toISOString().slice(0,10)}"></div><div class="f"><label for="lt">Time</label><select id="lt"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div></div>`:`<div class="f"><label for="lm">Your question</label><input id="lm" placeholder="e.g. Is the service history complete?"></div>`}<button class="btn block" type="submit">${kind==='drive'?'Request test drive':'Send enquiry'}</button><p class="note">${esc(CONFIG.name)} will call you back. Open ${esc(CONFIG.hours)}.</p></form></aside>`;
+  document.body.appendChild(m);lenis&&lenis.stop();const close=()=>{m.remove();lenis&&lenis.start()};m.querySelector('.scrim').onclick=close;m.querySelector('[data-x]').onclick=close;$('#ln1',m).focus();
   m.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
   m.querySelector('form').onsubmit=e=>{e.preventDefault();const l=readLead(m);if(!l)return;addLead({...l,type:kind==='drive'?'Test drive':'Enquiry',car:c?c.year+' '+c.name:'',note:kind==='drive'?($('#ld',m).value||'any date')+' / '+$('#lt',m).value:($('#lm',m)?.value||'')});close();toast('Thanks! We will call you shortly.')}}
 function adminPage(){
@@ -306,7 +404,7 @@ function adminPage(){
   return `<div class="wrap"><h1>Dealer admin</h1><div class="bar"><span>${CARS.length} cars &middot; ${CARS.filter(c=>c.sold).length} sold &middot; ${L.length} leads</span><label>When a car is sold: <select id="smode"><option value="badge" ${soldMode()==='badge'?'selected':''}>Show "Sold" badge</option><option value="hide" ${soldMode()==='hide'?'selected':''}>Remove from website</option></select></label><span><button class="btn ghost" id="exp">Export stock JSON</button> <button class="btn ghost" id="rst">Reset demo stock</button></span></div>
   <div class="box"><b>Add a car</b><form id="addForm" novalidate><div class="two"><div class="f"><label for="an">Name (model)</label><input id="an"></div><div class="f"><label for="am">Make</label><input id="am"></div></div><div class="two"><div class="f"><label for="ab">Body</label><select id="ab">${Object.keys(SH).map(b=>`<option>${b}</option>`).join('')}</select></div><div class="f"><label for="af">Fuel</label><select id="af"><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option></select></div></div><div class="two"><div class="f"><label for="ay">Year</label><input id="ay" inputmode="numeric"></div><div class="f"><label for="ak">Mileage</label><input id="ak" inputmode="numeric"></div></div><div class="two"><div class="f"><label for="ap">Price</label><input id="ap" inputmode="numeric"></div><div class="f"><label for="aw">Old price <i>(optional, for deals)</i></label><input id="aw" inputmode="numeric"></div></div><div class="two"><div class="f"><label for="acol">Colour</label><select id="acol">${Object.entries(COL).map(([k,v])=>`<option value="${k}">${v[0]}</option>`).join('')}</select></div><div class="f"><label for="at">Gearbox</label><select id="at"><option>Automatic</option><option>Manual</option></select></div></div><div class="two"><div class="f"><label for="ao">Previous owners</label><input id="ao" inputmode="numeric" value="1"></div><div class="f"><label for="ae">Economy / range</label><input id="ae" placeholder="e.g. 42 mpg"></div></div><div class="f"><label for="aph">Photos <i>(up to 4, from your phone or computer)</i></label><input id="aph" type="file" accept="image/*" multiple><div id="aprev" class="thumbs"></div></div><div class="err" id="e-add"></div><button class="btn" type="submit">Add car</button></form></div>
   <h2 style="margin-top:24px">Stock</h2><div class="box">${CARS.map(c=>`<div class="line" style="grid-template-columns:90px 1fr auto"><div class="t">${c.photos&&c.photos[0]?`<img src="${c.photos[0]}" alt="" style="width:100%;border-radius:6px">`:carSVG(c.body,COL[c.colors[0]][1])}</div><div><b>${c.year} ${esc(c.name)}</b><div class="meta">${c.miles.toLocaleString()} mi ${c.sold?'&middot; <b>SOLD</b>':''}</div></div><div style="text-align:right"><label class="meta">Price <input type="number" data-price="${c.id}" value="${c.price}" style="width:100px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:0 6px"></label><br><label class="btn ghost" style="padding:6px 12px;cursor:pointer;margin:4px 4px 0 0">${c.photos&&c.photos.length?c.photos.length+' photos':'Add photos'}<input type="file" accept="image/*" multiple hidden data-ph="${c.id}"></label><button class="btn ghost" style="padding:6px 12px;margin-top:4px" data-sold="${c.id}">${c.sold?'Mark available':'Mark sold'}</button> <button class="link" data-del="${c.id}">Delete</button></div></div>`).join('')}</div>
-  <h2 style="margin-top:24px">Leads (${L.length})</h2><div class="box">${L.length?L.map(l=>`<div class="rev"><b>${esc(l.type)}</b> &middot; ${esc(l.name)} &middot; <a href="tel:${esc(l.phone)}">${esc(l.phone)}</a>${l.email?' &middot; '+esc(l.email):''}<div class="meta">${esc(l.car||'')} ${esc(l.note||'')} &middot; ${new Date(l.at).toLocaleString()}</div></div>`).join(''):'<p class="meta">No leads yet. Enquiries, test drives and valuation requests appear here.</p>'}</div></div>`}
+  <h2 style="margin-top:24px">Leads (${L.length})</h2><div class="box">${L.length?L.map(l=>`<div class="rev"><b>${esc(l.type)}</b> &middot; ${esc(l.name)} &middot; ${l.phone?`<a href="tel:${esc(l.phone)}">${esc(l.phone)}</a>`:''}${l.email?' &middot; '+esc(l.email):''}<div class="meta">${esc(l.car||'')} ${esc(l.note||'')} &middot; ${new Date(l.at).toLocaleString()}</div></div>`).join(''):'<p class="meta">No leads yet. Enquiries, test drives and valuation requests appear here.</p>'}</div></div>`}
 function bindAdmin(){
   const pf=$('#pinForm');if(pf){pf.onsubmit=e=>{e.preventDefault();if($('#pin').value===CONFIG.adminPin){adminPage.ok=true;route()}else $('#e-pin').textContent='Incorrect PIN.'};return}
   let pics=[];$('#aph').onchange=async e=>{try{pics=await Promise.all([...e.target.files].slice(0,4).map(f=>resizeImg(f)));$('#aprev').innerHTML=pics.map(x=>`<img src="${x}" alt="" style="max-width:90px">`).join('')}catch(x){$('#e-add').textContent='Could not read one of the images.'}};
@@ -355,29 +453,43 @@ function renderCart(){
   ${cart.length&&hasCar()?`<div class="box addons" style="margin-top:12px"><b>Popular add-ons</b>${ACC.filter(a=>!cart.some(l=>l.id===a.id)).slice(0,3).map(a=>`<label><span>${a.name}</span><b>${money(a.price)}</b><button class="btn ghost" style="padding:6px 12px" data-addacc="${a.id}">Add</button></label>`).join('')}</div>`:''}</div>
   ${cart.length?`<footer><div class="est"><div><span>Subtotal</span><span>${money(T.sub)}</span></div><div><span>Est. tax</span><span>${money(T.tax)}</span></div><div><span>Delivery</span><span>${T.del?money(T.del):'Free'}</span></div><div class="tot"><span>Total</span><span>${money(T.total)}</span></div></div><p class="note">Guest checkout available. Free ${CONFIG.returnDays}-day returns.</p><a class="btn block" href="#/checkout" data-close>Checkout</a></footer>`:''}`;
 }
-const openCart=()=>{renderCart();$('#drawer').classList.add('open');$('#closeCart')?.focus()};
-const closeCart=()=>$('#drawer').classList.remove('open');
+const openCart=()=>{lenis&&lenis.stop();renderCart();$('#drawer').classList.add('open');$('#closeCart')?.focus()};
+const closeCart=()=>{$('#drawer').classList.remove('open');lenis&&lenis.start()};
 
 /* ---------- router ---------- */
 function route(){
+  clearTimers();
   const h=location.hash.slice(1)||'/',path=h.split('?')[0],m=$('#main');
+  document.body.dataset.page=path;
   document.body.classList.toggle('pdp-page',path.startsWith('/car/'));
   let html;
   if(path==='/')html=home();else if(path==='/cars')html=list();else if(path.startsWith('/car/')){const id=path.split('/')[2];html=pdp(id);if(carById(id)){recent=[id,...recent.filter(x=>x!==id)].slice(0,6);save()}}
-  else if(path==='/sell')html=sellPage();else if(path==='/admin')html=adminPage();else if(path==='/checkout')html=checkout();else if(path==='/confirm')html=confirm();else html=home();
+  else if(path==='/saved')html=wishPage();else if(path==='/sell')html=sellPage();else if(path==='/admin')html=adminPage();else if(path==='/checkout')html=checkout();else if(path==='/confirm')html=confirm();else html=home();
   m.innerHTML=html;enter(m);document.title=(path.startsWith('/car/')&&carById(path.split('/')[2])?carById(path.split('/')[2]).name+' - ':'')+'Apex Motors';
   bind(path);
+  if(path==='/'||path===''){initHero();initRow();initReviews()}
 }
-const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let io;
+const reduceMotion=false; // dealer request: animations always play, regardless of the OS reduced-motion setting
+let io,carTimers=[];
+const clearTimers=()=>{carTimers.forEach(clearInterval);carTimers=[]};
+function splitWords(el){const t=el.textContent.trim();el.setAttribute('aria-label',t);el.innerHTML=t.split(/\s+/).map((w,i)=>`<span class="sp"><span class="w" style="--i:${i}" aria-hidden="true">${esc(w)}</span></span>`).join(' ')}
+function countUp(el){const to=+el.dataset.count,dec=+(el.dataset.dec||0),suf=el.dataset.suf||'',t0=performance.now(),dur=1700;const f=t=>{const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=(dec?(to*e).toFixed(dec):Math.round(to*e))+suf;if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
 function enter(m){
-  if(reduceMotion)return;
   m.classList.remove('enter');void m.offsetWidth;m.classList.add('enter');
-  if(!('IntersectionObserver' in window))return;
   io&&io.disconnect();
-  io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -30px 0px'});
-  $$('.card,.cat,.trust>div',m).forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%4)*70+'ms');io.observe(el)});
+  $$('.blk h2,.hs-head h2,.split',m).forEach(h=>{h.classList.add('split');splitWords(h)});
+  const reveal=$$('.card,.cat,.svc,.stat,.step,.trust>div',m),watch=[...reveal,...$$('.split,.steps4,[data-count]',m)];
+  if(!('IntersectionObserver' in window)){watch.forEach(el=>el.classList.add('in'));return}
+  $$('[data-count]',m).forEach(el=>{el.textContent='0'+(el.dataset.suf||'')});
+  io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');if(el.dataset.count!==undefined)countUp(el);io.unobserve(el)}),{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+  reveal.forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%4)*70+'ms')});
+  watch.forEach(el=>io.observe(el));
 }
+function cycler(items,dots,ms,after){let i=0,paused=false;const go=n=>{i=(n+items.length)%items.length;items.forEach((e,k)=>e.classList.toggle('on',k===i));dots.forEach((d,k)=>d.setAttribute('aria-current',k===i));after&&after(i)};go(0);
+  dots.forEach((d,k)=>d.onclick=()=>go(k));carTimers.push(setInterval(()=>{if(!paused)go(i+1)},ms));return{go,next:()=>go(i+1),prev:()=>go(i-1),pause:v=>paused=v}}
+function initHero(){const h=$('#hero2');if(!h)return;const c=cycler($$('.slide',h),$$('.hdot',h),4800);h.onpointerenter=()=>c.pause(true);h.onpointerleave=()=>c.pause(false);$('.hprev',h).onclick=c.prev;$('.hnext',h).onclick=c.next}
+function initRow(){const tr=$('#htrack');if(!tr)return;$('.hp').onclick=()=>tr.scrollBy({left:-340,behavior:'smooth'});$('.hn').onclick=()=>tr.scrollBy({left:340,behavior:'smooth'})}
+function initReviews(){const r=$('#rvw');if(!r)return;const c=cycler($$('blockquote',r),$$('.rdots button'),5200);r.onpointerenter=()=>c.pause(true);r.onpointerleave=()=>c.pause(false)}
 function setQ(mut){const p=parseQ();mut(p);const s=p.toString();location.hash='/cars'+(s?'?'+s:'')}
 function bind(path){
   if(path==='/cars'){
@@ -424,6 +536,7 @@ function bindCheckout(){
 /* ---------- global events ---------- */
 document.addEventListener('click',e=>{
   const t=e.target.closest('button,a');if(!t)return;
+  if(t.getAttribute&&t.getAttribute('href')==='#reviews'){e.preventDefault();const el=$('#reviews');if(el)lenis?lenis.scrollTo(el,{offset:-80}):el.scrollIntoView({behavior:'smooth'});return}
   if(t.dataset.wish){e.preventDefault();toggleWish(t.dataset.wish);const on=wish.includes(t.dataset.wish);t.setAttribute('aria-pressed',on);t.innerHTML=on?'&#9829;':'&#9825;'}
   if(t.dataset.q!==undefined){const l=cart[+t.dataset.q];l.qty=Math.max(1,l.qty+ +t.dataset.d);save();renderCart()}
   if(t.dataset.rm!==undefined){cart.splice(+t.dataset.rm,1);save();renderCart()}
@@ -433,7 +546,8 @@ document.addEventListener('click',e=>{
   if(t.id==='closeCart'||t.id==='scrim')closeCart();
   if(t.hasAttribute&&t.hasAttribute('data-faq')){e.preventDefault();toast('FAQ: 7-day returns, delivery in 5-9 days, 3-year warranty')}
 });
-$('#scrim').onclick=closeCart;$('#cartBtn').onclick=openCart;$('#wishBtn').onclick=()=>{if(!wish.length)return toast('No saved cars yet. Tap the heart on any car.');location.hash='/cars?q=';const ids=wish;$('#main').innerHTML=`<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / Saved cars</div><h2 style="margin-top:12px">Saved cars (${ids.length})</h2><div class="grid">${ids.map(carById).filter(c=>c&&visible().includes(c)).map(card).join('')}</div></div>`;};
+$('#scrim').onclick=closeCart;$('#cartBtn').onclick=openCart;$('#wishBtn').onclick=()=>{location.hash='/saved'};
+const _oldWish=()=>{if(!wish.length)return toast('No saved cars yet. Tap the heart on any car.');location.hash='/cars?q=';const ids=wish;$('#main').innerHTML=`<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / Saved cars</div><h2 style="margin-top:12px">Saved cars (${ids.length})</h2><div class="grid">${ids.map(carById).filter(c=>c&&visible().includes(c)).map(card).join('')}</div></div>`;};
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();$('#ac').style.display='none'}});
 /* search autocomplete */
 const q=$('#q'),ac=$('#ac');let acI=-1;
@@ -443,10 +557,38 @@ q.oninput=()=>{const m=matches(q.value);acI=-1;if(!q.value.trim()){ac.style.disp
 q.onkeydown=e=>{const o=$$('a',ac);if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();acI=(acI+(e.key==='ArrowDown'?1:-1)+o.length)%o.length;o.forEach((a,i)=>a.setAttribute('aria-selected',i===acI))}
   else if(e.key==='Enter'){e.preventDefault();ac.style.display='none';if(acI>=0&&o[acI])location.hash=o[acI].getAttribute('href').slice(1);else location.hash='/cars?q='+encodeURIComponent(q.value)}};
 document.addEventListener('click',e=>{if(!e.target.closest('.search'))ac.style.display='none';else if(e.target.closest('.ac a'))setTimeout(()=>{ac.style.display='none';q.value=''},0)});
-window.addEventListener('hashchange',()=>{route();scrollTo(0,0)});
+try{history.scrollRestoration='manual'}catch(e){}
+let lenis=null;
+if(typeof Lenis!=='undefined'){lenis=new Lenis({lerp:.1});const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf)}
+const toTop=()=>lenis?lenis.scrollTo(0,{immediate:true}):scrollTo(0,0);
+let lastPath=(location.hash.slice(1)||'/').split('?')[0];
+window.addEventListener('hashchange',()=>{
+  const np=(location.hash.slice(1)||'/').split('?')[0];
+  if(np===lastPath){route();return}
+  lastPath=np;const c=$('#curtain');
+  c.classList.remove('top');c.classList.add('cover');
+  setTimeout(()=>{route();toTop();c.classList.add('top');c.classList.remove('cover')},330);
+});
+/* pointer effects (desktop mouse only): card tilt, spotlight on service cards, magnetic buttons, cursor glow */
+if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+  const g=document.createElement('div');g.className='glow';document.body.appendChild(g);let gx=innerWidth/2,gy=innerHeight/2,tx=gx,ty=gy;
+  const loop=()=>{gx+=(tx-gx)*.14;gy+=(ty-gy)*.14;g.style.transform=`translate(${gx}px,${gy}px)`;requestAnimationFrame(loop)};loop();
+  let tiltEl=null,magEl=null;
+  const reset=e=>{if(e){e.style.removeProperty('--rx');e.style.removeProperty('--ry');e.style.removeProperty('--ty')}};
+  document.addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;
+    const t=e.target.closest&&e.target.closest('.card');if(t!==tiltEl){reset(tiltEl);tiltEl=t}
+    if(t){const r=t.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;t.style.setProperty('--ry',(px*9).toFixed(2)+'deg');t.style.setProperty('--rx',(-py*9).toFixed(2)+'deg');t.style.setProperty('--ty','-4px')}
+    const sv=e.target.closest&&e.target.closest('.svc');if(sv){const r=sv.getBoundingClientRect();sv.style.setProperty('--px',(e.clientX-r.left)+'px');sv.style.setProperty('--py',(e.clientY-r.top)+'px')}
+    const mg=e.target.closest&&e.target.closest('.mag');if(magEl&&magEl!==mg){magEl.style.removeProperty('--mx');magEl.style.removeProperty('--my')}magEl=mg;
+    if(mg){const r=mg.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);mg.style.setProperty('--mx',Math.max(-8,Math.min(8,dx*.22))+'px');mg.style.setProperty('--my',Math.max(-6,Math.min(6,dy*.22))+'px')}
+  });
+}
+$('#enqBtn').onclick=()=>leadModal('enquiry','');
+$('#waBtn').href='https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi, I would like to know more about your cars.');
 $('#logo').innerHTML=esc(CONFIG.name.toUpperCase()).replace(/\s+/,'<b>.</b>');
 $('#topbar').textContent='Free '+CONFIG.returnDays+'-day returns \u00b7 '+CONFIG.warranty+' \u00b7 200-point inspection';
-$('#foot').innerHTML=`<div><b>${esc(CONFIG.name)}</b>${esc(CONFIG.tagline)}<br>${esc(CONFIG.address)}<br>${esc(CONFIG.hours)}</div><div><b>Contact</b><a href="tel:${CONFIG.phone.replace(/\s/g,'')}">${esc(CONFIG.phone)}</a><a href="mailto:${esc(CONFIG.email)}">${esc(CONFIG.email)}</a><a target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}">WhatsApp</a></div><div><b>Buy</b><a href="#/cars">Browse all</a><a href="#/cars?deals=1">Deals</a><a href="#/sell">Sell your car</a></div><div><b>Trust</b>${CONFIG.returnDays}-day returns<br>${esc(CONFIG.warranty)}<br>Secure checkout<br><a href="#/admin">Dealer login</a></div>`;
+$('#foot').innerHTML=`<div><b>${esc(CONFIG.name)}</b>${esc(CONFIG.tagline)}<br>${esc(CONFIG.address)}<br>${esc(CONFIG.hours)}</div><div><b>Contact</b><a href="tel:${CONFIG.phone.replace(/\s/g,'')}">${esc(CONFIG.phone)}</a><a href="mailto:${esc(CONFIG.email)}">${esc(CONFIG.email)}</a><a target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}">WhatsApp</a></div><div><b>Buy</b><a href="#/cars">Browse all</a><a href="#/cars?deals=1">Deals</a><a href="#/sell">Sell your car</a></div><div><b>New arrivals</b>Get new cars in your inbox.<form class="nl" id="nl" novalidate><input type="email" id="nle" placeholder="Your email" aria-label="Email"><button class="btn">Notify me</button></form></div><div><b>Trust</b>${CONFIG.returnDays}-day returns<br>${esc(CONFIG.warranty)}<br>Secure checkout<br><a href="#/admin">Dealer login</a></div>`;
+$('#nl').onsubmit=e=>{e.preventDefault();const v=$('#nle').value.trim();if(!/^\S+@\S+\.\S+$/.test(v))return toast('Enter a valid email like name@example.com');addLead({type:'Newsletter',name:'Subscriber',phone:'',email:v,car:'',note:''});$('#nle').value='';toast('Subscribed. Thanks!')};
 save();route();
 </script>
 </body>
