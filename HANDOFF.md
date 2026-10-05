@@ -1,5 +1,5 @@
 # HANDOFF - Happy Motors (used-car dealer website prototype)
-Saved 2026-10-05 (night). Resume from here tomorrow.
+Saved 2026-10-05 (night); updated for BUILD 6.2 (admin dashboard v2). Resume from here tomorrow.
 
 ## What this is
 Single-file site `index.html` (vanilla JS, hash router) + `assets/cars/*.jpg` + `version.json`. Prototype for a second-hand car dealer. Feedback comes from Divyansh Pandey on WhatsApp.
@@ -8,7 +8,7 @@ Single-file site `index.html` (vanilla JS, hash router) + `assets/cars/*.jpg` + 
 - Live: https://divyansh9310tg-cpu.github.io/apex-motors-car-dealer-site/ (shared as `?v=6`)
 - Repo (public): https://github.com/divyansh9310tg-cpu/apex-motors-car-dealer-site , branch main
 - Pages: Settings > Pages > main / root (already enabled)
-- Deploy: edit index.html -> bump `BUILD` (auto-update script near top) AND `version.json` (now 6.1) -> `git add -A; git commit; git push` -> wait ~1 min. Old/cached copies auto-reload.
+- Deploy: edit index.html -> bump `BUILD` (auto-update script near top) AND `version.json` (now 6.2) -> `git add -A; git commit; git push` -> wait ~1 min. Old/cached copies auto-reload.
 - Local test: `python -m http.server 8765` in this folder, open http://localhost:8765/ (the Chrome file:// URL is blocked).
 - Backups of earlier versions are in the Claude scratchpad (index_v43_backup.html, index_v50_backup.html) and in git history.
 
@@ -34,3 +34,11 @@ phone, WhatsApp number, email, address/city, hours, Google map, social links, ab
 
 ## Working rules (also saved in Claude memory)
 Play a done-sound at the end (3 beeps + "Work is done"). Phone AND desktop always. Animations always on. Update the same live link. WhatsApp: search name -> find row ref -> click ref -> confirm header -> then type. Skills updated: ecommerce-web-master, storefront-theming, responsive-storefront, immersive-3d-web (in Desktop\3D Immersive Web Toolkit and ~/.claude/skills).
+
+
+## UPDATE - BUILD 6.2: Admin dashboard v2 (Divyansh's 11:02 pm request)
+Request: admin layout so only the owner + us can see which customers are interested, who viewed, and the owner can upload car photos himself.
+Built (#/admin): owner PIN (CONFIG.adminPin, demo 1234) and developer PIN (CONFIG.devPin, demo 9999). Tabs: Overview (KPIs, most viewed cars, latest customers), Interested customers (name/phone/email, request type, car, status New/Contacted/Closed, Call/WhatsApp/Email buttons, "also viewed" cars, CSV export, delete), Visitors & views (most viewed, recent activity feed with anonymous visitor IDs; admin's own visits not counted), Stock & photos (add car with up to 6 photos, add/replace photos, edit price, mark sold, delete), Settings (developer only: sold badge vs hide, export/reset, clear tracking).
+Tested: visitor tracking -> lead records viewed cars -> owner/dev logins -> status change -> photo upload -> mobile 390px.
+**BIG LIMITATION:** data is per-browser (localStorage). For a real shared admin we need a backend - see BACKEND-SETUP.md (Supabase free tier; the user must create the project and share URL + anon key). PINs in source are not real security.
+**Next:** (1) ask the user about Supabase; (2) tell Divyansh the admin is ready (user said they are chatting with him directly now and told him the earlier replies were the AI - do NOT auto-message him; ask first); (3) optional subscription on/off switch.
