@@ -23,3 +23,5 @@ FOR YOU (before selling)
 DEPLOYING UPDATES
 - After editing index.html, bump BUILD in the auto-update <script> near the top AND version.json (same number), then commit and push.
 - Already-open or cached copies reload themselves to the newest version. GitHub Pages caches pages up to 10 minutes, so very old copies may need a hard refresh (Ctrl+Shift+R) once.
+
+SAMPLE DATA TO REPLACE: registration state codes, inspection report items, features lists, testimonials, location (CONFIG.city) and stats are placeholders for the prototype.

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="theme-color" content="#0D0F10"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script>/* auto-update: if version.json differs from BUILD, reload once so shared/cached links pick up the newest site. Bump BUILD here AND in version.json on every deploy. */
-(function(){var BUILD='5.0';try{fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){if(j&&j.build&&j.build!==BUILD&&sessionStorage.getItem('apexReload')!==j.build){sessionStorage.setItem('apexReload',j.build);location.reload()}}).catch(function(){})}catch(e){}})();</script><meta name="viewport" content="width=device-width,initial-scale=1">
+(function(){var BUILD='6.0';try{fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){if(j&&j.build&&j.build!==BUILD&&sessionStorage.getItem('apexReload')!==j.build){sessionStorage.setItem('apexReload',j.build);location.reload()}}).catch(function(){})}catch(e){}})();</script><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Apex Motors - Verified Pre-Owned Cars</title>
 <meta name="description" content="Verified pre-owned cars, transparent pricing and professional assistance. Book a test drive or get your car valued.">
 <style>
@@ -190,6 +190,92 @@ main.enter>*{animation:rise .6s var(--ease) backwards}main.enter>.hero3{animatio
  .stickybuy{display:flex;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 16px;gap:12px;align-items:center;z-index:50}.stickybuy .btn{flex:1}.stickybuy b{font-size:18px}body.pdp-page{padding-bottom:74px}body.pdp-page .fab{bottom:88px}
 }
 @media(max-width:700px){.grid3{grid-template-columns:1fr}.trust6{grid-template-columns:1fr}.hero3::after{background:rgba(13,15,16,.7)}.hero3 .in{padding:70px 20px 100px}.two{grid-template-columns:1fr}footer.site .cols{grid-template-columns:1fr}.hrow{gap:10px}.logo{font-size:15px;letter-spacing:.16em}.iconbtn .lbl{display:none}.hero3 .credit{max-width:90%;left:20px;text-align:left;bottom:44px}.hbar{bottom:20px}}
+
+/* header fit */
+nav.main .mobsaved{display:none}
+@media(max-width:700px){footer.site .cols{grid-template-columns:1fr!important}}
+@media(max-width:700px){#wishBtn{display:none}.logo{font-size:14px;letter-spacing:.13em}.hright{gap:6px}.hright .iconbtn{height:38px;padding:0 10px}.burger{width:38px;height:38px}nav.main .mobsaved{display:block}}
+.hrow{gap:16px}.logo{font-size:17px;letter-spacing:.2em}nav.main a{padding:10px 10px;font-size:12px;letter-spacing:.08em;white-space:nowrap}.btn.sm{white-space:nowrap}.hright{gap:8px;flex:none}.hright .iconbtn{padding:0 11px}
+@media(max-width:1200px){.hright .drivebtn{display:none}}
+/* ===== v6: second client brief - quick search, chips, carousel, timeline, stats, testimonials, richer car page ===== */
+header.site{transition:background .45s,box-shadow .45s}.hrow{transition:height .4s var(--ease)}
+header.site.scrolled{background:rgba(13,15,16,.8);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);box-shadow:0 8px 30px rgba(0,0,0,.25)}header.site.scrolled .hrow{height:58px}
+.hright .iconbtn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7}
+.hs{inset:-8% 0}
+main{transition:opacity .17s ease,transform .17s ease}main.leaving{opacity:0;transform:translateY(10px)}
+/* search overlay */
+.sov{position:fixed;left:0;right:0;top:0;z-index:70;background:rgba(13,15,16,.94);backdrop-filter:blur(14px);padding:98px 20px 34px;transform:translateY(-100%);opacity:0;transition:transform .5s var(--ease),opacity .4s;visibility:hidden}
+.sov.open{transform:none;opacity:1;visibility:visible}
+.sov-in{max-width:760px;margin:0 auto;color:#fff}.sov input{width:100%;height:60px;background:transparent;border:0;border-bottom:1px solid rgba(200,169,107,.6);color:#fff;font:inherit;font-size:22px;outline:none}.sov input::placeholder{color:#8d9093}
+.sres{margin-top:12px}.sres a{display:flex;justify-content:space-between;gap:12px;padding:13px 4px;border-bottom:1px solid #26292b;color:#e9e7e2;transition:color .3s,padding .3s}.sres a:hover{color:var(--gold);padding-left:10px}.sres small{color:#8d9093}
+/* quick search */
+.qs-wrap{margin-top:-70px;position:relative;z-index:6;padding-bottom:20px}
+.qs{background:#fff;border-radius:10px;box-shadow:0 34px 80px rgba(13,15,16,.22);padding:30px 32px;border-top:2px solid var(--gold)}
+.qs h2{margin:0 0 18px;font-size:clamp(20px,2.2vw,26px);text-transform:uppercase}
+.qs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.qs label{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);margin-bottom:6px}
+.qs select{width:100%;height:50px;border:1px solid #d9d4c8;border-radius:4px;background:var(--ivory);padding:0 12px;font:inherit;color:var(--obs);transition:border-color .3s,box-shadow .3s}.qs select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,169,107,.25)}
+.qs-act{display:flex;gap:12px;margin-top:20px;align-items:center;flex-wrap:wrap}.qs-act .btn{min-width:220px}.qs-toggle{display:none;background:none;border:0;color:var(--gold-d);font-weight:700;text-decoration:underline;padding:6px}
+/* chips + inventory grid */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 30px}
+.chip{border:1px solid #cfc9bb;background:#fff;color:var(--obs);border-radius:999px;padding:10px 18px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+.chip:hover{border-color:var(--gold);transform:translateY(-2px)}.chip[aria-pressed=true]{background:var(--obs);color:var(--gold);border-color:var(--obs)}
+.invgrid{transition:opacity .22s ease}.invgrid.out{opacity:0}.invgrid.swap>*{animation:rise .55s var(--ease) backwards}.invgrid.swap>*:nth-child(2){animation-delay:.07s}.invgrid.swap>*:nth-child(3){animation-delay:.14s}.invgrid.swap>*:nth-child(4){animation-delay:.21s}.invgrid.swap>*:nth-child(5){animation-delay:.28s}.invgrid.swap>*:nth-child(6){animation-delay:.35s}
+/* cards: loc, buttons, hover gold line */
+.card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .65s var(--ease)}.card:hover::after{transform:scaleX(1)}
+.card .loc{display:flex;align-items:center;gap:6px;color:var(--mut);font-size:13px}.card .loc svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.6}
+.cbtns{display:flex;gap:10px;margin-top:auto;padding-top:10px}.cbtns .view{flex:1}.cbtns .savebtn{padding:14px 16px;white-space:nowrap}.cbtns .savebtn[aria-pressed=true]{background:var(--obs);color:var(--gold);border-color:var(--obs)}
+.card h3{font-size:18px}
+/* premium carousel */
+.pcar{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 20px 26px max(20px,calc((100vw - 1240px)/2 + 20px));scrollbar-width:none}.pcar::-webkit-scrollbar{display:none}
+.pcar .pc{flex:0 0 min(86vw,580px);aspect-ratio:16/10;min-height:0;scroll-snap-align:start}.pcar .pc:first-child{grid-row:auto;min-height:0}
+.carctl{display:flex;gap:10px}.carctl button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(200,169,107,.5);background:transparent;color:var(--gold);font-size:22px;transition:background .3s,color .3s}.carctl button:hover{background:var(--gold);color:var(--obs)}
+/* sell band with image */
+.sell-img{position:relative;overflow:hidden;background:var(--obs);color:#fff;text-align:center;padding:clamp(80px,11vw,150px) 0}
+.sell-img>img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover}
+.sell-img::before{content:"";position:absolute;inset:0;background:rgba(13,15,16,.72);z-index:1}.sell-img .wrap{position:relative;z-index:2}
+.sell-img .sec-h{color:#fff}.sell-img p{color:#dad7d0;max-width:620px;margin:0 auto 32px;font-size:17px}.sell-img .rule{margin:22px auto}.sell-img .eyebrow{color:var(--gold)}
+/* timeline */
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;text-align:center}
+.steps4::before{content:"";position:absolute;top:34px;left:12.5%;right:12.5%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 1.8s var(--ease) .2s}.steps4.in::before{transform:scaleX(1)}
+.tl .ico{width:70px;height:70px;border-radius:50%;background:#fff;border:1px solid var(--gold);display:grid;place-items:center;margin:0 auto 18px;position:relative;z-index:1}
+.tl .ico svg{width:32px;height:32px;stroke:var(--gold-d);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:90;stroke-dashoffset:90}
+.steps4.in .ico svg{animation:draw 1.6s var(--ease) forwards}.steps4.in .tl:nth-child(2) .ico svg{animation-delay:.25s}.steps4.in .tl:nth-child(3) .ico svg{animation-delay:.5s}.steps4.in .tl:nth-child(4) .ico svg{animation-delay:.75s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.tl small{display:block;color:var(--gold-d);font-weight:800;letter-spacing:.2em;font-size:11px;margin-bottom:4px}.tl b{display:block;font-size:17px;margin-bottom:4px}.tl span{color:var(--mut);font-size:14.5px}
+/* stats */
+.stats4{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;border-top:1px solid #2a2d2f;border-bottom:1px solid #2a2d2f}
+.stat{padding:38px 10px;border-right:1px solid #2a2d2f}.stat:last-child{border-right:0}.stat b{display:block;font-size:clamp(34px,5vw,56px);font-weight:800;color:var(--gold);letter-spacing:-.02em}.stat span{color:#b4b6b8;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+/* testimonials */
+.tst{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.tc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;position:relative;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}.tc:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(13,15,16,.12)}
+.tc::before{content:"\201C";position:absolute;right:24px;top:6px;font-size:76px;line-height:1;color:var(--gold);opacity:.45;font-family:Georgia,serif}
+.tc p{margin:12px 0 18px;color:#35383a}.tc b{display:block}.tc small{color:var(--mut)}
+/* final cta */
+.final{text-align:center;padding:clamp(70px,10vw,130px) 0}.final .sec-h{color:#fff;font-size:clamp(30px,5vw,60px)}.final .rule{margin:24px auto}.final .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+/* footer extras */
+footer.site .cols{grid-template-columns:1.4fr 1fr 1fr 1.3fr}.soc{display:flex;gap:10px;margin-top:16px}.soc a{display:grid;place-items:center;padding:0;width:38px;height:38px;border:1px solid #33373a;border-radius:50%;font-size:11.5px;font-weight:800;letter-spacing:.04em;color:#cfd1d3}.soc a:hover{border-color:var(--gold);color:var(--gold)}
+/* sticky enquire bar (mobile) */
+.enqbar{display:none}
+/* car details */
+.vtag{display:inline-block;background:var(--gold);color:var(--obs);font-size:10.5px;font-weight:800;letter-spacing:.14em;padding:5px 10px;border-radius:3px;text-transform:uppercase;margin-right:10px}
+.kf{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);margin:18px 0}.kf div{padding:11px 4px;border-bottom:1px solid var(--line);display:flex;flex-direction:column}.kf div:nth-child(odd){padding-right:14px}.kf small{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);font-weight:800}.kf b{font-size:15px}
+.gal .main{position:relative}.gal .main img{transition:opacity .28s ease,transform 1.2s var(--ease);cursor:zoom-in}.gal .main:hover img{transform:scale(1.025)}.gal .main{overflow:hidden}
+.gal .main .tag{top:16px;left:16px}.zoomb{position:absolute;right:14px;bottom:14px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);font-size:18px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.pdsec{margin-top:28px}.pdsec h2{font-size:20px;text-transform:uppercase;margin:0 0 10px}.pdsec p{color:var(--mut);margin:0}
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;list-style:none;padding:0;margin:10px 0 0}.chk li{display:flex;gap:9px;color:#3b3e40;font-size:14.5px}.chk li::before{content:"\2713";color:var(--gold-d);font-weight:800}
+.chk.one{grid-template-columns:1fr}
+.lb{position:fixed;inset:0;z-index:150;background:rgba(13,15,16,.92);display:grid;place-items:center;animation:fade .3s ease;cursor:zoom-out;padding:20px}.lb img{max-width:min(1200px,96vw);max-height:88vh;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:zoomin2 .4s var(--ease)}
+@keyframes zoomin2{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.rule{transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease)}.sellband .rule,.sell-img .rule,.final .rule{transform-origin:center}.rule.in{transform:none}
+.activef{margin:6px 0 4px;color:var(--mut);font-size:13px}.activef b{color:var(--obs)}
+@media(max-width:1020px){.qs-grid{grid-template-columns:repeat(2,1fr)}.steps4{grid-template-columns:repeat(2,1fr);row-gap:36px}.steps4::before{display:none}.tst{grid-template-columns:1fr}.stats4{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid #2a2d2f}footer.site .cols{grid-template-columns:1fr 1fr}
+ header.site.scrolled nav.main{top:58px}
+ .enqbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:55;background:rgba(13,15,16,.96);backdrop-filter:blur(10px);padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid rgba(200,169,107,.35)}.enqbar .btn{width:100%}
+ body{padding-bottom:70px}body.pdp-page{padding-bottom:74px}body.pdp-page .enqbar{display:none}.fab{bottom:86px}body.pdp-page .fab{bottom:88px}
+ body[data-page="/checkout"] .enqbar,body[data-page="/admin"] .enqbar{display:none}
+}
+@media(max-width:700px){.qs{padding:22px 18px}.qs-grid{grid-template-columns:1fr 1fr;gap:10px}.qs-more{display:none}.qs.open .qs-more{display:block}.qs-toggle{display:inline-block}.qs-act .btn{width:100%}.steps4{grid-template-columns:1fr}.tl{display:grid;grid-template-columns:70px 1fr;gap:16px;text-align:left;align-items:center}.tl .ico{margin:0}.kf{grid-template-columns:1fr 1fr}.chk{grid-template-columns:1fr}.cbtns .savebtn{padding:14px 12px}.hs-head .carctl{display:none}}
 </style>
 </head>
 <body>
@@ -199,19 +285,22 @@ main.enter>*{animation:rise .6s var(--ease) backwards}main.enter>.hero3{animatio
 <header class="site" id="hdr"><div class="wrap hrow">
   <a class="logo" href="#/" id="logo"></a>
   <nav class="main" id="nav" aria-label="Main">
-    <a href="#/">Home</a><a href="#/cars">Inventory</a><a href="#/cars?premium=1">Premium Cars</a><a href="#/sell">Sell Your Car</a><a href="#/about">About Us</a><a href="#/contact">Contact</a>
-    <button class="btn mobtn" data-lead="drive:">Book a Test Drive</button>
+    <a href="#/">Home</a><a href="#/cars">Inventory</a><a href="#/cars?premium=1">Premium Collection</a><a href="#/sell">Sell Your Car</a><a href="#/about">About</a><a href="#/contact">Contact</a>
+    <a class="mobsaved" href="#/saved">Saved Cars</a><button class="btn mobtn" data-lead="drive:">Book a Test Drive</button>
   </nav>
   <div class="hright">
+    <button class="iconbtn" id="searchBtn" aria-label="Search cars"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
     <button class="iconbtn" id="wishBtn" aria-label="Saved cars">&#9825; <span class="badge" id="wishN">0</span></button>
     <button class="iconbtn" id="cartBtn" aria-label="Open cart">&#128722; <span class="badge" id="cartN">0</span></button>
     <button class="btn sm drivebtn" data-lead="drive:">Book a Test Drive</button>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">&#9776;</button>
   </div>
 </div></header>
+<div class="sov" id="sov" role="dialog" aria-label="Search cars" data-lenis-prevent><div class="sov-in"><input id="sq" type="search" placeholder="Search make or model..." autocomplete="off" aria-label="Search cars"><div class="sres" id="sres"></div></div></div>
 <main id="main"></main>
 <footer class="site"><div class="wrap" id="foot"></div></footer>
 <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Cart"><div class="scrim" id="scrim"></div><aside id="cartPanel" data-lenis-prevent></aside></div>
+<div class="enqbar"><button class="btn" data-lead="enquiry:">Enquire Now</button></div>
 <div class="fab"><a class="wa" id="waBtn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.5l1.2-1.2-1.8-.9-.8.6a4 4 0 0 1-1.6-1.6l.6-.8-.9-1.8z"/></svg></a></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -219,7 +308,7 @@ main.enter>*{animation:rise .6s var(--ease) backwards}main.enter>.hero3{animatio
 <script>
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
 /* ===== DEALER CONFIG: edit this block to white-label the site for a new dealer ===== */
-const CONFIG={name:'Apex Motors',tagline:'Quality pre-owned cars',phone:'+91 90000 00000',whatsapp:'919000000000',email:'sales@apexmotors.example',address:'Your showroom address, City',hours:'Mon-Sat 9:00-19:00',currency:'₹',locale:'en-IN',taxRate:0.05,deliveryFee:5000,deposit:10000,apr:10.5,returnDays:7,warranty:'6 months / 10,000 km dealer warranty',adminPin:'1234',soldMode:'badge'};  // soldMode: 'badge' = show SOLD tag, 'hide' = remove sold cars from the site (dealer can also switch this in Admin)
+const CONFIG={name:'Apex Motors',tagline:'Quality pre-owned cars',phone:'+91 90000 00000',whatsapp:'919000000000',email:'sales@apexmotors.example',address:'Your showroom address, City',hours:'Mon-Sat 9:00-19:00',city:'Your City',social:{Instagram:'https://www.instagram.com/',Facebook:'https://www.facebook.com/',YouTube:'https://www.youtube.com/'},currency:'₹',locale:'en-IN',taxRate:0.05,deliveryFee:5000,deposit:10000,apr:10.5,returnDays:7,warranty:'6 months / 10,000 km dealer warranty',adminPin:'1234',soldMode:'badge'};  // soldMode: 'badge' = show SOLD tag, 'hide' = remove sold cars from the site (dealer can also switch this in Admin)
 const money=n=>CONFIG.currency+Math.round(n).toLocaleString(CONFIG.locale);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
@@ -260,7 +349,7 @@ function resizeImg(file,max=800){return new Promise((res,rej)=>{const fr=new Fil
 const TRIMS=[['Standard',0,'']];
 const ACC=[{id:'mats',name:'All-weather floor mats',price:3500,ic:'&#128739;'},{id:'dash',name:'4K dash cam (front+rear)',price:6500,ic:'&#128249;'},{id:'chg',name:'Home EV charger (wall unit)',price:28000,ic:'&#9889;'},{id:'ceram',name:'Ceramic paint protection',price:18000,ic:'&#10024;'},{id:'warr',name:'Extended warranty (+1 yr)',price:25000,ic:'&#128737;'}];
 const SYN={suv:'SUV',ev:'Electric',electric:'Electric',truck:'Truck',pickup:'Truck',sedan:'Sedan',hybrid:'Hybrid',sports:'Coupe',hatch:'Hatchback',diesel:'Diesel',family:'SUV',cheap:'deal'};
-const CAPMAX=Math.max(20000,Math.ceil(Math.max(...CARS.map(c=>c.price))/100000)*100000),CAPSTEP=CAPMAX>500000?25000:1000,PREMIUM_MIN=2500000;
+const CAPMAX=Math.max(20000,Math.ceil(Math.max(...CARS.map(c=>c.price))/100000)*100000),CAPSTEP=CAPMAX>500000?25000:1000,PREMIUM_MIN=2500000,LUX=['BMW','Mercedes-Benz','Audi'],REGS=['MH','KA','DL','TN','GJ','UP','MP','CG'],isLux=c=>LUX.includes(c.make)||c.price>=PREMIUM_MIN;
 const carById=id=>CARS.find(c=>c.id===id),accById=id=>ACC.find(a=>a.id===id);
 
 /* ---------- car art (SVG) ---------- */
@@ -291,18 +380,31 @@ function deliveryDate(){const a=new Date(),b=new Date();a.setDate(a.getDate()+5)
 function monthly(price,down,term,apr=CONFIG.apr){const P=price-down,r=apr/1200;return P<=0?0:P*r/(1-Math.pow(1+r,-term))}
 
 /* ---------- card ---------- */
+const PIN='<svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>';
 function card(c){
   const sale=c.was>c.price,on=wish.includes(c.id);
   return `<article class="card${c.sold?' sold':''}"><span class="tag${c.sold?' sold':''}">${c.sold?'Sold':'&#10003; Verified'}</span>
-  <button class="heart" aria-pressed="${on}" aria-label="Save ${esc(c.name)}" data-wish="${c.id}">${on?'&#9829;':'&#9825;'}</button>
   <a class="img" href="#/car/${c.id}" aria-label="${esc(c.name)}">${c.photos&&c.photos[0]?`<img src="${c.photos[0]}" alt="${esc(c.name)}" loading="lazy">`:carSVG(c.body,COL[c.colors[0]][1],'side',c.name)}</a>
-  <div class="body"><span class="yr">${c.year}</span><h3><a href="#/car/${c.id}">${esc(c.name)}</a></h3>
-  <div class="specs"><span>${c.miles.toLocaleString()} km</span><span>${c.fuel}</span><span>${c.trans}</span></div>
+  <div class="body"><h3><a href="#/car/${c.id}">${c.year} ${esc(c.name)}</a></h3>
   <div class="price">${money(c.price)}${sale?`<s>${money(c.was)}</s>`:''}</div>
-  <a class="btn ghost view" href="#/car/${c.id}">View Details</a></div></article>`;
+  <div class="specs"><span>${c.miles.toLocaleString()} km</span><span>${c.fuel}</span><span>${c.trans}</span></div>
+  <div class="loc">${PIN}${esc(c.loc||CONFIG.city)}</div>
+  <div class="cbtns"><a class="btn ghost view" href="#/car/${c.id}">View Details</a><button class="btn ghost savebtn" aria-pressed="${on}" aria-label="Save ${esc(c.name)}" data-wish="${c.id}">${on?'&#9829; Saved':'&#9825; Save'}</button></div></div></article>`;
 }
 
 /* ---------- views ---------- */
+const CHIPS=[['all','All'],['SUV','SUV'],['Sedan','Sedan'],['Hatchback','Hatchback'],['lux','Luxury'],['Electric','Electric'],['Automatic','Automatic'],['u10','Under \u20b910L'],['u20','Under \u20b920L']];
+const chipMatch=(k,c)=>k==='all'||(['SUV','Sedan','Hatchback'].includes(k)&&c.body===k)||(k==='lux'&&isLux(c))||(k==='Electric'&&c.fuel==='Electric')||(k==='Automatic'&&c.trans==='Automatic')||(k==='u10'&&c.price<=1000000)||(k==='u20'&&c.price<=2000000);
+const chipHref=k=>({all:'#/cars',SUV:'#/cars?body=SUV',Sedan:'#/cars?body=Sedan',Hatchback:'#/cars?body=Hatchback',lux:'#/cars?luxury=1',Electric:'#/cars?fuel=Electric',Automatic:'#/cars?trans=Automatic',u10:'#/cars?max=1000000',u20:'#/cars?max=2000000'}[k]);
+function invGrid(k){const l=visible().filter(c=>!c.sold&&chipMatch(k,c)).sort((a,b)=>b.reviews-a.reviews).slice(0,6);return l.length?l.map(card).join(''):'<div class="empty" style="grid-column:1/-1"><h3>No cars in this category right now</h3><p>Try another category or view all inventory.</p></div>'}
+function qsHTML(){
+  const live=visible().filter(c=>!c.sold),makes=[...new Set(live.map(c=>c.make))].sort();
+  const sel=(id,label,opts)=>`<div><label for="${id}">${label}</label><select id="${id}">${opts.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join('')}</select></div>`;
+  return `<form class="qs" id="qs"><h2>Find Your Perfect Car</h2><div class="qs-grid">
+    ${sel('qs-make','Make',[['','Any make'],...makes.map(m=>[m,m])])}${sel('qs-model','Model',[['','Any model']])}${sel('qs-budget','Budget',[['','Any budget'],['500000','Under \u20b95L'],['1000000','Under \u20b910L'],['1500000','Under \u20b915L'],['2000000','Under \u20b920L'],['3000000','Under \u20b930L']])}${sel('qs-fuel','Fuel',[['','Any fuel'],['Petrol','Petrol'],['Diesel','Diesel'],['Electric','Electric'],['Hybrid','Hybrid']])}
+    <div class="qs-more">${sel('qs-trans','Transmission',[['','Any'],['Automatic','Automatic'],['Manual','Manual']])}</div><div class="qs-more">${sel('qs-body','Body Type',[['','Any body type'],['SUV','SUV'],['Sedan','Sedan'],['Hatchback','Hatchback'],['Coupe','Coupe'],['Truck','Truck']])}</div><div class="qs-more">${sel('qs-year','Year',[['','Any year'],['2023','2023 or newer'],['2021','2021 or newer'],['2019','2019 or newer'],['2017','2017 or newer']])}</div><div class="qs-more">${sel('qs-km','Kilometres',[['','Any distance'],['20000','Under 20,000 km'],['40000','Under 40,000 km'],['60000','Under 60,000 km'],['80000','Under 80,000 km']])}</div>
+    </div><div class="qs-act"><button class="btn" type="submit">Search Cars</button><button class="qs-toggle" type="button" id="qsToggle">More filters</button></div></form>`;
+}
 const IC={
  inspect:'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/><path d="m8.5 11 2 2 3.5-4"/></svg>',
  price:'<svg viewBox="0 0 24 24"><path d="M3 12V4h8l9 9-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg>',
@@ -314,25 +416,34 @@ const IC={
  phone:'<svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>',
  chat:'<svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>',
  pin:'<svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
- clock:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'};
+ clock:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+ key:'<svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M15 12v2"/></svg>'};
+const TST=[['Rahul M.',5,'Everything was exactly as listed. The inspection report matched the car and the whole process felt transparent.','2021 Hyundai Creta'],['Anita K.',5,'Booked a test drive online, drove it the next morning and decided the same day. Friendly, no-pressure team.','2020 Honda City'],['Imran H.',4,'Clear pricing with the total cost shown upfront. Documents were ready and handover was smooth.','2019 Toyota Fortuner']];
 function home(){
   const live=visible().filter(c=>!c.sold);
-  const feat=[...live].sort((a,b)=>b.reviews-a.reviews).slice(0,6);
-  const prem=[...live].sort((a,b)=>b.price-a.price).slice(0,3);
+  const prem=[...live].sort((a,b)=>b.price-a.price).slice(0,6);
   const heroes=[['hero1','assets/cars/hero1.jpg'],['hero2','assets/cars/hero2.jpg'],['hero3','assets/cars/hero3.jpg']];
-  const TR=[['inspect','Professionally Inspected Cars','Every car goes through a detailed multi-point inspection.'],['price','Transparent Pricing','Clear prices with the total cost shown upfront.'],['docs','Verified Documents','Ownership, registration and service records checked.'],['finance','Easy Financing Assistance','Simple monthly estimates and help with approvals.'],['drive','Test Drive Available','See and drive the car before you decide.'],['care','After-Sale Support','We stay with you long after you drive away.']];
+  const TR=[['inspect','Professionally Inspected','Every car goes through a detailed multi-point inspection.'],['docs','Verified Documents','Ownership, registration and service records checked.'],['price','Transparent Pricing','Clear prices with the total cost shown upfront.'],['drive','Test Drive Available','See and drive the car before you decide.'],['finance','Easy Finance Assistance','Simple monthly estimates and help with approvals.'],['care','After-Sale Support','We stay with you long after you drive away.']];
   const tel=CONFIG.phone.replace(/\s/g,'');
-  return `<section class="hero3" id="hero3">${heroes.map((h,i)=>`<div class="hs${i?'':' on'}" data-credit="${esc(xc(h[0]))}"><img src="${h[1]}" alt="" ${i?'loading="lazy"':''}></div>`).join('')}
-    <div class="wrap in"><h1>Your next car, chosen with confidence.</h1><p class="sub">Verified Pre-Owned Cars &bull; Transparent Pricing &bull; Professional Assistance</p>
+  const brands=new Set(live.map(c=>c.make)).size;
+  return `<section class="hero3" id="hero3">${heroes.map((h,i)=>`<div class="hs${i?'':' on'}" data-parallax data-credit="${esc(xc(h[0]))}"><img src="${h[1]}" alt="" ${i?'loading="lazy"':''}></div>`).join('')}
+    <div class="wrap in"><h1>Your next car,<br>chosen with confidence.</h1><p class="sub">Verified Pre-Owned Cars &bull; Transparent Pricing &bull; Professional Assistance</p>
     <div class="cta"><a class="btn" href="#/cars">Explore Inventory</a><button class="btn ghost" data-lead="drive:">Book a Test Drive</button></div></div>
     <div class="hbar">${heroes.map((h,i)=>`<button aria-label="Show photo ${i+1}"></button>`).join('')}</div><div class="credit"></div></section>
-  <section class="sec" id="inventory"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Inventory</span><h2 class="sec-h">Featured pre-owned cars</h2><p class="sec-sub">Every car is inspected, documented and priced openly.</p></div><a class="btn ghost" href="#/cars">View All Inventory</a></div>
-    <div class="grid3">${feat.map(card).join('')}</div></div></section>
-  <section class="sec white"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Why buy with us</span><h2 class="sec-h">Trust, built into every car</h2></div></div><div class="trust6">${TR.map(t=>`<div class="ti">${IC[t[0]]}<b>${t[1]}</b><span>${t[2]}</span></div>`).join('')}</div></div></section>
-  <section class="sec dark"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Handpicked</span><h2 class="sec-h">The Premium Collection</h2><p class="sec-sub">SUVs, luxury sedans and premium vehicles, selected and verified.</p></div><a class="btn ghost" href="#/cars?premium=1">View Premium Cars</a></div>
-    <div class="pc-grid">${prem.map(c=>`<a class="pc" href="#/car/${c.id}"><img src="${c.photos&&c.photos[0]||''}" alt="${esc(c.name)}" loading="lazy"><div class="cap"><small>${c.year} &middot; ${c.fuel}</small><b>${esc(c.name)}</b><span>${money(c.price)}</span></div></a>`).join('')}</div></div></section>
-  <section class="sec"><div class="wrap"><div class="sellband"><span class="eyebrow">Sell with confidence</span><h2 class="sec-h">Ready to sell your car?</h2><div class="rule"></div><p>Get a professional valuation and a transparent offer for your vehicle.</p><a class="btn" href="#/sell">Get Your Car Valued</a></div></div></section>
-  <section class="sec white" id="about"><div class="wrap about-grid"><div class="about-copy"><span class="eyebrow">About us</span><h2 class="sec-h">A showroom built on transparency</h2><div class="rule"></div><p>${esc(CONFIG.name)} is a pre-owned car dealership focused on honest advice and well-presented cars. Every vehicle is inspected, its documents are verified and its price is shown clearly, so you can decide with confidence.</p>
+  <section class="qs-wrap"><div class="wrap">${qsHTML()}</div></section>
+  <section class="sec" id="inventory"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Inventory</span><h2 class="sec-h">Explore our collection</h2><p class="sec-sub">Every car is inspected, documented and priced openly.</p></div><a class="btn ghost" id="viewAll" href="#/cars">View All Inventory</a></div>
+    <div class="chips" role="group" aria-label="Car categories">${CHIPS.map((c,i)=>`<button class="chip" data-chip="${c[0]}" aria-pressed="${i===0}">${c[1]}</button>`).join('')}</div>
+    <div class="grid3 invgrid" id="invgrid">${invGrid('all')}</div></div></section>
+  <section class="sec white"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Trust</span><h2 class="sec-h">Why buy from us?</h2></div></div><div class="trust6">${TR.map(t=>`<div class="ti">${IC[t[0]]}<b>${t[1]}</b><span>${t[2]}</span></div>`).join('')}</div></div></section>
+  <section class="sec dark" style="padding-bottom:40px"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Handpicked</span><h2 class="sec-h">The Premium Collection</h2><p class="sec-sub">SUVs, luxury sedans and premium vehicles, selected and verified.</p></div><div class="carctl"><button id="pcPrev" aria-label="Previous">&#8249;</button><button id="pcNext" aria-label="Next">&#8250;</button></div></div></div>
+    <div class="pcar" id="pcar" tabindex="0" aria-label="Premium cars">${prem.map(c=>`<a class="pc" href="#/car/${c.id}"><img src="${c.photos&&c.photos[0]||''}" alt="${esc(c.name)}" loading="lazy"><div class="cap"><small>${c.year} &middot; ${c.fuel} &middot; ${c.miles.toLocaleString()} km</small><b>${esc(c.name)}</b><span>${money(c.price)}</span></div></a>`).join('')}</div></section>
+  <section class="sell-img"><img src="assets/cars/hero2.jpg" alt="" data-parallax loading="lazy"><div class="wrap"><span class="eyebrow">Sell with confidence</span><h2 class="sec-h">Ready to sell your car?</h2><div class="rule"></div><p>Get a professional valuation and a transparent offer for your vehicle.</p><a class="btn" href="#/sell">Get Your Car Valued</a></div></section>
+  <section class="sec"><div class="wrap"><div class="sec-head" style="justify-content:center;text-align:center"><div><span class="eyebrow">Simple process</span><h2 class="sec-h">How it works</h2></div></div>
+    <div class="steps4"><div class="tl"><div class="ico">${IC.inspect}</div><div><small>01</small><b>Choose Your Car</b><span>Search, filter and shortlist the cars you like.</span></div></div><div class="tl"><div class="ico">${IC.drive}</div><div><small>02</small><b>Inspect &amp; Test Drive</b><span>Check the car in person and take it for a drive.</span></div></div><div class="tl"><div class="ico">${IC.docs}</div><div><small>03</small><b>Complete Documentation</b><span>We handle the paperwork and verify every document.</span></div></div><div class="tl"><div class="ico">${IC.key}</div><div><small>04</small><b>Drive Away</b><span>Collect your keys, or have the car delivered home.</span></div></div></div></div></section>
+  <section class="sec dark" style="padding:0"><div class="wrap"><div class="stats4"><div class="stat"><b data-count="${live.length}">${live.length}</b><span>Cars in stock</span></div><div class="stat"><b data-count="${brands}">${brands}</b><span>Brands</span></div><div class="stat"><b data-count="200" data-suf="+">200+</b><span>Inspection points</span></div><div class="stat"><b data-count="${CONFIG.returnDays}">${CONFIG.returnDays}</b><span>Day returns</span></div></div></div></section>
+  <section class="sec"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">Testimonials</span><h2 class="sec-h">What our customers say</h2><p class="sec-sub">Sample reviews shown - replace with your real customer reviews.</p></div></div>
+    <div class="tst">${TST.map(t=>`<div class="tc"><div class="stars">${stars(t[1])}</div><p>${esc(t[2])}</p><b>${esc(t[0])}</b><small>Bought: ${esc(t[3])}</small></div>`).join('')}</div></div></section>
+  <section class="sec white" id="about"><div class="wrap about-grid"><div class="about-copy"><span class="eyebrow">About</span><h2 class="sec-h">A showroom built on transparency</h2><div class="rule"></div><p>${esc(CONFIG.name)} is a pre-owned car dealership focused on honest advice and well-presented cars. Every vehicle is inspected, its documents are verified and its price is shown clearly, so you can decide with confidence.</p>
     <div class="hl">${IC.eye}<div><b>Transparency</b><span>Clear pricing and an honest account of every car's condition.</span></div></div>
     <div class="hl">${IC.inspect}<div><b>Vehicle Inspection</b><span>A thorough check of mechanicals, body and interior before listing.</span></div></div>
     <div class="hl">${IC.docs}<div><b>Documentation</b><span>Ownership, registration and service history verified and handed over.</span></div></div>
@@ -347,19 +458,20 @@ function home(){
     <form class="contact-form" id="contactForm" novalidate><h3 style="margin:0 0 6px;text-transform:uppercase;font-size:18px">Send us a message</h3>
       <div class="f"><label for="cn">Name</label><input id="cn" autocomplete="name"><div class="err" id="e-cn"></div></div>
       <div class="two"><div class="f"><label for="cp">Phone</label><input id="cp" type="tel" autocomplete="tel"><div class="err" id="e-cp"></div></div><div class="f"><label for="ce">Email <i>(optional)</i></label><input id="ce" type="email" autocomplete="email"><div class="err" id="e-ce"></div></div></div>
-      <div class="f"><label for="cm">Message</label><textarea id="cm" placeholder="Tell us which car you are interested in"></textarea></div><button class="btn block" type="submit">Send Message</button></form></div></section>`;
+      <div class="f"><label for="cm">Message</label><textarea id="cm" placeholder="Tell us which car you are interested in"></textarea></div><button class="btn block" type="submit">Send Message</button></form></div></section>
+  <section class="sec dark final"><div class="wrap"><span class="eyebrow">Let's get you moving</span><h2 class="sec-h">Your next drive starts here.</h2><div class="rule"></div><div class="cta"><a class="btn" href="#/cars">Explore Cars</a><a class="btn ghost" href="#/contact">Contact Us</a></div></div></section>`;
 }
 const wishPage=()=>{const ids=wish.map(carById).filter(c=>c&&visible().includes(c));return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / Saved cars</div><h2 style="margin:12px 0 16px">Saved cars (${ids.length})</h2>${ids.length?`<div class="grid">${ids.map(card).join('')}</div>`:'<div class="empty"><h3>No saved cars yet</h3><p>Tap the heart on any car to save it here. No login needed.</p><a class="btn" href="#/cars">Browse cars</a></div>'}</div>`};
 function parseQ(){const h=location.hash.slice(1),i=h.indexOf('?');const p=new URLSearchParams(i<0?'':h.slice(i+1));return p}
 function list(){
   const p=parseQ(),sel=k=>p.get(k)?p.get(k).split(','):[],body=sel('body'),fuel=sel('fuel'),trans=sel('trans'),q=(p.get('q')||'').toLowerCase().trim();
-  const premium=p.get('premium')==='1',max=+p.get('max')||CAPMAX,sort=p.get('sort')||'featured',deals=p.get('deals')==='1',shown=+p.get('n')||9;
-  let r=visible().filter(c=>(!body.length||body.includes(c.body))&&(!fuel.length||fuel.includes(c.fuel))&&(!trans.length||trans.includes(c.trans))&&c.price<=max&&(!premium||c.price>=PREMIUM_MIN)&&(!deals||c.was>c.price));
+  const premium=p.get('premium')==='1',lux=p.get('luxury')==='1',mk=p.get('make')||'',md=p.get('model')||'',yr=+p.get('year')||0,kmx=+p.get('km')||0,max=+p.get('max')||CAPMAX,sort=p.get('sort')||'featured',deals=p.get('deals')==='1',shown=+p.get('n')||9;
+  let r=visible().filter(c=>(!body.length||body.includes(c.body))&&(!fuel.length||fuel.includes(c.fuel))&&(!trans.length||trans.includes(c.trans))&&c.price<=max&&(!premium||c.price>=PREMIUM_MIN)&&(!lux||isLux(c))&&(!mk||c.make===mk)&&(!md||c.name===mk+' '+md||c.name.endsWith(' '+md))&&(!yr||c.year>=yr)&&(!kmx||c.miles<=kmx)&&(!deals||c.was>c.price));
   if(q){const toks=q.split(/\s+/).map(t=>SYN[t]||t);r=r.filter(c=>{const hay=(c.name+' '+c.make+' '+c.body+' '+c.fuel+' '+c.year+' '+c.trans).toLowerCase();return toks.every(t=>t==='deal'?c.was>c.price:hay.includes(t.toLowerCase()))})}
   const S={featured:(a,b)=>b.reviews-a.reviews,low:(a,b)=>a.price-b.price,high:(a,b)=>b.price-a.price,rating:(a,b)=>b.rating-a.rating,new:(a,b)=>b.year-a.year||a.miles-b.miles,miles:(a,b)=>a.miles-b.miles};
   r.sort((a,b)=>(a.sold-b.sold)||S[sort](a,b));
   const chk=(k,vals,cur)=>vals.filter(v=>CARS.some(c=>c[k]===v)||cur.includes(v)).map(v=>`<label><input type="checkbox" data-f="${k}" value="${v}" ${cur.includes(v)?'checked':''}> ${v} <small class="meta">(${CARS.filter(c=>c[k]===v).length})</small></label>`).join('');
-  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / ${premium?'Premium Cars':'Inventory'}${q?` / "${esc(q)}"`:''}</div><div class="pagehead"><div><span class="eyebrow" style="margin:10px 0 6px">${premium?'The premium collection':'Our cars'}</span><h1 class="sec-h">${premium?'Premium Cars':'Inventory'}</h1></div><div class="invsearch"><input id="iq" type="search" placeholder="Search make or model, press Enter" value="${esc(q)}" aria-label="Search cars"></div></div><div class="layout">
+  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / ${premium?'Premium Collection':lux?'Luxury':'Inventory'}${q?` / "${esc(q)}"`:''}</div><div class="pagehead"><div><span class="eyebrow" style="margin:10px 0 6px">${premium?'Handpicked':'Our cars'}</span><h1 class="sec-h">${premium?'Premium Collection':lux?'Luxury Cars':'Inventory'}</h1></div><div class="invsearch"><input id="iq" type="search" placeholder="Search make or model, press Enter" value="${esc(q)}" aria-label="Search cars"></div></div>${(mk||md||yr||kmx)?`<div class="activef">Showing: ${[mk&&'<b>'+esc(mk)+'</b>',md&&'<b>'+esc(md)+'</b>',yr&&'<b>'+yr+' or newer</b>',kmx&&'<b>under '+kmx.toLocaleString()+' km</b>'].filter(Boolean).join(' &middot; ')}</div>`:''}<div class="layout">
   <aside class="filters" id="filters" aria-label="Filters"><h4>Body type</h4>${chk('body',['SUV','Sedan','Coupe','Hatchback','Truck'],body)}<h4>Fuel</h4>${chk('fuel',['Electric','Hybrid','Petrol','Diesel'],fuel)}<h4>Gearbox</h4>${chk('trans',['Automatic','Manual'],trans)}
   <h4>Max price: <span id="maxv">${money(max)}</span></h4><input type="range" id="max" min="0" max="${CAPMAX}" step="${CAPSTEP}" value="${max}" aria-label="Maximum price"><h4>Offers</h4><label><input type="checkbox" id="deals" ${deals?'checked':''}> Deals only</label><p><button class="link" id="clr">Clear all filters</button></p></aside>
   <div><div class="bar"><div><b>${r.length}</b> car${r.length===1?'':'s'} found <button class="btn ghost fbtn" id="fbtn" style="padding:8px 14px;margin-left:8px">Filters</button></div>
@@ -370,31 +482,40 @@ function pdp(id){
   const c=carById(id);if(!c||!visible().includes(c))return `<div class="wrap empty"><h2>This car is no longer available</h2><p>It may have just been sold.</p><a class="btn" href="#/cars">Browse cars</a></div>`;
   const st=pdp.st=(pdp.st&&pdp.st.id===id)?pdp.st:{id,col:c.colors[0],trim:0,view:(c.photos&&c.photos.length)?'p0':'side',add:[],term:60,down:Math.round(c.price*.1)};
   const hex=COL[st.col][1],price=c.price+TRIMS[st.trim][1],addT=st.add.reduce((s,a)=>s+accById(a).price,0),sub=price+addT,tax=sub*TAX,sale=c.was>c.price,on=wish.includes(c.id);
+  const reg=REGS[Math.max(0,CARS.indexOf(c))%REGS.length],loc=c.loc||CONFIG.city;
+  const facts=[['Year',c.year],['Kilometres',c.miles.toLocaleString()+' km'],['Fuel',c.fuel],['Transmission',c.trans],['Ownership',c.owners+(c.owners>1?' owners':' owner')],['Registration',reg+' ('+c.year+')'],['Location',esc(loc)],['Colour',COL[st.col][0]]];
+  const feats=['Power steering','Central locking','Air conditioning','Power windows','ABS with EBD','Dual front airbags','Bluetooth audio','Rear parking sensors',...(c.trans==='Automatic'?['Automatic transmission','Cruise control']:[]),...(c.body==='SUV'||c.body==='Truck'?['Touchscreen infotainment','Roof rails']:[]),...(c.fuel==='Electric'?['Fast charging','Regenerative braking']:[]),...(isLux(c)?['Leather upholstery','Sunroof','Ambient lighting']:[])];
+  const insp=[['Engine & transmission','Smooth, no leaks'],['Brakes & suspension','Within specification'],['Exterior & paint','Checked, any wear listed'],['Interior & electricals','All working'],['Tyres','Good tread'],['Odometer','Reading verified']];
+  const docs=['Registration certificate (RC)','Valid insurance','Complete service history','Pollution (PUC) certificate','No loan / hypothecation','Duplicate key available'];
   const reviews=[[5,'Smooth buying experience','Ordered on Sunday, delivered Thursday. Exactly as described, and the inspection report was spot on.','Thanks for the kind words! Enjoy the drive.'],[4,'Great car, small scuff','Drives beautifully. One tiny scuff on the rear bumper that was listed in the report.',''],[5,'Worth it','Used the 7-day window to be sure. Kept it. No regrets.','']];
-  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / <a href="#/cars">Cars</a> / <a href="#/cars?body=${c.body}">${c.body}</a> / ${esc(c.name)}</div>
-  <div class="pdp"><div class="gal"><div class="main">${st.view[0]==='p'&&c.photos[+st.view.slice(1)]?`<img src="${c.photos[+st.view.slice(1)]}" alt="${esc(c.name)}">`:carSVG(c.body,hex,st.view,c.name+' in '+COL[st.col][0])}</div>
+  const wa='https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi, I am interested in the '+c.year+' '+c.name+' ('+money(c.price)+')');
+  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / <a href="#/cars">Inventory</a> / ${esc(c.name)}</div>
+  <div class="pdp"><div class="gal"><div class="main" id="gmain">${st.view[0]==='p'&&c.photos[+st.view.slice(1)]?`<img id="gimg" src="${c.photos[+st.view.slice(1)]}" alt="${esc(c.name)}">`:carSVG(c.body,hex,st.view,c.name+' in '+COL[st.col][0])}<span class="tag">&#10003; Verified</span>${c.photos&&c.photos.length?'<button class="zoomb" id="zoom" aria-label="Enlarge photo">&#10530;</button>':''}</div>
    <div class="thumbs" role="group" aria-label="Gallery views">${(c.photos&&c.photos.length?c.photos.map((ph,i)=>`<button aria-pressed="${st.view==='p'+i}" data-view="p${i}" aria-label="Photo ${i+1}"><img src="${ph}" alt=""></button>`):[['side','Side'],['mirror','Other side'],['detail','Wheel detail']].map(v=>`<button aria-pressed="${st.view===v[0]}" data-view="${v[0]}" aria-label="${v[1]} view">${carSVG(c.body,hex,v[0],v[1])}</button>`)).join('')}</div>
-   <p class="note">${c.photos&&c.photos.length?creditHTML(c):'Illustrative render. The dealer can upload real photos in Admin.'}</p></div>
-  <div class="buy"><span class="meta">Pre-owned &middot; ${c.year} &middot; ${c.miles.toLocaleString()} km</span><h1>${esc(c.name)}</h1>
+   <p class="note">${c.photos&&c.photos.length?creditHTML(c):'Illustrative render. The dealer can upload real photos in Admin.'}</p>
+   <div class="pdsec"><h2>Vehicle Overview</h2><p>This ${c.year} ${esc(c.name)} is a ${c.fuel.toLowerCase()} ${c.body.toLowerCase()} with ${c.trans.toLowerCase()} transmission, ${c.miles.toLocaleString()} km on the odometer and ${c.owners} previous owner${c.owners>1?'s':''}. It has been professionally inspected and its documents verified before listing.</p></div>
+   <details open><summary>Inspection Report</summary><ul class="chk one">${insp.map(i=>`<li><span><b>${i[0]}</b> &mdash; ${i[1]}</span></li>`).join('')}</ul><p class="note">Sample report. The dealer should attach the actual inspection report for each car.</p></details>
+   <details><summary>Features</summary><ul class="chk">${feats.map(f=>`<li>${f}</li>`).join('')}</ul><p class="note">Typical features for this model. Please confirm exact features with the dealer.</p></details>
+   <details><summary>Specifications</summary><table class="spec"><tr><td>Body</td><td>${c.body}</td></tr><tr><td>Fuel</td><td>${c.fuel}</td></tr><tr><td>${c.fuel==='Electric'?'Range':'Economy'}</td><td>${c.eff}</td></tr><tr><td>Power</td><td>${c.power}</td></tr><tr><td>Gearbox</td><td>${c.trans}</td></tr><tr><td>Warranty</td><td>${CONFIG.warranty}</td></tr></table></details>
+   <details><summary>Documents</summary><ul class="chk one">${docs.map(d=>`<li>${d}</li>`).join('')}</ul></details>
+   <details><summary>Delivery &amp; returns</summary><p>Home delivery in 5-9 days from ${money(DELIV)}, or collect free from our showroom: ${esc(CONFIG.address)}. Return within ${CONFIG.returnDays} days or 500 km for a full refund, no questions asked.</p></details></div>
+  <div class="buy"><div><span class="vtag">&#10003; Verified</span><span class="yr">${c.year} &middot; Pre-owned</span></div><h1>${esc(c.name)}</h1>
    <div>${stars(c.rating)} <a href="#reviews" class="meta">${c.rating} &middot; ${c.reviews} reviews</a></div>
-   <div class="price" style="font-size:32px;margin-top:8px">${money(price)}${sale?`<s>${money(c.was+TRIMS[st.trim][1])}</s><em>Save ${money(c.was-c.price)}</em>`:''}</div>
+   <div class="price" style="font-size:34px;margin-top:8px">${money(price)}${sale?`<s>${money(c.was+TRIMS[st.trim][1])}</s><em>Save ${money(c.was-c.price)}</em>`:''}</div>
    <div class="meta">or from <b>${money(monthly(price,st.down,st.term))}/mo</b> &middot; ${CONFIG.apr}% APR est.</div>
-   <div class="meta" style="margin-top:10px"><span class="dot" style="background:${hex};display:inline-block;vertical-align:middle"></span> ${COL[st.col][0]} &middot; ${c.trans} &middot; ${c.owners} previous owner${c.owners>1?'s':''}</div>
    ${c.sold?`<div class="box" style="margin:14px 0"><b>This car has been sold.</b><br><a href="#/cars">See similar cars</a> or <a href="#" data-lead="enquiry:${c.id}">ask us to find you one</a>.</div>`:''}
-   <div class="box addons"><b>Add-ons</b>${ACC.filter(a=>a.id!=='chg'||c.fuel==='Electric').map(a=>`<label><input type="checkbox" data-add="${a.id}" ${st.add.includes(a.id)?'checked':''}><span>${a.name}</span><b>${money(a.price)}</b></label>`).join('')}</div>
-   <div class="box est" style="margin-top:12px"><div><span>Car + trim</span><span>${money(price)}</span></div>${addT?`<div><span>Add-ons</span><span>${money(addT)}</span></div>`:''}<div><span>Est. sales tax (${TAX*100}%)</span><span>${money(tax)}</span></div><div><span>Home delivery (pickup is free)</span><span>${money(DELIV)}</span></div><div class="tot"><span>Estimated total</span><span>${money(sub+tax+DELIV)}</span></div></div>
-   <p class="deliv">&#128666; Get it between <b>${deliveryDate()}</b></p>
-   <div class="ctas"><button class="btn" id="addcar" ${c.sold?'disabled':''}>Reserve online</button><button class="btn ghost" id="wishpdp" aria-pressed="${on}" aria-label="Save car">${on?'&#9829; Saved':'&#9825; Save'}</button></div>
-   <div class="ctas"><button class="btn ghost" data-lead="drive:${c.id}">Book a test drive</button><a class="btn ghost" style="flex:1" target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent('Hi, I am interested in the '+c.year+' '+c.name+' ('+money(c.price)+')')}">WhatsApp us</a><a class="btn ghost" href="tel:${CONFIG.phone.replace(/\s/g,'')}">Call</a></div>
-   <p class="meta">Free ${CONFIG.returnDays}-day returns &middot; Refundable ${money(CONFIG.deposit)} deposit option &middot; Guest checkout, no account needed &middot; <a href="#" data-lead="enquiry:${c.id}">Ask a question</a></p>
-   <div style="margin-top:14px"><details open><summary>Specifications</summary><table class="spec"><tr><td>Body</td><td>${c.body}</td></tr><tr><td>Fuel</td><td>${c.fuel}</td></tr><tr><td>${c.fuel==='Electric'?'Range':'Economy'}</td><td>${c.eff}</td></tr><tr><td>Power</td><td>${c.power}</td></tr><tr><td>Year</td><td>${c.year}</td></tr><tr><td>Mileage</td><td>${c.miles.toLocaleString()} km</td></tr><tr><td>Gearbox</td><td>${c.trans}</td></tr><tr><td>Previous owners</td><td>${c.owners}</td></tr><tr><td>Colour</td><td>${COL[st.col][0]}</td></tr><tr><td>Warranty</td><td>${CONFIG.warranty}</td></tr></table></details>
-   <details><summary>Delivery &amp; returns</summary><p>Home delivery in 5-9 days from ${money(DELIV)}, or collect free from our showroom: ${esc(CONFIG.address)}. Return within ${CONFIG.returnDays} days or 500 km for a full refund, no questions asked.</p></details>
-   <details><summary>Inspection &amp; history</summary><ul><li>200-point mechanical and cosmetic inspection</li><li>Ownership, accident and finance-check history report</li><li>Odometer reading verified, service records included</li><li>Cosmetic wear (if any) is listed and photographed</li></ul></details></div></div></div>
-   <section class="blk fin" style="padding-top:0"><div class="box" style="max-width:560px"><b>Finance calculator</b><div class="row"><span>Down payment</span><b id="dv">${money(st.down)}</b></div><input type="range" id="down" min="0" max="${Math.round(price/2)}" step="5000" value="${st.down}" aria-label="Down payment"><div class="row"><span>Term</span><b id="tv">${st.term} months</b></div><input type="range" id="term" min="36" max="84" step="12" value="${st.term}" aria-label="Loan term in months"><div class="big" id="mv">${money(monthly(price,st.down,st.term))}/mo</div><div class="note">Estimate at ${CONFIG.apr}% APR. Final rate subject to approval; no impact to your credit score to check.</div></div></section>
-   <section class="blk" id="reviews" style="padding-top:0"><h2>Customer reviews</h2><p class="sub">${stars(c.rating)} ${c.rating} out of 5 (sample reviews shown)</p>${reviews.map(r=>`<div class="rev">${stars(r[0])} <b>${r[1]}</b><p style="margin:4px 0">${r[2]}</p>${r[3]?`<div class="reply"><b>Apex Motors replied:</b> ${r[3]}</div>`:''}</div>`).join('')}</section>
+   <div class="kf">${facts.map(f=>`<div><small>${f[0]}</small><b>${f[1]}</b></div>`).join('')}</div>
+   <div class="ctas"><button class="btn" data-lead="drive:${c.id}" ${c.sold?'disabled':''}>Book a Test Drive</button><a class="btn ghost" style="flex:1" target="_blank" rel="noopener" href="${wa}">Enquire on WhatsApp</a></div>
+   <div class="ctas"><button class="btn ghost" id="addcar" ${c.sold?'disabled':''}>Reserve online</button><button class="btn ghost" id="wishpdp" aria-pressed="${on}" aria-label="Save car">${on?'&#9829; Saved':'&#9825; Save'}</button></div>
+   <p class="meta" style="margin-top:12px">Free ${CONFIG.returnDays}-day returns &middot; Refundable ${money(CONFIG.deposit)} deposit option &middot; <a href="#" data-lead="enquiry:${c.id}">Ask a question</a></p>
+   <div class="box addons" style="margin-top:18px"><b>Add-ons</b>${ACC.filter(a=>a.id!=='chg'||c.fuel==='Electric').map(a=>`<label><input type="checkbox" data-add="${a.id}" ${st.add.includes(a.id)?'checked':''}><span>${a.name}</span><b>${money(a.price)}</b></label>`).join('')}</div>
+   <div class="box est" style="margin-top:12px"><div><span>Car price</span><span>${money(price)}</span></div>${addT?`<div><span>Add-ons</span><span>${money(addT)}</span></div>`:''}<div><span>Est. tax (${TAX*100}%)</span><span>${money(tax)}</span></div><div><span>Home delivery (pickup is free)</span><span>${money(DELIV)}</span></div><div class="tot"><span>Estimated total</span><span>${money(sub+tax+DELIV)}</span></div></div>
+   <p class="deliv">&#128666; Get it between <b>${deliveryDate()}</b></p></div></div>
+   <section class="blk fin" style="padding-top:0"><div class="box" style="max-width:560px"><b>Finance estimate</b><div class="row"><span>Down payment</span><b id="dv">${money(st.down)}</b></div><input type="range" id="down" min="0" max="${Math.round(price/2)}" step="5000" value="${st.down}" aria-label="Down payment"><div class="row"><span>Term</span><b id="tv">${st.term} months</b></div><input type="range" id="term" min="36" max="84" step="12" value="${st.term}" aria-label="Loan term in months"><div class="big" id="mv">${money(monthly(price,st.down,st.term))}/mo</div><div class="note">Estimate at ${CONFIG.apr}% APR. Final rate subject to approval; no impact to your credit score to check.</div></div></section>
+   <section class="blk" id="reviews" style="padding-top:0"><h2>Customer reviews</h2><p class="sub">${stars(c.rating)} ${c.rating} out of 5 (sample reviews shown)</p>${reviews.map(r=>`<div class="rev">${stars(r[0])} <b>${r[1]}</b><p style="margin:4px 0">${r[2]}</p>${r[3]?`<div class="reply"><b>${esc(CONFIG.name)} replied:</b> ${r[3]}</div>`:''}</div>`).join('')}</section>
    <section class="blk" style="padding-top:0"><h2>You may also like</h2><div class="grid">${CARS.filter(x=>x.id!==id&&!x.sold&&(x.body===c.body||x.fuel===c.fuel)).slice(0,3).map(card).join('')}</div></section>
    ${recent.filter(x=>x!==id).length?`<section class="blk" style="padding-top:0"><h2>Recently viewed</h2><div class="grid">${recent.filter(x=>x!==id&&carById(x)&&visible().includes(carById(x))).slice(0,3).map(carById).map(card).join('')}</div></section>`:''}</div>
-   <div class="stickybuy"><div><b>${money(price)}</b><div class="meta">${money(monthly(price,st.down,st.term))}/mo</div></div><button class="btn" id="addcar2" ${c.sold?'disabled':''}>Reserve online</button></div>`;
+   <div class="stickybuy"><div><b>${money(price)}</b><div class="meta">${money(monthly(price,st.down,st.term))}/mo</div></div><button class="btn" data-lead="drive:${c.id}" ${c.sold?'disabled':''}>Book a Test Drive</button></div>`;
 }
 function sellPage(){return `<div class="wrap" style="max-width:720px"><div class="crumbs"><a href="#/">Home</a> / Sell your car</div><h1 style="letter-spacing:-.6px">Sell or trade in your car</h1><p class="meta">Tell us about your car and we will send a no-obligation offer within one working day.</p>
 <form id="sellForm" class="box" novalidate>${leadFields(true)}<div class="two"><div class="f"><label for="sm">Make &amp; model</label><input id="sm"><div class="err" id="e-sm"></div></div><div class="f"><label for="sy">Year</label><input id="sy" inputmode="numeric" maxlength="4"><div class="err" id="e-sy"></div></div></div><div class="two"><div class="f"><label for="sk">Mileage</label><input id="sk" inputmode="numeric"><div class="err" id="e-sk"></div></div><div class="f"><label for="sc">Condition</label><select id="sc"><option>Excellent</option><option selected>Good</option><option>Fair</option><option>Needs work</option></select></div></div><button class="btn block" type="submit">Get my offer</button><p class="note">We only use your details to reply to this request.</p></form></div>`}
@@ -479,7 +600,7 @@ function route(){
   else if(path==='/about'||path==='/contact')html=home();else if(path==='/saved')html=wishPage();else if(path==='/sell')html=sellPage();else if(path==='/admin')html=adminPage();else if(path==='/checkout')html=checkout();else if(path==='/confirm')html=confirm();else html=home();
   m.innerHTML=html;enter(m);document.title=(path.startsWith('/car/')&&carById(path.split('/')[2])?carById(path.split('/')[2]).name+' - ':'')+'Apex Motors';
   bind(path);
-  if(path==='/'||path===''||path==='/about'||path==='/contact'){initHero();bindContact()}
+  if(path==='/'||path===''||path==='/about'||path==='/contact'){initHero();bindContact();initHome()}
   if(path==='/about'||path==='/contact')setTimeout(()=>scrollToId(path.slice(1)),180);
   const cur=location.hash.slice(1)||'/';$$('#nav a').forEach(x=>{const hh=x.getAttribute('href').slice(1);x.setAttribute('aria-current',(hh===cur||(hh==='/cars'&&path==='/cars'&&!/premium/.test(cur)))?'page':'false')});
 }
@@ -491,14 +612,28 @@ function countUp(el){const to=+el.dataset.count,dec=+(el.dataset.dec||0),suf=el.
 function enter(m){
   m.classList.remove('enter');void m.offsetWidth;m.classList.add('enter');
   io&&io.disconnect();
-  const reveal=$$('.card,.ti,.pc,.hl,.ci,.sec-head,.sellband,.about-photo,.contact-form,.pagehead',m);
-  if(!('IntersectionObserver' in window)){reveal.forEach(el=>el.classList.add('in'));return}
-  io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target)}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-  reveal.forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%3)*90+'ms');io.observe(el)});
+  const reveal=$$('.card,.ti,.pc,.hl,.ci,.sec-head,.sell-img .wrap,.about-photo,.contact-form,.pagehead,.tc,.tl,.stat,.qs,.chips,.final .wrap',m);
+  const watch=[...reveal,...$$('.rule,.steps4,[data-count]',m)];
+  $$('[data-count]',m).forEach(el=>{el.textContent='0'+(el.dataset.suf||'')});
+  if(!('IntersectionObserver' in window)){watch.forEach(el=>el.classList.add('in'));$$('[data-count]',m).forEach(el=>el.textContent=el.dataset.count+(el.dataset.suf||''));return}
+  io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');if(el.dataset.count!==undefined)countUp(el);io.unobserve(el)}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  reveal.forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%3)*90+'ms')});
+  watch.forEach(el=>io.observe(el));
 }
 function cycler(items,dots,ms,after){let i=0,paused=false;const go=n=>{i=(n+items.length)%items.length;items.forEach((e,k)=>e.classList.toggle('on',k===i));dots.forEach((d,k)=>d.setAttribute('aria-current',k===i));after&&after(i)};go(0);
   dots.forEach((d,k)=>d.onclick=()=>go(k));carTimers.push(setInterval(()=>{if(!paused)go(i+1)},ms));return{go,next:()=>go(i+1),prev:()=>go(i-1),pause:v=>paused=v}}
 function initHero(){const h=$('#hero3');if(!h)return;const slides=$$('.hs',h),cr=$('.credit',h);const c=cycler(slides,$$('.hbar button',h),6500,i=>{cr.innerHTML=slides[i].dataset.credit||''});h.onpointerenter=()=>c.pause(true);h.onpointerleave=()=>c.pause(false)}
+function initHome(){
+  const grid=$('#invgrid');
+  $$('.chip').forEach(b=>b.onclick=()=>{if(b.getAttribute('aria-pressed')==='true')return;$$('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#viewAll').href=chipHref(b.dataset.chip);grid.classList.add('out');setTimeout(()=>{grid.innerHTML=invGrid(b.dataset.chip);grid.classList.remove('out');grid.classList.remove('swap');void grid.offsetWidth;grid.classList.add('swap')},230)});
+  const qs=$('#qs');if(qs){const mk=$('#qs-make'),md=$('#qs-model'),live=visible().filter(c=>!c.sold);
+    const fillModels=()=>{const ms=[...new Set(live.filter(c=>!mk.value||c.make===mk.value).map(c=>c.make&&c.name.startsWith(c.make+' ')?c.name.slice(c.make.length+1):c.name))].sort();md.innerHTML='<option value="">Any model</option>'+ms.map(m=>`<option value="${esc(m)}">${esc(m)}</option>`).join('')};fillModels();mk.onchange=fillModels;
+    $('#qsToggle').onclick=()=>{const o=qs.classList.toggle('open');$('#qsToggle').textContent=o?'Fewer filters':'More filters'};
+    qs.onsubmit=e=>{e.preventDefault();const pr=new URLSearchParams();[['make','qs-make'],['model','qs-model'],['max','qs-budget'],['fuel','qs-fuel'],['trans','qs-trans'],['body','qs-body'],['year','qs-year'],['km','qs-km']].forEach(([k,id])=>{const v=$('#'+id).value;if(v)pr.set(k,v)});location.hash='/cars'+(pr.toString()?'?'+pr.toString():'')}}
+  const car=$('#pcar');if(car){const step=()=>(car.querySelector('.pc')?.offsetWidth||520)+22;$('#pcPrev').onclick=()=>car.scrollBy({left:-step(),behavior:'smooth'});$('#pcNext').onclick=()=>car.scrollBy({left:step(),behavior:'smooth'});
+    let paused=false;car.onpointerenter=()=>paused=true;car.onpointerleave=()=>paused=false;car.addEventListener('touchstart',()=>paused=true,{passive:true});
+    carTimers.push(setInterval(()=>{if(paused)return;if(car.scrollLeft+car.clientWidth>=car.scrollWidth-8)car.scrollTo({left:0,behavior:'smooth'});else car.scrollBy({left:step(),behavior:'smooth'})},5200))}
+}
 function scrollToId(id){const el=document.getElementById(id);if(!el)return;lenis?lenis.scrollTo(el,{offset:-76,duration:1.1}):scrollTo({top:el.getBoundingClientRect().top+scrollY-76,behavior:'smooth'})}
 function bindContact(){const f=$('#contactForm');if(!f)return;f.onsubmit=e=>{e.preventDefault();$$('.err',f).forEach(x=>x.textContent='');let ok=true;const g=i=>$('#'+i,f).value.trim(),bad=(i,m)=>{$('#e-'+i,f).textContent=m;ok=false};
   if(!g('cn'))bad('cn','Please enter your name.');if(g('cp').replace(/\D/g,'').length<7)bad('cp','Enter a phone number we can call (at least 7 digits).');if(g('ce')&&!/^\S+@\S+\.\S+$/.test(g('ce')))bad('ce','That email looks incomplete.');if(!ok)return;
@@ -510,18 +645,19 @@ function bind(path){
     const mx=$('#max');mx.oninput=()=>$('#maxv').textContent=money(mx.value);mx.onchange=()=>setQ(p=>{+mx.value>=CAPMAX?p.delete('max'):p.set('max',mx.value)});
     $('#deals').onchange=e=>setQ(p=>e.target.checked?p.set('deals','1'):p.delete('deals'));
     $('#sort').onchange=e=>setQ(p=>p.set('sort',e.target.value));
-    const clr=()=>{const pp=parseQ(),q=pp.get('q'),pr=pp.get('premium'),a=[];if(q)a.push('q='+encodeURIComponent(q));if(pr)a.push('premium=1');location.hash='/cars'+(a.length?'?'+a.join('&'):'')};$('#iq').onchange=e=>setQ(pp=>{e.target.value.trim()?pp.set('q',e.target.value.trim()):pp.delete('q');pp.delete('n')});$('#clr').onclick=clr;$('#clr2')&&($('#clr2').onclick=clr);
+    const clr=()=>{const pp=parseQ(),q=pp.get('q'),pr=pp.get('premium'),a=[];if(q)a.push('q='+encodeURIComponent(q));if(pr)a.push('premium=1');if(pp.get('luxury'))a.push('luxury=1');location.hash='/cars'+(a.length?'?'+a.join('&'):'')};$('#iq').onchange=e=>setQ(pp=>{e.target.value.trim()?pp.set('q',e.target.value.trim()):pp.delete('q');pp.delete('n')});$('#clr').onclick=clr;$('#clr2')&&($('#clr2').onclick=clr);
     $('#more')&&($('#more').onclick=()=>setQ(p=>p.set('n',(+p.get('n')||9)+9)));
     $('#fbtn').onclick=()=>$('#filters').classList.toggle('open');
   }
   if(path.startsWith('/car/')&&pdp.st){
     const st=pdp.st,rerender=()=>{const y=scrollY;$('#main').innerHTML=pdp(st.id);bind(path);scrollTo(0,y)};
-    $$('[data-view]').forEach(b=>b.onclick=()=>{st.view=b.dataset.view;rerender()});$$('[data-col]').forEach(b=>b.onclick=()=>{st.col=b.dataset.col;rerender()});$$('[data-trim]').forEach(b=>b.onclick=()=>{st.trim=+b.dataset.trim;rerender()});
+    $$('[data-view]').forEach(b=>b.onclick=()=>{const v=b.dataset.view,gi=$('#gimg'),cc=carById(st.id);if(v[0]==='p'&&gi&&cc.photos[+v.slice(1)]){st.view=v;gi.style.opacity=0;setTimeout(()=>{gi.src=cc.photos[+v.slice(1)];gi.style.opacity=1},200);$$('[data-view]').forEach(x=>x.setAttribute('aria-pressed',x===b))}else{st.view=v;rerender()}});
+    const zb=$('#zoom'),gm=$('#gimg');const openLB=()=>{if(!gm)return;const lb=document.createElement('div');lb.className='lb';lb.innerHTML=`<img src="${gm.src}" alt="">`;document.body.appendChild(lb);lenis&&lenis.stop();const cl=()=>{lb.remove();lenis&&lenis.start();document.removeEventListener('keydown',kd)},kd=e=>{if(e.key==='Escape')cl()};lb.onclick=cl;document.addEventListener('keydown',kd)};zb&&(zb.onclick=openLB);gm&&(gm.onclick=openLB);$$('[data-col]').forEach(b=>b.onclick=()=>{st.col=b.dataset.col;rerender()});$$('[data-trim]').forEach(b=>b.onclick=()=>{st.trim=+b.dataset.trim;rerender()});
     $$('[data-add]').forEach(i=>i.onchange=()=>{st.add=i.checked?[...st.add,i.dataset.add]:st.add.filter(a=>a!==i.dataset.add);rerender()});
     const c=carById(st.id),upd=()=>{const pr=c.price+TRIMS[st.trim][1];$('#dv').textContent=money(st.down);$('#tv').textContent=st.term+' months';$('#mv').textContent=money(monthly(pr,st.down,st.term))+'/mo'};
     $('#down').oninput=e=>{st.down=+e.target.value;upd()};$('#term').oninput=e=>{st.term=+e.target.value;upd()};
     const add=()=>{if(c.sold)return;if(cart.some(l=>l.type==='car'&&l.id===st.id))return openCart();cart=cart.filter(l=>l.type!=='car'||l.id!==st.id);cart.push({type:'car',id:st.id,col:st.col,trim:st.trim});st.add.forEach(a=>{const e=cart.find(l=>l.id===a);e?e.qty++:cart.push({type:'acc',id:a,qty:1})});save();toast('Added to cart');openCart()};
-    $('#addcar').onclick=add;$('#addcar2').onclick=add;$('#wishpdp').onclick=()=>{toggleWish(st.id);rerender()};
+    $('#addcar').onclick=add;$('#wishpdp').onclick=()=>{toggleWish(st.id);rerender()};
   }
   if(path==='/checkout'&&cart.length)bindCheckout();
   if(path==='/admin')bindAdmin();
@@ -550,7 +686,7 @@ function bindCheckout(){
 document.addEventListener('click',e=>{
   const t=e.target.closest('button,a');if(!t)return;
   if(t.getAttribute&&t.getAttribute('href')==='#reviews'){e.preventDefault();const el=$('#reviews');if(el)lenis?lenis.scrollTo(el,{offset:-80}):el.scrollIntoView({behavior:'smooth'});return}
-  if(t.dataset.wish){e.preventDefault();toggleWish(t.dataset.wish);const on=wish.includes(t.dataset.wish);t.setAttribute('aria-pressed',on);t.innerHTML=on?'&#9829;':'&#9825;'}
+  if(t.dataset.wish){e.preventDefault();toggleWish(t.dataset.wish);const on=wish.includes(t.dataset.wish);t.setAttribute('aria-pressed',on);t.innerHTML=t.classList.contains('savebtn')?(on?'&#9829; Saved':'&#9825; Save'):(on?'&#9829;':'&#9825;')}
   if(t.dataset.q!==undefined){const l=cart[+t.dataset.q];l.qty=Math.max(1,l.qty+ +t.dataset.d);save();renderCart()}
   if(t.dataset.rm!==undefined){cart.splice(+t.dataset.rm,1);save();renderCart()}
   if(t.dataset.addacc){const a=t.dataset.addacc,x=cart.find(l=>l.id===a);x?x.qty++:cart.push({type:'acc',id:a,qty:1});save();renderCart()}
@@ -570,16 +706,31 @@ let lastPath=(location.hash.slice(1)||'/').split('?')[0];
 window.addEventListener('hashchange',()=>{
   const np=(location.hash.slice(1)||'/').split('?')[0];
   if((np==='/about'||np==='/contact')&&$('#about')){lastPath=np;scrollToId(np.slice(1));return}
-  const changed=np!==lastPath;lastPath=np;route();if(changed)toTop();
+  const changed=np!==lastPath;lastPath=np;
+  if(!changed){route();return}
+  const m=$('#main');m.classList.add('leaving');setTimeout(()=>{route();toTop();m.classList.remove('leaving')},170);
 });
+/* sticky header compaction + gentle image parallax */
+let ticking=false;const onScroll=()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;$('#hdr').classList.toggle('scrolled',scrollY>40);
+  $$('[data-parallax]').forEach(el=>{const r=el.parentElement.getBoundingClientRect();if(r.bottom<-100||r.top>innerHeight+100)return;el.style.transform=`translate3d(0,${((r.top+r.height/2-innerHeight/2)*-.09).toFixed(1)}px,0)`})})};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+/* search overlay */
+const sov=$('#sov'),sq=$('#sq'),sres=$('#sres');
+const openSearch=()=>{sov.classList.add('open');lenis&&lenis.stop();setTimeout(()=>sq.focus(),150)},closeSearch=()=>{sov.classList.remove('open');lenis&&lenis.start()};
+$('#searchBtn').onclick=()=>sov.classList.contains('open')?closeSearch():openSearch();
+sq.oninput=()=>{const v=sq.value.toLowerCase().trim();if(!v){sres.innerHTML='';return}const toks=v.split(/\s+/).map(t=>SYN[t]||t);const m=visible().filter(c=>{const h=(c.name+' '+c.make+' '+c.body+' '+c.fuel+' '+c.year).toLowerCase();return toks.every(t=>t==='deal'?c.was>c.price:h.includes(t.toLowerCase()))}).slice(0,6);
+  sres.innerHTML=m.map(c=>`<a href="#/car/${c.id}">${c.year} ${esc(c.name)}<small>${money(c.price)}</small></a>`).join('')+`<a href="#/cars?q=${encodeURIComponent(sq.value.trim())}"><b>See all results for "${esc(sq.value.trim())}"</b></a>`};
+sq.onkeydown=e=>{if(e.key==='Enter'&&sq.value.trim()){location.hash='/cars?q='+encodeURIComponent(sq.value.trim());closeSearch()}if(e.key==='Escape')closeSearch()};
+sov.addEventListener('click',e=>{if(e.target.closest('a')||e.target===sov)closeSearch()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sov.classList.contains('open'))closeSearch()});
 $('#burger').onclick=()=>{const o=$('#hdr').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)};
 document.addEventListener('click',e=>{if(e.target.closest('#nav a, #nav button'))$('#hdr').classList.remove('open')});
 $('#waBtn').href='https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi, I would like to know more about your cars.');
 $('#logo').innerHTML=esc(CONFIG.name.toUpperCase()).replace(/\s+(.*)$/,'<em>$1</em>');
-$('#foot').innerHTML=`<div class="cols"><div><span class="flogo">${$('#logo').innerHTML}</span>${esc(CONFIG.tagline)}.<br>Verified pre-owned cars, transparent pricing and professional assistance.</div>
-<div><span class="footer-b">Explore</span><a href="#/">Home</a><a href="#/cars">Inventory</a><a href="#/cars?premium=1">Premium Cars</a><a href="#/sell">Sell Your Car</a><a href="#/about">About Us</a><a href="#/contact">Contact</a></div>
-<div><span class="footer-b">Visit</span>${esc(CONFIG.address)}<br>${esc(CONFIG.hours)}</div>
-<div><span class="footer-b">Contact</span><a href="tel:${CONFIG.phone.replace(/\s/g,'')}">${esc(CONFIG.phone)}</a><a href="mailto:${esc(CONFIG.email)}">${esc(CONFIG.email)}</a><a target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}">WhatsApp</a></div></div>
+$('#foot').innerHTML=`<div class="cols"><div><span class="flogo">${$('#logo').innerHTML}</span>${esc(CONFIG.tagline)}.<br>Verified pre-owned cars, transparent pricing and professional assistance.<div class="soc">${Object.entries(CONFIG.social).map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener" aria-label="${n}">${n.slice(0,2)}</a>`).join('')}</div></div>
+<div><span class="footer-b">Quick links</span><a href="#/">Home</a><a href="#/cars">Inventory</a><a href="#/cars?premium=1">Premium Collection</a><a href="#/sell">Sell Your Car</a><a href="#/about">About</a><a href="#/contact">Contact</a></div>
+<div><span class="footer-b">Inventory</span><a href="#/cars?body=SUV">SUV</a><a href="#/cars?body=Sedan">Sedan</a><a href="#/cars?body=Hatchback">Hatchback</a><a href="#/cars?luxury=1">Luxury</a><a href="#/cars?fuel=Electric">Electric</a><a href="#/cars?trans=Automatic">Automatic</a></div>
+<div><span class="footer-b">Contact</span><a href="tel:${CONFIG.phone.replace(/\s/g,'')}">${esc(CONFIG.phone)}</a><a href="mailto:${esc(CONFIG.email)}">${esc(CONFIG.email)}</a><a target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}">WhatsApp</a><span style="display:block;padding:4px 0">${esc(CONFIG.address)}</span><span style="display:block;padding:4px 0">${esc(CONFIG.hours)}</span></div></div>
 <div class="fbot"><span>&copy; ${new Date().getFullYear()} ${esc(CONFIG.name)}. Prototype - listings are sample stock. Car photos: Wikimedia Commons contributors (CC BY / CC BY-SA), credited on each car page.</span><a href="#/admin">Dealer login</a></div>`;
 save();route();
 </script>
