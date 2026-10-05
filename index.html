@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1f3a"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Apex Motors - Buy Cars Online</title>
 <meta name="description" content="Browse, finance and buy certified new and used cars online. Free returns for 7 days, 3-year warranty, delivered to your door.">
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--ink:#12151b;--mut:#5d6675;--line:#e2e5ea;--acc:#e5382b;--acc2:#b82a1f;--ok:#177a4b;--img:linear-gradient(180deg,#e9edf2,#d5dbe3);--r:14px;--sh:0 6px 24px rgba(18,21,27,.08)}
-@media(prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--ink:#eef1f5;--mut:#9aa4b2;--line:#2a313c;--img:linear-gradient(180deg,#2a313c,#1c222b);--sh:0 6px 24px rgba(0,0,0,.4)}}
+:root{--navy:#0b1f3a;--bg:#f3f6fb;--card:#fff;--ink:#0b1f3a;--mut:#56667f;--line:#dbe3ef;--acc:#f5a30b;--acc2:#e09100;--onacc:#0b1f3a;--err:#c0262d;--ok:#13795b;--img:linear-gradient(180deg,#eef3fa,#d9e2ef);--r:14px;--sh:0 6px 24px rgba(11,31,58,.10)}
+@media(prefers-color-scheme:dark){:root{--bg:#08111f;--card:#0f1c32;--ink:#eaf0fa;--mut:#93a3bd;--line:#1f3250;--err:#ff6b6b;--img:linear-gradient(180deg,#1b3050,#12213a);--sh:0 6px 24px rgba(0,0,0,.45)}}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .wrap{max-width:1240px;margin:0 auto;padding:0 16px}
-.topbar{background:#12151b;color:#eef1f5;font-size:13px;text-align:center;padding:7px 12px}
+.topbar{background:var(--navy);color:#eaf0fa;font-size:13px;text-align:center;padding:7px 12px}
 header.site{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid var(--line)}
 .hrow{display:flex;align-items:center;gap:14px;height:64px}
 .logo{font-weight:800;font-size:22px;letter-spacing:-.5px}.logo b{color:var(--acc)}
@@ -24,14 +24,14 @@ nav.main{display:flex;gap:4px}nav.main a{padding:8px 10px;border-radius:8px;font
 .ac{position:absolute;top:48px;left:0;right:0;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh);overflow:hidden;display:none}
 .ac a{display:flex;gap:10px;align-items:center;padding:8px 12px}.ac a:hover,.ac a[aria-selected=true]{background:var(--bg)}.ac svg.car{width:64px;height:auto;position:static}.ac small{color:var(--mut)}
 .iconbtn{position:relative;background:none;border:1px solid var(--line);border-radius:999px;height:42px;padding:0 14px;color:var(--ink);display:flex;align-items:center;gap:6px;font-weight:600}
-.badge{background:var(--acc);color:#fff;border-radius:999px;font-size:12px;min-width:20px;height:20px;display:inline-grid;place-items:center;padding:0 5px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 22px;font-weight:700;background:var(--acc);color:#fff}
+.badge{background:var(--acc);color:var(--onacc);border-radius:999px;font-size:12px;min-width:20px;height:20px;display:inline-grid;place-items:center;padding:0 5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 22px;font-weight:700;background:var(--acc);color:var(--onacc)}
 .btn:hover{background:var(--acc2)}.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}.btn.ghost:hover{background:var(--bg)}
 .btn.block{width:100%}.btn[disabled]{opacity:.5;cursor:not-allowed}
-.hero{background:radial-gradient(1200px 500px at 70% 0%,#2b3340,#0e1116);color:#fff;border-radius:0 0 28px 28px;overflow:hidden}
+.hero{background:radial-gradient(1200px 520px at 75% 0%,#21457a,#0b1f3a 62%,#071427);color:#fff;border-radius:0 0 28px 28px;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:20px;align-items:center;padding-top:48px;padding-bottom:36px}
 .hero h1{font-size:clamp(34px,5vw,60px);line-height:1.04;margin:0 0 14px;letter-spacing:-1.5px}.hero p{color:#c3cad6;font-size:18px;max-width:520px}
-.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.hero .btn.ghost{color:#fff;border-color:#4a5565}.hero .btn.ghost:hover{background:#ffffff14}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.hero .btn.ghost{color:#fff;border-color:#4d6a96}.hero .btn.ghost:hover{background:#ffffff14}
 .hero .stats{display:flex;gap:26px;margin-top:26px;color:#c3cad6;font-size:14px}.hero .stats b{display:block;font-size:24px;color:#fff}
 section.blk{padding:40px 0}.blk h2{font-size:28px;margin:0 0 6px;letter-spacing:-.5px}.blk .sub{color:var(--mut);margin:0 0 20px}
 .cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
@@ -43,8 +43,8 @@ section.blk{padding:40px 0}.blk h2{font-size:28px;margin:0 0 6px;letter-spacing:
 .card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
 .card h3{margin:0;font-size:17px}.meta{color:var(--mut);font-size:13.5px}
 .price{font-size:22px;font-weight:800}.price s{font-size:14px;font-weight:500;color:var(--mut);margin-left:6px}.price em{font-style:normal;font-size:13px;color:var(--ok);margin-left:6px}
-.tag{position:absolute;top:10px;left:10px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;z-index:2}.tag.sale{background:var(--acc);color:#fff}
-.heart{position:absolute;top:8px;right:8px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:var(--card);color:var(--mut);box-shadow:var(--sh);font-size:18px}.heart[aria-pressed=true]{color:var(--acc)}
+.tag{position:absolute;top:10px;left:10px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;z-index:2}.tag.sale{background:var(--err);color:#fff}
+.heart{position:absolute;top:8px;right:8px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:var(--card);color:var(--mut);box-shadow:var(--sh);font-size:18px}.heart[aria-pressed=true]{color:var(--err)}
 .stars{color:#f2a900;letter-spacing:1px}.stars small{color:var(--mut);letter-spacing:0}
 .dots{display:flex;gap:6px;margin-top:4px}.dot{width:16px;height:16px;border-radius:50%;border:1px solid #0003}
 .layout{display:grid;grid-template-columns:260px 1fr;gap:24px;padding:24px 0 50px}
@@ -86,12 +86,12 @@ table.spec{width:100%;border-collapse:collapse;margin-top:8px}table.spec td{padd
 .co fieldset{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:16px;margin:0 0 16px}.co legend{font-weight:800;padding:0 6px}
 .f{display:flex;flex-direction:column;gap:4px;margin:10px 0}.f label{font-size:14px;font-weight:600}.f label i{font-style:normal;color:var(--mut);font-weight:400}.f small{color:var(--mut)}
 .f input,.f select{height:46px;border-radius:10px;border:1px solid var(--line);padding:0 12px;background:var(--bg);color:var(--ink);font:inherit}
-.f input[aria-invalid=true]{border-color:var(--acc)}.err{color:var(--acc);font-size:13.5px;font-weight:600;min-height:0}
+.f input[aria-invalid=true]{border-color:var(--err)}.err{color:var(--err);font-size:13.5px;font-weight:600;min-height:0}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .choice{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;cursor:pointer}.choice:has(input:checked){border-color:var(--acc);background:color-mix(in srgb,var(--acc) 6%,transparent)}.choice input{margin-top:4px;accent-color:var(--acc)}.choice small{display:block;color:var(--mut)}
 .guest{background:color-mix(in srgb,var(--ok) 10%,transparent);border:1px solid var(--ok);padding:10px 14px;border-radius:10px;font-size:14px;margin-bottom:14px}
 .sum{position:sticky;top:84px}
-footer.site{background:var(--ink);color:#b9c1cd;padding:36px 0;margin-top:30px;font-size:14px}footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}footer.site b{color:#fff;display:block;margin-bottom:6px}footer.site a{display:block;padding:2px 0}footer.site a:hover{color:#fff}
+footer.site{background:var(--navy);color:#aebbd0;padding:36px 0;margin-top:30px;font-size:14px}footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}footer.site b{color:#fff;display:block;margin-bottom:6px}footer.site a{display:block;padding:2px 0}footer.site a:hover{color:#fff}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;z-index:90;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1}
 .empty{text-align:center;padding:50px 10px;color:var(--mut)}
 .conf{max-width:640px;margin:40px auto;text-align:center}.conf .ok{font-size:54px}
@@ -241,7 +241,7 @@ function pdp(id){
   return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / <a href="#/cars">Cars</a> / <a href="#/cars?body=${c.body}">${c.body}</a> / ${esc(c.name)}</div>
   <div class="pdp"><div class="gal"><div class="main">${st.view[0]==='p'&&c.photos[+st.view.slice(1)]?`<img src="${c.photos[+st.view.slice(1)]}" alt="${esc(c.name)}">`:carSVG(c.body,hex,st.view,c.name+' in '+COL[st.col][0])}</div>
    <div class="thumbs" role="group" aria-label="Gallery views">${(c.photos&&c.photos.length?c.photos.map((ph,i)=>`<button aria-pressed="${st.view==='p'+i}" data-view="p${i}" aria-label="Photo ${i+1}"><img src="${ph}" alt=""></button>`):[['side','Side'],['mirror','Other side'],['detail','Wheel detail']].map(v=>`<button aria-pressed="${st.view===v[0]}" data-view="${v[0]}" aria-label="${v[1]} view">${carSVG(c.body,hex,v[0],v[1])}</button>`)).join('')}</div>
-   <p class="note">Illustrative render. ${c.photos&&c.photos.length?'':'Illustrative render. The dealer can upload real photos in Admin.'}</p></div>
+   <p class="note">Illustrative render. ${c.photos&&c.photos.length?'':'The dealer can upload real photos in Admin.'}</p></div>
   <div class="buy"><span class="meta">Pre-owned &middot; ${c.year} &middot; ${c.miles.toLocaleString()} mi</span><h1>${esc(c.name)}</h1>
    <div>${stars(c.rating)} <a href="#reviews" class="meta">${c.rating} &middot; ${c.reviews} reviews</a></div>
    <div class="price" style="font-size:32px;margin-top:8px">${money(price)}${sale?`<s>${money(c.was+TRIMS[st.trim][1])}</s><em>Save ${money(c.was-c.price)}</em>`:''}</div>
