@@ -99,7 +99,29 @@ footer.site{background:var(--navy);color:#aebbd0;padding:36px 0;margin-top:30px;
 @media(max-width:900px){nav.main{display:none}.hero .wrap{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.filters{position:static;display:none}.filters.open{display:block}.fbtn{display:inline-flex}.pdp,.co{grid-template-columns:1fr}.sum{position:static}
 .stickybuy{display:flex;position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 16px;gap:12px;align-items:center;z-index:40}.stickybuy .btn{flex:1}.stickybuy b{font-size:18px}body.pdp-page{padding-bottom:70px}}
 @media(max-width:560px){.hrow{gap:8px;flex-wrap:wrap;height:auto;padding:8px 0}.logo{font-size:19px;margin-right:auto}.search{order:5;flex:1 1 100%;max-width:none;margin-left:0}.ac{top:46px}.iconbtn{padding:0 12px}.hero .stats{gap:16px}.topbar{font-size:12px}.iconbtn span.lbl{display:none}.two{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+
+/* ---- animation (subtle; disabled for reduced-motion) ---- */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes drive{from{opacity:0;transform:translateX(140px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinout{from{transform:rotate(-900deg)}to{transform:rotate(0)}}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.5)}100%{transform:scale(1)}}
+@keyframes slidein{from{transform:translateX(100%)}to{transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes zoomin{from{opacity:0;transform:translate(-50%,-46%) scale(.96)}to{opacity:1;transform:translate(-50%,-50%)}}
+main.enter>*{animation:rise .45s ease backwards}
+.rv{opacity:0}.rv.in{opacity:1;animation:rise .55s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:var(--d,0ms)}
+.hero .wrap>div:last-child svg{animation:drive 1.2s cubic-bezier(.15,.8,.2,1) backwards,float 5s ease-in-out 1.3s infinite}
+.hero .wh{animation:spinout 1.2s cubic-bezier(.15,.8,.2,1) backwards}
+.card:hover .wh,.cat:hover .wh{animation:spin .9s linear infinite}
+.btn{transition:transform .15s,background .15s,box-shadow .15s}.btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(11,31,58,.18)}.btn:active{transform:scale(.97)}
+.badge.pop{animation:pop .4s ease}
+.heart{transition:transform .15s}.heart:active{transform:scale(.8)}.heart[aria-pressed=true]{animation:pop .35s ease}
+.drawer.open .scrim{animation:fade .25s ease}.drawer.open>aside{animation:slidein .3s cubic-bezier(.2,.8,.2,1)}
+.drawer.open>aside[style*="translate"]{animation:zoomin .25s ease}
+.gal .main{transition:transform .3s}.gal .main:hover{transform:scale(1.01)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto}.rv{opacity:1}}
 </style>
 </head>
 <body>
@@ -174,7 +196,7 @@ Coupe:['M14 148 Q12 132 28 126 L80 118 Q110 114 136 104 Q164 82 196 74 Q222 68 2
 Truck:['M12 150 L12 100 Q12 94 18 94 L160 94 L160 74 Q160 62 174 60 L244 58 Q262 58 274 72 L292 98 Q336 100 362 112 Q386 122 386 150 Q386 156 380 156 L18 156 Q12 156 12 150 Z','M176 92 L176 70 Q176 66 182 66 L242 66 Q252 66 258 74 L274 92 Z',166]};
 function carSVG(body,hex,view='side',label=''){
   const [b,w,pil]=SH[body]||SH.Sedan,vb=view==='detail'?'230 90 170 100':'0 0 400 190';
-  const wheel=x=>`<circle cx="${x}" cy="144" r="36" fill="#0a0c10"/><circle cx="${x}" cy="144" r="30" fill="#1d2127"/><circle cx="${x}" cy="144" r="19" fill="#cfd5dd"/><circle cx="${x}" cy="144" r="19" fill="none" stroke="#7b8491" stroke-width="2"/>${[0,72,144,216,288].map(a=>`<line x1="${x}" y1="144" x2="${(x+17*Math.cos(a*Math.PI/180)).toFixed(1)}" y2="${(144+17*Math.sin(a*Math.PI/180)).toFixed(1)}" stroke="#7b8491" stroke-width="3"/>`).join('')}<circle cx="${x}" cy="144" r="5" fill="#4b5360"/>`;
+  const wheel=x=>`<g class="wh" style="transform-origin:${x}px 144px"><circle cx="${x}" cy="144" r="36" fill="#0a0c10"/><circle cx="${x}" cy="144" r="30" fill="#1d2127"/><circle cx="${x}" cy="144" r="19" fill="#cfd5dd"/><circle cx="${x}" cy="144" r="19" fill="none" stroke="#7b8491" stroke-width="2"/>${[0,72,144,216,288].map(a=>`<line x1="${x}" y1="144" x2="${(x+17*Math.cos(a*Math.PI/180)).toFixed(1)}" y2="${(144+17*Math.sin(a*Math.PI/180)).toFixed(1)}" stroke="#7b8491" stroke-width="3"/>`).join('')}<circle cx="${x}" cy="144" r="5" fill="#4b5360"/></g>`;
   const flip=view==='mirror'?' transform="translate(400,0) scale(-1,1)"':'';
   return `<svg viewBox="${vb}" role="img" aria-label="${esc(label||body)}" xmlns="http://www.w3.org/2000/svg"><ellipse cx="200" cy="178" rx="176" ry="8" fill="#000" opacity=".22"/><g${flip}><path d="${b}" fill="${hex}"/><path d="${b}" fill="url(#shine)"/><path d="M26 146 L376 146 L376 152 Q376 154 372 154 L28 154 Q24 154 26 150 Z" fill="#0004"/><path d="${w}" fill="#a9bdd0" opacity=".92" stroke="#0005" stroke-width="1.2"/>${pil?`<path d="M${pil} ${body==='Truck'?66:76} L${pil} 148" stroke="#0003" stroke-width="2" fill="none"/><path d="M${pil} ${body==='Truck'?66:76} L${pil} ${body==='Truck'?92:104}" stroke="${hex}" stroke-width="7"/>`:''}<path d="M${pil?pil-70:140} 126 L${pil?pil+80:300} 126" stroke="#fff" stroke-opacity=".18" stroke-width="2" fill="none"/><rect x="${pil?pil-6:196}" y="118" width="12" height="3" rx="1.5" fill="#0006"/>${wheel(98)}${wheel(302)}<path d="M360 118 Q380 122 384 134 L372 130 Z" fill="#fff2b8"/><path d="M16 122 L28 124 L24 134 Q16 132 16 126 Z" fill="#ff4a4a"/></g></svg>`;
 }
@@ -182,7 +204,8 @@ const stars=r=>'<span class="stars" aria-hidden="true">'+'&#9733;'.repeat(Math.r
 
 /* ---------- state ---------- */
 let cart=store.get('apex.cart',[]),wish=store.get('apex.wish',[]),recent=store.get('apex.recent',[]);
-const save=()=>{store.set('apex.cart',cart);store.set('apex.wish',wish);store.set('apex.recent',recent);$('#cartN').textContent=cart.reduce((n,l)=>n+(l.qty||1),0);$('#wishN').textContent=wish.length};
+let prevN=0;
+const save=()=>{store.set('apex.cart',cart);store.set('apex.wish',wish);store.set('apex.recent',recent);const cn=cart.reduce((n,l)=>n+(l.qty||1),0);$('#cartN').textContent=cn;if(cn>prevN){const b=$('#cartN');b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop')}prevN=cn;$('#wishN').textContent=wish.length};
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2200)}
 const hasCar=()=>cart.some(l=>l.type==='car');
 function unit(l){if(l.type==='acc')return accById(l.id).price;const c=carById(l.id);return c.price+TRIMS[l.trim||0][1]}
@@ -342,8 +365,18 @@ function route(){
   let html;
   if(path==='/')html=home();else if(path==='/cars')html=list();else if(path.startsWith('/car/')){const id=path.split('/')[2];html=pdp(id);if(carById(id)){recent=[id,...recent.filter(x=>x!==id)].slice(0,6);save()}}
   else if(path==='/sell')html=sellPage();else if(path==='/admin')html=adminPage();else if(path==='/checkout')html=checkout();else if(path==='/confirm')html=confirm();else html=home();
-  m.innerHTML=html;document.title=(path.startsWith('/car/')&&carById(path.split('/')[2])?carById(path.split('/')[2]).name+' - ':'')+'Apex Motors';
+  m.innerHTML=html;enter(m);document.title=(path.startsWith('/car/')&&carById(path.split('/')[2])?carById(path.split('/')[2]).name+' - ':'')+'Apex Motors';
   bind(path);
+}
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let io;
+function enter(m){
+  if(reduceMotion)return;
+  m.classList.remove('enter');void m.offsetWidth;m.classList.add('enter');
+  if(!('IntersectionObserver' in window))return;
+  io&&io.disconnect();
+  io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+  $$('.card,.cat,.trust>div',m).forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(i%4)*70+'ms');io.observe(el)});
 }
 function setQ(mut){const p=parseQ();mut(p);const s=p.toString();location.hash='/cars'+(s?'?'+s:'')}
 function bind(path){
