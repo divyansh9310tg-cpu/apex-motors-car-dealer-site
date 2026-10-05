@@ -19,3 +19,7 @@ FOR YOU (before selling)
    you need a backend (e.g. Supabase/Firebase, or Shopify/WooCommerce) + a real payment gateway (Stripe/Razorpay).
    Checkout here is a demo: no payment is taken and no emails are sent.
 4. Rename the demo brands (Voltaro, Kestrel...) - they are fictional placeholders.
+
+DEPLOYING UPDATES
+- After editing index.html, bump BUILD in the auto-update <script> near the top AND version.json (same number), then commit and push.
+- Already-open or cached copies reload themselves to the newest version. GitHub Pages caches pages up to 10 minutes, so very old copies may need a hard refresh (Ctrl+Shift+R) once.
