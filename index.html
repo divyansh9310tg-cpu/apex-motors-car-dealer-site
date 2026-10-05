@@ -131,7 +131,7 @@ html,body{overflow-x:clip}
 .l-in b{font-size:28px;letter-spacing:1px}.l-in em{color:var(--acc);font-style:normal}
 .l-bar{display:block;width:190px;height:3px;background:#1d2736;border-radius:3px;margin:18px auto 0;overflow:hidden}.l-bar i{display:block;height:100%;background:var(--acc);transform-origin:left;transform:scaleX(0);animation:lbar 1.4s ease forwards}
 @keyframes lbar{to{transform:scaleX(1)}}
-.curtain{position:fixed;inset:0;z-index:250;background:var(--acc);transform:scaleY(0);transform-origin:bottom;pointer-events:none;transition:transform .45s cubic-bezier(.7,0,.3,1)}.curtain.cover{transform:scaleY(1);transition-duration:.32s}.curtain.top{transform-origin:top}
+.curtain{position:fixed;inset:0;z-index:250;background:var(--acc);transform:scaleY(0);transform-origin:bottom;pointer-events:none;transition:transform .28s cubic-bezier(.7,0,.3,1)}.curtain.cover{transform:scaleY(1);transition-duration:.18s}.curtain.top{transform-origin:top}
 .glow{position:fixed;left:0;top:0;width:460px;height:460px;margin:-230px 0 0 -230px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,32,.12),transparent 65%);pointer-events:none;z-index:5;mix-blend-mode:screen}
 .btn{position:relative;overflow:hidden;transform:translate(var(--mx,0px),var(--my,0px))}.btn:hover{transform:translate(var(--mx,0px),calc(var(--my,0px) - 1px))}
 .btn:not(.ghost)::after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .65s}.btn:not(.ghost):hover::after{left:140%}
@@ -567,7 +567,7 @@ window.addEventListener('hashchange',()=>{
   if(np===lastPath){route();return}
   lastPath=np;const c=$('#curtain');
   c.classList.remove('top');c.classList.add('cover');
-  setTimeout(()=>{route();toTop();c.classList.add('top');c.classList.remove('cover')},330);
+  setTimeout(()=>{route();toTop();c.classList.add('top');c.classList.remove('cover')},190);
 });
 /* pointer effects (desktop mouse only): card tilt, spotlight on service cards, magnetic buttons, cursor glow */
 if(matchMedia('(hover:hover) and (pointer:fine)').matches){
