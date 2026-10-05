@@ -1,4 +1,4 @@
-APEX MOTORS - used-car dealer website (single file: index.html)
+HAPPY MOTORS - used-car dealer website (single file: index.html)
 
 OPEN: double-click index.html (works offline), or upload the file to any web host.
 

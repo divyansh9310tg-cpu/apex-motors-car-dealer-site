@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="theme-color" content="#0D0F10"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script>/* auto-update: if version.json differs from BUILD, reload once so shared/cached links pick up the newest site. Bump BUILD here AND in version.json on every deploy. */
-(function(){var BUILD='6.0';try{fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){if(j&&j.build&&j.build!==BUILD&&sessionStorage.getItem('apexReload')!==j.build){sessionStorage.setItem('apexReload',j.build);location.reload()}}).catch(function(){})}catch(e){}})();</script><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Apex Motors - Verified Pre-Owned Cars</title>
+(function(){var BUILD='6.1';try{fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){if(j&&j.build&&j.build!==BUILD&&sessionStorage.getItem('apexReload')!==j.build){sessionStorage.setItem('apexReload',j.build);location.reload()}}).catch(function(){})}catch(e){}})();</script><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Motors - Verified Pre-Owned Cars</title>
 <meta name="description" content="Verified pre-owned cars, transparent pricing and professional assistance. Book a test drive or get your car valued.">
 <style>
 :root{color-scheme:light;--ivory:#F5F3EE;--obs:#0D0F10;--graph:#25282A;--gold:#C8A96B;--gold-d:#8a6f3a;--bg:var(--ivory);--card:#fff;--ink:var(--obs);--mut:#5b5f62;--line:#e4e0d6;--acc:var(--gold);--acc2:#b99a58;--onacc:var(--obs);--err:#a8362b;--ok:#2f7d5b;--img:linear-gradient(180deg,#faf8f3,#ebe7dc);--r:12px;--sh:0 12px 38px rgba(13,15,16,.1);--ease:cubic-bezier(.2,.7,.2,1)}
@@ -280,7 +280,7 @@ footer.site .cols{grid-template-columns:1.4fr 1fr 1fr 1.3fr}.soc{display:flex;ga
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient></defs></svg>
-<div class="loader" id="loader" aria-hidden="true"><div class="l-in"><b>APEX<em>MOTORS</em></b><span class="l-bar"><i></i></span></div></div>
+<div class="loader" id="loader" aria-hidden="true"><div class="l-in"><b>HAPPY<em>MOTORS</em></b><span class="l-bar"><i></i></span></div></div>
 <a class="sr" href="#main">Skip to content</a>
 <header class="site" id="hdr"><div class="wrap hrow">
   <a class="logo" href="#/" id="logo"></a>
@@ -308,7 +308,7 @@ footer.site .cols{grid-template-columns:1.4fr 1fr 1fr 1.3fr}.soc{display:flex;ga
 <script>
 const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
 /* ===== DEALER CONFIG: edit this block to white-label the site for a new dealer ===== */
-const CONFIG={name:'Apex Motors',tagline:'Quality pre-owned cars',phone:'+91 90000 00000',whatsapp:'919000000000',email:'sales@apexmotors.example',address:'Your showroom address, City',hours:'Mon-Sat 9:00-19:00',city:'Your City',social:{Instagram:'https://www.instagram.com/',Facebook:'https://www.facebook.com/',YouTube:'https://www.youtube.com/'},currency:'₹',locale:'en-IN',taxRate:0.05,deliveryFee:5000,deposit:10000,apr:10.5,returnDays:7,warranty:'6 months / 10,000 km dealer warranty',adminPin:'1234',soldMode:'badge'};  // soldMode: 'badge' = show SOLD tag, 'hide' = remove sold cars from the site (dealer can also switch this in Admin)
+const CONFIG={name:'Happy Motors',tagline:'Quality pre-owned cars',phone:'+91 90000 00000',whatsapp:'919000000000',email:'sales@happymotors.example',address:'Your showroom address, City',hours:'Mon-Sat 9:00-19:00',city:'Your City',social:{Instagram:'https://www.instagram.com/',Facebook:'https://www.facebook.com/',YouTube:'https://www.youtube.com/'},currency:'₹',locale:'en-IN',taxRate:0.05,deliveryFee:5000,deposit:10000,apr:10.5,returnDays:7,warranty:'6 months / 10,000 km dealer warranty',adminPin:'1234',soldMode:'badge'};  // soldMode: 'badge' = show SOLD tag, 'hide' = remove sold cars from the site (dealer can also switch this in Admin)
 const money=n=>CONFIG.currency+Math.round(n).toLocaleString(CONFIG.locale);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
@@ -598,7 +598,7 @@ function route(){
   let html;
   if(path==='/')html=home();else if(path==='/cars')html=list();else if(path.startsWith('/car/')){const id=path.split('/')[2];html=pdp(id);if(carById(id)){recent=[id,...recent.filter(x=>x!==id)].slice(0,6);save()}}
   else if(path==='/about'||path==='/contact')html=home();else if(path==='/saved')html=wishPage();else if(path==='/sell')html=sellPage();else if(path==='/admin')html=adminPage();else if(path==='/checkout')html=checkout();else if(path==='/confirm')html=confirm();else html=home();
-  m.innerHTML=html;enter(m);document.title=(path.startsWith('/car/')&&carById(path.split('/')[2])?carById(path.split('/')[2]).name+' - ':'')+'Apex Motors';
+  m.innerHTML=html;enter(m);document.title=(path.startsWith('/car/')&&carById(path.split('/')[2])?carById(path.split('/')[2]).name+' - ':'')+'Happy Motors';
   bind(path);
   if(path==='/'||path===''||path==='/about'||path==='/contact'){initHero();bindContact();initHome()}
   if(path==='/about'||path==='/contact')setTimeout(()=>scrollToId(path.slice(1)),180);
