@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apex Motors - Buy Cars Online</title>
+<meta name="description" content="Browse, finance and buy certified new and used cars online. Free returns for 7 days, 3-year warranty, delivered to your door.">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#12151b;--mut:#5d6675;--line:#e2e5ea;--acc:#e5382b;--acc2:#b82a1f;--ok:#177a4b;--img:linear-gradient(180deg,#e9edf2,#d5dbe3);--r:14px;--sh:0 6px 24px rgba(18,21,27,.08)}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--ink:#eef1f5;--mut:#9aa4b2;--line:#2a313c;--img:linear-gradient(180deg,#2a313c,#1c222b);--sh:0 6px 24px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+.topbar{background:#12151b;color:#eef1f5;font-size:13px;text-align:center;padding:7px 12px}
+header.site{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid var(--line)}
+.hrow{display:flex;align-items:center;gap:14px;height:64px}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.5px}.logo b{color:var(--acc)}
+nav.main{display:flex;gap:4px}nav.main a{padding:8px 10px;border-radius:8px;font-weight:600;font-size:15px}nav.main a:hover{background:var(--bg)}
+.search{position:relative;flex:1;max-width:460px;margin-left:auto}
+.search input{width:100%;height:42px;border:1px solid var(--line);border-radius:999px;padding:0 16px 0 40px;background:var(--bg);color:var(--ink);font:inherit}
+.search svg{position:absolute;left:13px;top:11px;width:20px;height:20px;color:var(--mut)}
+.ac{position:absolute;top:48px;left:0;right:0;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh);overflow:hidden;display:none}
+.ac a{display:flex;gap:10px;align-items:center;padding:8px 12px}.ac a:hover,.ac a[aria-selected=true]{background:var(--bg)}.ac svg.car{width:64px;height:auto;position:static}.ac small{color:var(--mut)}
+.iconbtn{position:relative;background:none;border:1px solid var(--line);border-radius:999px;height:42px;padding:0 14px;color:var(--ink);display:flex;align-items:center;gap:6px;font-weight:600}
+.badge{background:var(--acc);color:#fff;border-radius:999px;font-size:12px;min-width:20px;height:20px;display:inline-grid;place-items:center;padding:0 5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 22px;font-weight:700;background:var(--acc);color:#fff}
+.btn:hover{background:var(--acc2)}.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}.btn.ghost:hover{background:var(--bg)}
+.btn.block{width:100%}.btn[disabled]{opacity:.5;cursor:not-allowed}
+.hero{background:radial-gradient(1200px 500px at 70% 0%,#2b3340,#0e1116);color:#fff;border-radius:0 0 28px 28px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:20px;align-items:center;padding-top:48px;padding-bottom:36px}
+.hero h1{font-size:clamp(34px,5vw,60px);line-height:1.04;margin:0 0 14px;letter-spacing:-1.5px}.hero p{color:#c3cad6;font-size:18px;max-width:520px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.hero .btn.ghost{color:#fff;border-color:#4a5565}.hero .btn.ghost:hover{background:#ffffff14}
+.hero .stats{display:flex;gap:26px;margin-top:26px;color:#c3cad6;font-size:14px}.hero .stats b{display:block;font-size:24px;color:#fff}
+section.blk{padding:40px 0}.blk h2{font-size:28px;margin:0 0 6px;letter-spacing:-.5px}.blk .sub{color:var(--mut);margin:0 0 20px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px;text-align:center;font-weight:700;transition:.15s}.cat:hover{transform:translateY(-3px);box-shadow:var(--sh)}.cat svg{width:100%;height:auto}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.trust div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}.trust b{display:block;margin-bottom:4px}.trust span{color:var(--mut);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.15s;position:relative}.card .img img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:8px}.gal .main img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:10px}.thumbs img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:6px}.card.sold .img{opacity:.55;filter:grayscale(.6)}.card:hover{box-shadow:var(--sh);transform:translateY(-2px)}
+.card .img{background:var(--img);padding:14px 10px 4px;display:block}.card .img svg{width:100%;height:auto;display:block}
+.card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{margin:0;font-size:17px}.meta{color:var(--mut);font-size:13.5px}
+.price{font-size:22px;font-weight:800}.price s{font-size:14px;font-weight:500;color:var(--mut);margin-left:6px}.price em{font-style:normal;font-size:13px;color:var(--ok);margin-left:6px}
+.tag{position:absolute;top:10px;left:10px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;z-index:2}.tag.sale{background:var(--acc);color:#fff}
+.heart{position:absolute;top:8px;right:8px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:var(--card);color:var(--mut);box-shadow:var(--sh);font-size:18px}.heart[aria-pressed=true]{color:var(--acc)}
+.stars{color:#f2a900;letter-spacing:1px}.stars small{color:var(--mut);letter-spacing:0}
+.dots{display:flex;gap:6px;margin-top:4px}.dot{width:16px;height:16px;border-radius:50%;border:1px solid #0003}
+.layout{display:grid;grid-template-columns:260px 1fr;gap:24px;padding:24px 0 50px}
+.filters{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;align-self:start;position:sticky;top:84px}
+.filters h4{margin:14px 0 6px;font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut)}.filters h4:first-child{margin-top:0}
+.filters label{display:flex;gap:8px;align-items:center;padding:4px 0;cursor:pointer}.filters input[type=checkbox]{width:18px;height:18px;accent-color:var(--acc)}
+.filters input[type=range]{width:100%;accent-color:var(--acc)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}.bar select{height:40px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:0 10px;font:inherit}
+.fbtn{display:none}
+.crumbs{font-size:14px;color:var(--mut);padding:16px 0 0}.crumbs a:hover{text-decoration:underline}
+.pdp{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;padding:18px 0 40px}
+.gal .main{background:var(--img);border-radius:var(--r);padding:30px 16px 10px;border:1px solid var(--line)}.gal .main svg{width:100%;height:auto;display:block}
+.thumbs{display:flex;gap:10px;margin-top:10px}.thumbs button{flex:1;background:var(--img);border:2px solid transparent;border-radius:10px;padding:4px;max-width:130px}.thumbs button[aria-pressed=true]{border-color:var(--acc)}.thumbs svg{width:100%;height:auto;display:block}
+.note{font-size:12.5px;color:var(--mut);margin-top:8px}
+.buy h1{font-size:30px;line-height:1.15;margin:4px 0 6px;letter-spacing:-.6px}
+.opt{margin:18px 0}.opt>b{display:block;margin-bottom:8px}
+.swatches,.trims{display:flex;gap:10px;flex-wrap:wrap}
+.sw{width:38px;height:38px;border-radius:50%;border:2px solid var(--line);box-shadow:inset 0 0 0 3px var(--card)}.sw[aria-pressed=true]{border-color:var(--acc)}
+.trim{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:10px 14px;text-align:left;min-width:120px}.trim[aria-pressed=true]{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}.trim small{display:block;color:var(--mut)}
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.est{font-size:14px}.est div{display:flex;justify-content:space-between;padding:3px 0}.est .tot{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;font-weight:800;font-size:16px}
+.deliv{color:var(--ok);font-weight:600;font-size:14px;margin:10px 0}
+.ctas{display:flex;gap:10px;margin-top:12px}.ctas .btn:first-child{flex:1}
+.addons label{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.addons label:last-child{border:0}.addons span{flex:1}.addons input{width:18px;height:18px;accent-color:var(--acc)}
+details{border-bottom:1px solid var(--line);padding:12px 0}summary{font-weight:700;cursor:pointer}details p,details ul{color:var(--mut);margin:8px 0 0}
+table.spec{width:100%;border-collapse:collapse;margin-top:8px}table.spec td{padding:6px 0;border-bottom:1px solid var(--line);font-size:14.5px}table.spec td:first-child{color:var(--mut);width:45%}
+.rev{border-top:1px solid var(--line);padding:12px 0}.rev .reply{margin:8px 0 0 14px;padding-left:12px;border-left:3px solid var(--acc);color:var(--mut);font-size:14px}
+.fin input[type=range]{width:100%;accent-color:var(--acc)}.fin .row{display:flex;justify-content:space-between;font-size:14px}.fin .big{font-size:26px;font-weight:800}
+.stickybuy{display:none}
+.drawer{position:fixed;inset:0;z-index:60;display:none}.drawer.open{display:block}
+.drawer .scrim{position:absolute;inset:0;background:#0008}.drawer aside{position:absolute;right:0;top:0;bottom:0;width:min(440px,100%);background:var(--card);display:flex;flex-direction:column;box-shadow:var(--sh)}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid var(--line)}.drawer header h2{margin:0;font-size:20px}
+.drawer .items{flex:1;overflow:auto;padding:8px 16px}.drawer footer{padding:16px;border-top:1px solid var(--line)}
+.line{display:grid;grid-template-columns:96px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}.line .t{background:var(--img);border-radius:8px;padding:4px}.line .t svg{width:100%;height:auto;display:block}.line .t.acc{display:grid;place-items:center;height:60px;font-size:28px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:8px;margin-top:4px}.qty button{width:34px;height:34px;background:none;border:0;color:var(--ink);font-size:18px}.qty span{min-width:26px;text-align:center}
+.link{background:none;border:0;color:var(--mut);text-decoration:underline;padding:0;font-size:13px}
+.co{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;padding:24px 0 50px;align-items:start}
+.steps{display:flex;gap:8px;margin-bottom:16px;font-size:14px;color:var(--mut);flex-wrap:wrap}.steps b{color:var(--ink)}
+.co fieldset{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:16px;margin:0 0 16px}.co legend{font-weight:800;padding:0 6px}
+.f{display:flex;flex-direction:column;gap:4px;margin:10px 0}.f label{font-size:14px;font-weight:600}.f label i{font-style:normal;color:var(--mut);font-weight:400}.f small{color:var(--mut)}
+.f input,.f select{height:46px;border-radius:10px;border:1px solid var(--line);padding:0 12px;background:var(--bg);color:var(--ink);font:inherit}
+.f input[aria-invalid=true]{border-color:var(--acc)}.err{color:var(--acc);font-size:13.5px;font-weight:600;min-height:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.choice{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;cursor:pointer}.choice:has(input:checked){border-color:var(--acc);background:color-mix(in srgb,var(--acc) 6%,transparent)}.choice input{margin-top:4px;accent-color:var(--acc)}.choice small{display:block;color:var(--mut)}
+.guest{background:color-mix(in srgb,var(--ok) 10%,transparent);border:1px solid var(--ok);padding:10px 14px;border-radius:10px;font-size:14px;margin-bottom:14px}
+.sum{position:sticky;top:84px}
+footer.site{background:var(--ink);color:#b9c1cd;padding:36px 0;margin-top:30px;font-size:14px}footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}footer.site b{color:#fff;display:block;margin-bottom:6px}footer.site a{display:block;padding:2px 0}footer.site a:hover{color:#fff}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;z-index:90;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1}
+.empty{text-align:center;padding:50px 10px;color:var(--mut)}
+.conf{max-width:640px;margin:40px auto;text-align:center}.conf .ok{font-size:54px}
+.sr{position:absolute;left:-9999px}html,body{overflow-x:hidden}
+@media(max-width:900px){nav.main{display:none}.hero .wrap{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.filters{position:static;display:none}.filters.open{display:block}.fbtn{display:inline-flex}.pdp,.co{grid-template-columns:1fr}.sum{position:static}
+.stickybuy{display:flex;position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 16px;gap:12px;align-items:center;z-index:40}.stickybuy .btn{flex:1}.stickybuy b{font-size:18px}body.pdp-page{padding-bottom:70px}}
+@media(max-width:560px){.hrow{gap:8px;flex-wrap:wrap;height:auto;padding:8px 0}.logo{font-size:19px;margin-right:auto}.search{order:5;flex:1 1 100%;max-width:none;margin-left:0}.ac{top:46px}.iconbtn{padding:0 12px}.hero .stats{gap:16px}.topbar{font-size:12px}.iconbtn span.lbl{display:none}.two{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient></defs></svg>
+<a class="sr" href="#main">Skip to content</a>
+<div class="topbar" id="topbar"></div>
+<header class="site"><div class="wrap hrow">
+  <a class="logo" href="#/" id="logo"></a>
+  <nav class="main" aria-label="Main">
+    <a href="#/cars">All cars</a><a href="#/cars?fuel=Electric">Electric</a><a href="#/cars?body=SUV">SUVs</a><a href="#/cars?deals=1">Deals</a><a href="#/sell">Sell your car</a>
+  </nav>
+  <div class="search" role="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+    <input id="q" type="search" placeholder="Search make, model, SUV, electric..." autocomplete="off" aria-label="Search cars" aria-controls="ac" aria-autocomplete="list">
+    <div class="ac" id="ac" role="listbox"></div>
+  </div>
+  <button class="iconbtn" id="wishBtn" aria-label="Saved cars">&#9825; <span class="lbl">Saved</span> <span class="badge" id="wishN">0</span></button>
+  <button class="iconbtn" id="cartBtn" aria-label="Open cart">&#128722; <span class="lbl">Cart</span> <span class="badge" id="cartN">0</span></button>
+</div></header>
+<main id="main"></main>
+<footer class="site"><div class="wrap cols" id="foot"></div></footer>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Cart"><div class="scrim" id="scrim"></div><aside id="cartPanel"></aside></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
+/* ===== DEALER CONFIG: edit this block to white-label the site for a new dealer ===== */
+const CONFIG={name:'Apex Motors',tagline:'Quality pre-owned cars',phone:'+1 555 010 2030',whatsapp:'15550102030',email:'sales@apexmotors.example',address:'12 Auto Mile Road, Your City',hours:'Mon-Sat 9:00-19:00',currency:'$',locale:'en-US',taxRate:0.08,deliveryFee:349,deposit:500,apr:6.9,returnDays:7,warranty:'3 months / 3,000 mi dealer warranty',adminPin:'1234',soldMode:'badge'};  // soldMode: 'badge' = show SOLD tag, 'hide' = remove sold cars from the site (dealer can also switch this in Admin)
+const money=n=>CONFIG.currency+Math.round(n).toLocaleString(CONFIG.locale);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ---------- data ---------- */
+const COL={white:['Glacier White','#f2f4f6'],black:['Midnight','#171b22'],red:['Racing Red','#c8202f'],blue:['Ocean Blue','#1f5fa8'],green:['Forest','#2f5d46'],sand:['Sand','#c9b48c'],silver:['Silver','#a9b0b8'],orange:['Sunset','#e0702a']};
+// id,name,make,body,fuel,year,cond,price,was,miles,eff,power,rating,reviews,badge,colour,owners,transmission
+const SEED=[
+['volt-s','Voltaro Aria S','Voltaro','Sedan','Electric',2023,'Used',33900,36900,14200,'340 mi range','300 hp',4.8,41,'Best Seller','white',1,'Automatic'],
+['volt-x','Voltaro Aria X','Voltaro','SUV','Electric',2022,'Used',41900,0,21800,'310 mi range','420 hp',4.7,26,'Low Miles','black',1,'Automatic'],
+['kes-gt','Kestrel GT-R','Kestrel','Coupe','Petrol',2020,'Used',49900,53500,22100,'22 mpg','510 hp',4.9,18,'Enthusiast','red',2,'Manual'],
+['nor-v','Nordal V90 Estate','Nordal','SUV','Hybrid',2021,'Used',31900,34500,34200,'38 mpg','290 hp',4.6,33,'Family Pick','sand',1,'Automatic'],
+['bra-c','Brava City','Brava','Hatchback','Petrol',2019,'Used',9900,10900,48400,'41 mpg','128 hp',4.4,52,'Great Value','red',2,'Manual'],
+['aer-e','Aeron E-Hatch','Aeron','Hatchback','Electric',2022,'Used',21900,23900,26000,'260 mi range','201 hp',4.5,29,'Eco','green',1,'Automatic'],
+['ost-t','Ostra Ranger Truck','Ostra','Truck','Diesel',2021,'Used',34200,0,38500,'27 mpg','330 hp',4.6,20,'Tow 11,000 lb','black',1,'Automatic'],
+['har-l','Hartwell Landmaster','Hartwell','SUV','Diesel',2020,'Used',26400,28900,61200,'30 mpg','262 hp',4.5,17,'Certified','green',2,'Automatic'],
+['zen-r','Zenko RX Sport','Zenko','Coupe','Hybrid',2022,'Used',44800,0,19000,'33 mpg','395 hp',4.7,12,'Low Miles','orange',1,'Automatic'],
+['nor-s','Nordal S60 Sedan','Nordal','Sedan','Petrol',2020,'Used',17800,19900,51800,'33 mpg','247 hp',4.4,26,'Certified','silver',2,'Automatic'],
+['aer-s','Aeron Sky SUV','Aeron','SUV','Electric',2021,'Used',27900,29900,37800,'285 mi range','340 hp',4.6,24,'Low Miles','blue',1,'Automatic'],
+['bra-g','Brava Grand Sedan','Brava','Sedan','Hybrid',2022,'Used',22500,0,29500,'52 mpg','196 hp',4.6,35,'Top Fuel Economy','white',1,'Automatic'],
+['kes-s','Kestrel Spider','Kestrel','Coupe','Petrol',2018,'Used',39900,42500,42100,'22 mpg','460 hp',4.8,9,'Enthusiast','red',3,'Manual'],
+['ost-p','Ostra Pioneer','Ostra','Truck','Petrol',2019,'Used',21900,23900,72400,'22 mpg','305 hp',4.3,14,'Work Ready','white',2,'Manual'],
+['har-c','Hartwell Compact SUV','Hartwell','SUV','Petrol',2021,'Used',16900,18400,39800,'31 mpg','184 hp',4.4,31,'Great Value','silver',1,'Automatic'],
+['zen-e','Zenko Neo Sedan','Zenko','Sedan','Electric',2023,'Used',29900,0,11600,'300 mi range','282 hp',4.7,20,'Fast Charging','blue',1,'Automatic']
+];
+const toCar=r=>({id:r[0],name:r[1],make:r[2],body:r[3],fuel:r[4],year:+r[5],cond:r[6]||'Used',price:+r[7],was:+r[8]||0,miles:+r[9],eff:r[10],power:r[11],rating:+r[12],reviews:+r[13],badge:r[14],colors:[r[15]],owners:+r[16],trans:r[17],sold:!!r[18],photos:r[19]||[]});
+let CARS=store.get('apex.cars',null)||SEED.map(toCar);
+const persistCars=()=>{try{localStorage.setItem('apex.cars',JSON.stringify(CARS));return true}catch(e){return false}};
+const soldMode=()=>store.get('apex.soldMode',CONFIG.soldMode);
+const visible=()=>CARS.filter(c=>!(c.sold&&soldMode()==='hide'));
+function resizeImg(file,max=800){return new Promise((res,rej)=>{const fr=new FileReader();fr.onerror=rej;fr.onload=()=>{const im=new Image();im.onerror=rej;im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.75))};im.src=fr.result};fr.readAsDataURL(file)})}
+const TRIMS=[['Standard',0,'']];
+const ACC=[{id:'mats',name:'All-weather floor mats',price:189,ic:'&#128739;'},{id:'dash',name:'4K dash cam (front+rear)',price:249,ic:'&#128249;'},{id:'chg',name:'Home charger / wall unit',price:549,ic:'&#9889;'},{id:'ceram',name:'Ceramic paint protection',price:1290,ic:'&#10024;'},{id:'warr',name:'Extended warranty (+2 yrs)',price:1800,ic:'&#128737;'}];
+const SYN={suv:'SUV',ev:'Electric',electric:'Electric',truck:'Truck',pickup:'Truck',sedan:'Sedan',hybrid:'Hybrid',sports:'Coupe',hatch:'Hatchback',diesel:'Diesel',family:'SUV',cheap:'deal'};
+const CAPMAX=Math.max(20000,Math.ceil(Math.max(...CARS.map(c=>c.price))/10000)*10000);
+const carById=id=>CARS.find(c=>c.id===id),accById=id=>ACC.find(a=>a.id===id);
+
+/* ---------- car art (SVG) ---------- */
+const SH={
+Sedan:['M16 148 Q14 130 30 124 L74 116 Q100 112 126 100 Q152 78 182 70 Q204 64 234 64 Q264 64 284 82 L302 104 Q340 108 364 120 Q384 128 384 148 Q384 154 378 154 L22 154 Q16 154 16 148 Z','M142 102 Q160 82 184 76 L228 76 Q250 76 266 90 L282 104 Z',206],
+SUV:['M14 150 Q12 126 28 118 L60 108 L92 100 Q104 66 128 58 L282 58 Q300 58 310 72 L328 100 Q356 104 370 114 Q386 124 386 150 Q386 156 380 156 L20 156 Q14 156 14 150 Z','M108 98 Q116 70 134 66 L284 66 Q294 66 300 76 L314 100 Z',200],
+Hatchback:['M16 148 Q14 128 28 122 L66 112 Q92 106 112 92 Q132 66 164 62 L248 62 Q272 62 288 80 L304 104 Q342 108 366 120 Q384 128 384 148 Q384 154 378 154 L22 154 Q16 154 16 148 Z','M126 100 Q142 74 166 70 L246 70 Q262 70 274 84 L288 102 Z',202],
+Coupe:['M14 148 Q12 132 28 126 L80 118 Q110 114 136 104 Q164 82 196 74 Q222 68 246 70 Q268 74 284 90 L298 108 Q342 112 368 122 Q386 130 386 148 Q386 154 380 154 L20 154 Q14 154 14 148 Z','M158 106 Q176 86 200 80 L240 78 Q258 80 270 92 L282 108 Z',0],
+Truck:['M12 150 L12 100 Q12 94 18 94 L160 94 L160 74 Q160 62 174 60 L244 58 Q262 58 274 72 L292 98 Q336 100 362 112 Q386 122 386 150 Q386 156 380 156 L18 156 Q12 156 12 150 Z','M176 92 L176 70 Q176 66 182 66 L242 66 Q252 66 258 74 L274 92 Z',166]};
+function carSVG(body,hex,view='side',label=''){
+  const [b,w,pil]=SH[body]||SH.Sedan,vb=view==='detail'?'230 90 170 100':'0 0 400 190';
+  const wheel=x=>`<circle cx="${x}" cy="144" r="36" fill="#0a0c10"/><circle cx="${x}" cy="144" r="30" fill="#1d2127"/><circle cx="${x}" cy="144" r="19" fill="#cfd5dd"/><circle cx="${x}" cy="144" r="19" fill="none" stroke="#7b8491" stroke-width="2"/>${[0,72,144,216,288].map(a=>`<line x1="${x}" y1="144" x2="${(x+17*Math.cos(a*Math.PI/180)).toFixed(1)}" y2="${(144+17*Math.sin(a*Math.PI/180)).toFixed(1)}" stroke="#7b8491" stroke-width="3"/>`).join('')}<circle cx="${x}" cy="144" r="5" fill="#4b5360"/>`;
+  const flip=view==='mirror'?' transform="translate(400,0) scale(-1,1)"':'';
+  return `<svg viewBox="${vb}" role="img" aria-label="${esc(label||body)}" xmlns="http://www.w3.org/2000/svg"><ellipse cx="200" cy="178" rx="176" ry="8" fill="#000" opacity=".22"/><g${flip}><path d="${b}" fill="${hex}"/><path d="${b}" fill="url(#shine)"/><path d="M26 146 L376 146 L376 152 Q376 154 372 154 L28 154 Q24 154 26 150 Z" fill="#0004"/><path d="${w}" fill="#a9bdd0" opacity=".92" stroke="#0005" stroke-width="1.2"/>${pil?`<path d="M${pil} ${body==='Truck'?66:76} L${pil} 148" stroke="#0003" stroke-width="2" fill="none"/><path d="M${pil} ${body==='Truck'?66:76} L${pil} ${body==='Truck'?92:104}" stroke="${hex}" stroke-width="7"/>`:''}<path d="M${pil?pil-70:140} 126 L${pil?pil+80:300} 126" stroke="#fff" stroke-opacity=".18" stroke-width="2" fill="none"/><rect x="${pil?pil-6:196}" y="118" width="12" height="3" rx="1.5" fill="#0006"/>${wheel(98)}${wheel(302)}<path d="M360 118 Q380 122 384 134 L372 130 Z" fill="#fff2b8"/><path d="M16 122 L28 124 L24 134 Q16 132 16 126 Z" fill="#ff4a4a"/></g></svg>`;
+}
+const stars=r=>'<span class="stars" aria-hidden="true">'+'&#9733;'.repeat(Math.round(r))+'&#9734;'.repeat(5-Math.round(r))+'</span>';
+
+/* ---------- state ---------- */
+let cart=store.get('apex.cart',[]),wish=store.get('apex.wish',[]),recent=store.get('apex.recent',[]);
+const save=()=>{store.set('apex.cart',cart);store.set('apex.wish',wish);store.set('apex.recent',recent);$('#cartN').textContent=cart.reduce((n,l)=>n+(l.qty||1),0);$('#wishN').textContent=wish.length};
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2200)}
+const hasCar=()=>cart.some(l=>l.type==='car');
+function unit(l){if(l.type==='acc')return accById(l.id).price;const c=carById(l.id);return c.price+TRIMS[l.trim||0][1]}
+const TAX=CONFIG.taxRate,DELIV=CONFIG.deliveryFee;
+function totals(delivery=true){const sub=cart.reduce((s,l)=>s+unit(l)*(l.qty||1),0),tax=sub*TAX,del=hasCar()&&delivery?DELIV:0;return{sub,tax,del,total:sub+tax+del}}
+function deliveryDate(){const a=new Date(),b=new Date();a.setDate(a.getDate()+5);b.setDate(b.getDate()+9);const f=d=>d.toLocaleDateString('en-US',{month:'short',day:'numeric'});return f(a)+' - '+f(b)}
+function monthly(price,down,term,apr=CONFIG.apr){const P=price-down,r=apr/1200;return P<=0?0:P*r/(1-Math.pow(1+r,-term))}
+
+/* ---------- card ---------- */
+function card(c){
+  const sale=c.was>c.price,on=wish.includes(c.id);
+  return `<article class="card${c.sold?' sold':''}"><span class="tag${sale||c.sold?' sale':''}">${c.sold?'Sold':sale?'-'+Math.round((1-c.price/c.was)*100)+'% off':esc(c.badge)}</span>
+  <button class="heart" aria-pressed="${on}" aria-label="Save ${esc(c.name)}" data-wish="${c.id}">${on?'&#9829;':'&#9825;'}</button>
+  <a class="img" href="#/car/${c.id}">${c.photos&&c.photos[0]?`<img src="${c.photos[0]}" alt="${esc(c.name)}" loading="lazy">`:carSVG(c.body,COL[c.colors[0]][1],'side',c.name)}</a>
+  <div class="body"><h3><a href="#/car/${c.id}">${c.year} ${esc(c.name)}</a></h3>
+  <div class="meta">${c.miles.toLocaleString()} mi &middot; ${c.fuel} &middot; ${c.trans} &middot; ${c.owners} owner${c.owners>1?'s':''}</div>
+  <div>${stars(c.rating)} <small class="meta">${c.rating} (${c.reviews})</small></div>
+  <div class="price">${money(c.price)}${sale?`<s>${money(c.was)}</s>`:''}</div>
+  <div class="meta"><span class="dot" style="background:${COL[c.colors[0]][1]};display:inline-block;vertical-align:middle"></span> ${COL[c.colors[0]][0]} &middot; From ${money(monthly(c.price,c.price*.1,60))}/mo</div></div></article>`;
+}
+
+/* ---------- views ---------- */
+function home(){
+  const bodies=['SUV','Sedan','Coupe','Hatchback','Truck'],live=visible().filter(c=>!c.sold);
+  return `<section class="hero"><div class="wrap"><div><h1>Quality pre-owned cars. Buy online or visit us.</h1><p>Every car is inspected on 200 points, history-checked and covered by our warranty. Reserve online in minutes, with a ${CONFIG.returnDays}-day money-back guarantee.</p>
+  <div class="cta"><a class="btn" href="#/cars">Browse ${live.length} cars</a><a class="btn ghost" href="#/sell">Sell your car</a></div>
+  <div class="stats"><div><b>${CONFIG.returnDays} days</b>free returns</div><div><b>200 pt</b>inspection</div><div><b>History</b>checked</div></div></div>
+  <div>${carSVG('Coupe','#c8202f','side','Featured car')}</div></div></section>
+  <div class="wrap"><section class="blk"><h2>Shop by body type</h2><p class="sub">Pick a shape, then narrow with filters.</p><div class="cats">${bodies.map(b=>`<a class="cat" href="#/cars?body=${b}">${carSVG(b,'#8a93a0','side',b)}${b}</a>`).join('')}</div></section>
+  <section class="blk"><h2>Just in</h2><p class="sub">Freshly inspected and ready to drive.</p><div class="grid">${[...live].slice(0,6).map(card).join('')}</div></section>
+  <section class="blk"><h2>Price drops</h2><p class="sub">Reduced this week.</p><div class="grid">${live.filter(c=>c.was>c.price).slice(0,3).map(card).join('')}</div><p><a class="btn ghost" href="#/cars?deals=1">See all deals</a></p></section>
+  <section class="blk"><div class="box" style="display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div><h2 style="margin:0">Want to sell or trade in your car?</h2><p class="sub" style="margin:4px 0 0">Get a free valuation. We buy any make, any condition.</p></div><a class="btn" href="#/sell">Get my valuation</a></div></section>
+  <section class="blk"><h2>Why buy from ${esc(CONFIG.name)}</h2><div class="trust"><div><b>${CONFIG.returnDays}-day returns</b><span>Not happy? Return it for a full refund.</span></div><div><b>200-point inspection</b><span>Every car checked, findings listed on its page.</span></div><div><b>History checked</b><span>Ownership, accident and finance checks on every car.</span></div><div><b>Warranty included</b><span>${esc(CONFIG.warranty)}.</span></div></div></section></div>`;
+}
+function parseQ(){const h=location.hash.slice(1),i=h.indexOf('?');const p=new URLSearchParams(i<0?'':h.slice(i+1));return p}
+function list(){
+  const p=parseQ(),sel=k=>p.get(k)?p.get(k).split(','):[],body=sel('body'),fuel=sel('fuel'),trans=sel('trans'),q=(p.get('q')||'').toLowerCase().trim();
+  const max=+p.get('max')||CAPMAX,sort=p.get('sort')||'featured',deals=p.get('deals')==='1',shown=+p.get('n')||9;
+  let r=visible().filter(c=>(!body.length||body.includes(c.body))&&(!fuel.length||fuel.includes(c.fuel))&&(!trans.length||trans.includes(c.trans))&&c.price<=max&&(!deals||c.was>c.price));
+  if(q){const toks=q.split(/\s+/).map(t=>SYN[t]||t);r=r.filter(c=>{const hay=(c.name+' '+c.make+' '+c.body+' '+c.fuel+' '+c.year+' '+c.trans).toLowerCase();return toks.every(t=>t==='deal'?c.was>c.price:hay.includes(t.toLowerCase()))})}
+  const S={featured:(a,b)=>b.reviews-a.reviews,low:(a,b)=>a.price-b.price,high:(a,b)=>b.price-a.price,rating:(a,b)=>b.rating-a.rating,new:(a,b)=>b.year-a.year||a.miles-b.miles,miles:(a,b)=>a.miles-b.miles};
+  r.sort((a,b)=>(a.sold-b.sold)||S[sort](a,b));
+  const chk=(k,vals,cur)=>vals.map(v=>`<label><input type="checkbox" data-f="${k}" value="${v}" ${cur.includes(v)?'checked':''}> ${v} <small class="meta">(${CARS.filter(c=>c[k]===v).length})</small></label>`).join('');
+  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / Cars${q?` / "${esc(q)}"`:''}</div><div class="layout">
+  <aside class="filters" id="filters" aria-label="Filters"><h4>Body type</h4>${chk('body',['SUV','Sedan','Coupe','Hatchback','Truck'],body)}<h4>Fuel</h4>${chk('fuel',['Electric','Hybrid','Petrol','Diesel'],fuel)}<h4>Gearbox</h4>${chk('trans',['Automatic','Manual'],trans)}
+  <h4>Max price: <span id="maxv">${money(max)}</span></h4><input type="range" id="max" min="10000" max="${CAPMAX}" step="1000" value="${max}" aria-label="Maximum price"><h4>Offers</h4><label><input type="checkbox" id="deals" ${deals?'checked':''}> Deals only</label><p><button class="link" id="clr">Clear all filters</button></p></aside>
+  <div><div class="bar"><div><b>${r.length}</b> car${r.length===1?'':'s'} found <button class="btn ghost fbtn" id="fbtn" style="padding:8px 14px;margin-left:8px">Filters</button></div>
+  <label>Sort <select id="sort" aria-label="Sort cars">${[['featured','Most popular'],['low','Price: low to high'],['high','Price: high to low'],['rating','Top rated'],['new','Newest'],['miles','Lowest mileage']].map(o=>`<option value="${o[0]}" ${sort===o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></label></div>
+  ${r.length?`<div class="grid">${r.slice(0,shown).map(card).join('')}</div>${r.length>shown?`<p style="text-align:center;margin-top:22px"><button class="btn ghost" id="more">Load more (${r.length-shown} left)</button></p>`:''}`:`<div class="empty"><h3>No cars match those filters</h3><p>Try removing a filter or raising the maximum price.</p><button class="btn" id="clr2">Clear filters</button></div>`}</div></div></div>`;
+}
+function pdp(id){
+  const c=carById(id);if(!c||!visible().includes(c))return `<div class="wrap empty"><h2>This car is no longer available</h2><p>It may have just been sold.</p><a class="btn" href="#/cars">Browse cars</a></div>`;
+  const st=pdp.st=(pdp.st&&pdp.st.id===id)?pdp.st:{id,col:c.colors[0],trim:0,view:(c.photos&&c.photos.length)?'p0':'side',add:[],term:60,down:Math.round(c.price*.1)};
+  const hex=COL[st.col][1],price=c.price+TRIMS[st.trim][1],addT=st.add.reduce((s,a)=>s+accById(a).price,0),sub=price+addT,tax=sub*TAX,sale=c.was>c.price,on=wish.includes(c.id);
+  const reviews=[[5,'Smooth buying experience','Ordered on Sunday, delivered Thursday. Exactly as described, and the inspection report was spot on.','Thanks for the kind words! Enjoy the drive.'],[4,'Great car, small scuff','Drives beautifully. One tiny scuff on the rear bumper that was listed in the report.',''],[5,'Worth it','Used the 7-day window to be sure. Kept it. No regrets.','']];
+  return `<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / <a href="#/cars">Cars</a> / <a href="#/cars?body=${c.body}">${c.body}</a> / ${esc(c.name)}</div>
+  <div class="pdp"><div class="gal"><div class="main">${st.view[0]==='p'&&c.photos[+st.view.slice(1)]?`<img src="${c.photos[+st.view.slice(1)]}" alt="${esc(c.name)}">`:carSVG(c.body,hex,st.view,c.name+' in '+COL[st.col][0])}</div>
+   <div class="thumbs" role="group" aria-label="Gallery views">${(c.photos&&c.photos.length?c.photos.map((ph,i)=>`<button aria-pressed="${st.view==='p'+i}" data-view="p${i}" aria-label="Photo ${i+1}"><img src="${ph}" alt=""></button>`):[['side','Side'],['mirror','Other side'],['detail','Wheel detail']].map(v=>`<button aria-pressed="${st.view===v[0]}" data-view="${v[0]}" aria-label="${v[1]} view">${carSVG(c.body,hex,v[0],v[1])}</button>`)).join('')}</div>
+   <p class="note">Illustrative render. ${c.photos&&c.photos.length?'':'Illustrative render. The dealer can upload real photos in Admin.'}</p></div>
+  <div class="buy"><span class="meta">Pre-owned &middot; ${c.year} &middot; ${c.miles.toLocaleString()} mi</span><h1>${esc(c.name)}</h1>
+   <div>${stars(c.rating)} <a href="#reviews" class="meta">${c.rating} &middot; ${c.reviews} reviews</a></div>
+   <div class="price" style="font-size:32px;margin-top:8px">${money(price)}${sale?`<s>${money(c.was+TRIMS[st.trim][1])}</s><em>Save ${money(c.was-c.price)}</em>`:''}</div>
+   <div class="meta">or from <b>${money(monthly(price,st.down,st.term))}/mo</b> &middot; 6.9% APR est.</div>
+   <div class="meta" style="margin-top:10px"><span class="dot" style="background:${hex};display:inline-block;vertical-align:middle"></span> ${COL[st.col][0]} &middot; ${c.trans} &middot; ${c.owners} previous owner${c.owners>1?'s':''}</div>
+   ${c.sold?`<div class="box" style="margin:14px 0"><b>This car has been sold.</b><br><a href="#/cars">See similar cars</a> or <a href="#" data-lead="enquiry:${c.id}">ask us to find you one</a>.</div>`:''}
+   <div class="box addons"><b>Add-ons</b>${ACC.map(a=>`<label><input type="checkbox" data-add="${a.id}" ${st.add.includes(a.id)?'checked':''}><span>${a.name}</span><b>${money(a.price)}</b></label>`).join('')}</div>
+   <div class="box est" style="margin-top:12px"><div><span>Car + trim</span><span>${money(price)}</span></div>${addT?`<div><span>Add-ons</span><span>${money(addT)}</span></div>`:''}<div><span>Est. sales tax (${TAX*100}%)</span><span>${money(tax)}</span></div><div><span>Home delivery (pickup is free)</span><span>${money(DELIV)}</span></div><div class="tot"><span>Estimated total</span><span>${money(sub+tax+DELIV)}</span></div></div>
+   <p class="deliv">&#128666; Get it between <b>${deliveryDate()}</b></p>
+   <div class="ctas"><button class="btn" id="addcar" ${c.sold?'disabled':''}>Reserve online</button><button class="btn ghost" id="wishpdp" aria-pressed="${on}" aria-label="Save car">${on?'&#9829; Saved':'&#9825; Save'}</button></div>
+   <div class="ctas"><button class="btn ghost" data-lead="drive:${c.id}">Book a test drive</button><a class="btn ghost" style="flex:1" target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent('Hi, I am interested in the '+c.year+' '+c.name+' ('+money(c.price)+')')}">WhatsApp us</a><a class="btn ghost" href="tel:${CONFIG.phone.replace(/\s/g,'')}">Call</a></div>
+   <p class="meta">Free ${CONFIG.returnDays}-day returns &middot; Refundable ${money(CONFIG.deposit)} deposit option &middot; Guest checkout, no account needed &middot; <a href="#" data-lead="enquiry:${c.id}">Ask a question</a></p>
+   <div style="margin-top:14px"><details open><summary>Specifications</summary><table class="spec"><tr><td>Body</td><td>${c.body}</td></tr><tr><td>Fuel</td><td>${c.fuel}</td></tr><tr><td>${c.fuel==='Electric'?'Range':'Economy'}</td><td>${c.eff}</td></tr><tr><td>Power</td><td>${c.power}</td></tr><tr><td>Year</td><td>${c.year}</td></tr><tr><td>Mileage</td><td>${c.miles.toLocaleString()} mi</td></tr><tr><td>Gearbox</td><td>${c.trans}</td></tr><tr><td>Previous owners</td><td>${c.owners}</td></tr><tr><td>Colour</td><td>${COL[st.col][0]}</td></tr><tr><td>Warranty</td><td>${CONFIG.warranty}</td></tr></table></details>
+   <details><summary>Delivery &amp; returns</summary><p>Home delivery in 5-9 days from ${money(DELIV)}, or collect free from our showroom: ${esc(CONFIG.address)}. Return within ${CONFIG.returnDays} days or 250 miles for a full refund, no questions asked.</p></details>
+   <details><summary>Inspection &amp; history</summary><ul><li>200-point mechanical and cosmetic inspection</li><li>Ownership, accident and finance-check history report</li><li>Mileage verified, service records included</li><li>Cosmetic wear (if any) is listed and photographed</li></ul></details></div></div></div>
+   <section class="blk fin" style="padding-top:0"><div class="box" style="max-width:560px"><b>Finance calculator</b><div class="row"><span>Down payment</span><b id="dv">${money(st.down)}</b></div><input type="range" id="down" min="0" max="${Math.round(price/2)}" step="500" value="${st.down}" aria-label="Down payment"><div class="row"><span>Term</span><b id="tv">${st.term} months</b></div><input type="range" id="term" min="36" max="84" step="12" value="${st.term}" aria-label="Loan term in months"><div class="big" id="mv">${money(monthly(price,st.down,st.term))}/mo</div><div class="note">Estimate at 6.9% APR. Final rate subject to approval; no impact to your credit score to check.</div></div></section>
+   <section class="blk" id="reviews" style="padding-top:0"><h2>Customer reviews</h2><p class="sub">${stars(c.rating)} ${c.rating} out of 5 (sample reviews shown)</p>${reviews.map(r=>`<div class="rev">${stars(r[0])} <b>${r[1]}</b><p style="margin:4px 0">${r[2]}</p>${r[3]?`<div class="reply"><b>Apex Motors replied:</b> ${r[3]}</div>`:''}</div>`).join('')}</section>
+   <section class="blk" style="padding-top:0"><h2>You may also like</h2><div class="grid">${CARS.filter(x=>x.id!==id&&!x.sold&&(x.body===c.body||x.fuel===c.fuel)).slice(0,3).map(card).join('')}</div></section>
+   ${recent.filter(x=>x!==id).length?`<section class="blk" style="padding-top:0"><h2>Recently viewed</h2><div class="grid">${recent.filter(x=>x!==id&&carById(x)&&visible().includes(carById(x))).slice(0,3).map(carById).map(card).join('')}</div></section>`:''}</div>
+   <div class="stickybuy"><div><b>${money(price)}</b><div class="meta">${money(monthly(price,st.down,st.term))}/mo</div></div><button class="btn" id="addcar2" ${c.sold?'disabled':''}>Reserve online</button></div>`;
+}
+function sellPage(){return `<div class="wrap" style="max-width:720px"><div class="crumbs"><a href="#/">Home</a> / Sell your car</div><h1 style="letter-spacing:-.6px">Sell or trade in your car</h1><p class="meta">Tell us about your car and we will send a no-obligation offer within one working day.</p>
+<form id="sellForm" class="box" novalidate>${leadFields(true)}<div class="two"><div class="f"><label for="sm">Make &amp; model</label><input id="sm"><div class="err" id="e-sm"></div></div><div class="f"><label for="sy">Year</label><input id="sy" inputmode="numeric" maxlength="4"><div class="err" id="e-sy"></div></div></div><div class="two"><div class="f"><label for="sk">Mileage</label><input id="sk" inputmode="numeric"><div class="err" id="e-sk"></div></div><div class="f"><label for="sc">Condition</label><select id="sc"><option>Excellent</option><option selected>Good</option><option>Fair</option><option>Needs work</option></select></div></div><button class="btn block" type="submit">Get my offer</button><p class="note">We only use your details to reply to this request.</p></form></div>`}
+function leadFields(phoneReq){return `<div class="two"><div class="f"><label for="ln1">Your name</label><input id="ln1" autocomplete="name"><div class="err" id="e-ln1"></div></div><div class="f"><label for="lp">Phone ${phoneReq?'':'<i>(optional)</i>'}</label><input id="lp" type="tel" autocomplete="tel"><small>So we can call you back.</small><div class="err" id="e-lp"></div></div></div><div class="f"><label for="le">Email <i>(optional)</i></label><input id="le" type="email" autocomplete="email"><div class="err" id="e-le"></div></div>`}
+function readLead(root=document){const g=i=>$('#'+i,root).value.trim();let ok=true;const bad=(i,m)=>{$('#e-'+i,root).textContent=m;$('#'+i,root).setAttribute('aria-invalid','true');ok=false};
+  $$('.err',root).forEach(x=>x.textContent='');$$('[aria-invalid]',root).forEach(x=>x.removeAttribute('aria-invalid'));
+  if(!g('ln1'))bad('ln1','Enter your name.');if(g('lp').replace(/\D/g,'').length<7)bad('lp','Enter a phone number we can call (at least 7 digits).');if(g('le')&&!/^\S+@\S+\.\S+$/.test(g('le')))bad('le','That email looks incomplete.');
+  return ok?{name:g('ln1'),phone:g('lp'),email:g('le')}:null}
+function addLead(l){const L=store.get('apex.leads',[]);L.unshift({...l,at:new Date().toISOString(),id:Date.now()});store.set('apex.leads',L)}
+function leadModal(kind,id){const c=id&&carById(id),title=kind==='drive'?'Book a test drive':'Ask about this car';
+  const m=document.createElement('div');m.className='drawer open';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label',title);
+  m.innerHTML=`<div class="scrim"></div><aside style="top:50%;bottom:auto;left:50%;right:auto;transform:translate(-50%,-50%);width:min(520px,94%);border-radius:16px;padding:20px;max-height:92vh;overflow:auto"><div style="display:flex;justify-content:space-between"><h2 style="margin:0">${title}</h2><button class="iconbtn" data-x aria-label="Close">&times;</button></div>${c?`<p class="meta">${c.year} ${esc(c.name)} &middot; ${money(c.price)}</p>`:''}<form novalidate>${leadFields(true)}${kind==='drive'?`<div class="two"><div class="f"><label for="ld">Preferred date</label><input id="ld" type="date" min="${new Date().toISOString().slice(0,10)}"></div><div class="f"><label for="lt">Time</label><select id="lt"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div></div>`:`<div class="f"><label for="lm">Your question</label><input id="lm" placeholder="e.g. Is the service history complete?"></div>`}<button class="btn block" type="submit">${kind==='drive'?'Request test drive':'Send enquiry'}</button><p class="note">${esc(CONFIG.name)} will call you back. Open ${esc(CONFIG.hours)}.</p></form></aside>`;
+  document.body.appendChild(m);const close=()=>m.remove();m.querySelector('.scrim').onclick=close;m.querySelector('[data-x]').onclick=close;$('#ln1',m).focus();
+  m.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  m.querySelector('form').onsubmit=e=>{e.preventDefault();const l=readLead(m);if(!l)return;addLead({...l,type:kind==='drive'?'Test drive':'Enquiry',car:c?c.year+' '+c.name:'',note:kind==='drive'?($('#ld',m).value||'any date')+' / '+$('#lt',m).value:($('#lm',m)?.value||'')});close();toast('Thanks! We will call you shortly.')}}
+function adminPage(){
+  if(!adminPage.ok)return `<div class="wrap" style="max-width:420px"><h1>Dealer admin</h1><form id="pinForm" class="box"><div class="f"><label for="pin">PIN</label><input id="pin" type="password" inputmode="numeric" autocomplete="off"><div class="err" id="e-pin"></div></div><button class="btn block">Sign in</button><p class="note">Demo PIN is set in CONFIG.adminPin (change it before going live). This admin is stored in this browser only; a real deployment needs a server login.</p></form></div>`;
+  const L=store.get('apex.leads',[]);
+  return `<div class="wrap"><h1>Dealer admin</h1><div class="bar"><span>${CARS.length} cars &middot; ${CARS.filter(c=>c.sold).length} sold &middot; ${L.length} leads</span><label>When a car is sold: <select id="smode"><option value="badge" ${soldMode()==='badge'?'selected':''}>Show "Sold" badge</option><option value="hide" ${soldMode()==='hide'?'selected':''}>Remove from website</option></select></label><span><button class="btn ghost" id="exp">Export stock JSON</button> <button class="btn ghost" id="rst">Reset demo stock</button></span></div>
+  <div class="box"><b>Add a car</b><form id="addForm" novalidate><div class="two"><div class="f"><label for="an">Name (model)</label><input id="an"></div><div class="f"><label for="am">Make</label><input id="am"></div></div><div class="two"><div class="f"><label for="ab">Body</label><select id="ab">${Object.keys(SH).map(b=>`<option>${b}</option>`).join('')}</select></div><div class="f"><label for="af">Fuel</label><select id="af"><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option></select></div></div><div class="two"><div class="f"><label for="ay">Year</label><input id="ay" inputmode="numeric"></div><div class="f"><label for="ak">Mileage</label><input id="ak" inputmode="numeric"></div></div><div class="two"><div class="f"><label for="ap">Price</label><input id="ap" inputmode="numeric"></div><div class="f"><label for="aw">Old price <i>(optional, for deals)</i></label><input id="aw" inputmode="numeric"></div></div><div class="two"><div class="f"><label for="acol">Colour</label><select id="acol">${Object.entries(COL).map(([k,v])=>`<option value="${k}">${v[0]}</option>`).join('')}</select></div><div class="f"><label for="at">Gearbox</label><select id="at"><option>Automatic</option><option>Manual</option></select></div></div><div class="two"><div class="f"><label for="ao">Previous owners</label><input id="ao" inputmode="numeric" value="1"></div><div class="f"><label for="ae">Economy / range</label><input id="ae" placeholder="e.g. 42 mpg"></div></div><div class="f"><label for="aph">Photos <i>(up to 4, from your phone or computer)</i></label><input id="aph" type="file" accept="image/*" multiple><div id="aprev" class="thumbs"></div></div><div class="err" id="e-add"></div><button class="btn" type="submit">Add car</button></form></div>
+  <h2 style="margin-top:24px">Stock</h2><div class="box">${CARS.map(c=>`<div class="line" style="grid-template-columns:90px 1fr auto"><div class="t">${c.photos&&c.photos[0]?`<img src="${c.photos[0]}" alt="" style="width:100%;border-radius:6px">`:carSVG(c.body,COL[c.colors[0]][1])}</div><div><b>${c.year} ${esc(c.name)}</b><div class="meta">${c.miles.toLocaleString()} mi ${c.sold?'&middot; <b>SOLD</b>':''}</div></div><div style="text-align:right"><label class="meta">Price <input type="number" data-price="${c.id}" value="${c.price}" style="width:100px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:0 6px"></label><br><label class="btn ghost" style="padding:6px 12px;cursor:pointer;margin:4px 4px 0 0">${c.photos&&c.photos.length?c.photos.length+' photos':'Add photos'}<input type="file" accept="image/*" multiple hidden data-ph="${c.id}"></label><button class="btn ghost" style="padding:6px 12px;margin-top:4px" data-sold="${c.id}">${c.sold?'Mark available':'Mark sold'}</button> <button class="link" data-del="${c.id}">Delete</button></div></div>`).join('')}</div>
+  <h2 style="margin-top:24px">Leads (${L.length})</h2><div class="box">${L.length?L.map(l=>`<div class="rev"><b>${esc(l.type)}</b> &middot; ${esc(l.name)} &middot; <a href="tel:${esc(l.phone)}">${esc(l.phone)}</a>${l.email?' &middot; '+esc(l.email):''}<div class="meta">${esc(l.car||'')} ${esc(l.note||'')} &middot; ${new Date(l.at).toLocaleString()}</div></div>`).join(''):'<p class="meta">No leads yet. Enquiries, test drives and valuation requests appear here.</p>'}</div></div>`}
+function bindAdmin(){
+  const pf=$('#pinForm');if(pf){pf.onsubmit=e=>{e.preventDefault();if($('#pin').value===CONFIG.adminPin){adminPage.ok=true;route()}else $('#e-pin').textContent='Incorrect PIN.'};return}
+  let pics=[];$('#aph').onchange=async e=>{try{pics=await Promise.all([...e.target.files].slice(0,4).map(f=>resizeImg(f)));$('#aprev').innerHTML=pics.map(x=>`<img src="${x}" alt="" style="max-width:90px">`).join('')}catch(x){$('#e-add').textContent='Could not read one of the images.'}};
+  $('#addForm').onsubmit=e=>{e.preventDefault();const v=i=>$('#'+i).value.trim(),n=i=>+v(i).replace(/[^\d.]/g,'');
+    if(!v('an')||!v('am')||!n('ay')||!n('ap')||v('ak')==='')return $('#e-add').textContent='Name, make, year, mileage and price are required.';
+    if(n('ay')<1990||n('ay')>new Date().getFullYear()+1)return $('#e-add').textContent='Enter a valid year.';
+    const car=toCar(['c'+Date.now(),v('an'),v('am'),v('ab'),v('af'),n('ay'),'Used',n('ap'),n('aw'),n('ak'),v('ae')||'-','-',4.5,0,'New Arrival',v('acol'),n('ao')||1,v('at')]);car.photos=pics;CARS.unshift(car);
+    if(!persistCars()){CARS.shift();return $('#e-add').textContent='Browser storage is full. Use fewer or smaller photos, or delete old cars.'}
+    route();toast('Car added')};
+  $('#smode').onchange=e=>{store.set('apex.soldMode',e.target.value);toast(e.target.value==='hide'?'Sold cars will be removed from the site':'Sold cars will show a Sold badge')};
+  $$('[data-price]').forEach(i=>i.onchange=()=>{const c=carById(i.dataset.price),v=+i.value;if(v>0){if(v<c.price)c.was=c.was>v?c.was:c.price;c.price=v;persistCars();toast('Price updated')}});
+  $$('[data-ph]').forEach(i=>i.onchange=async()=>{const c=carById(i.dataset.ph),old=c.photos;try{c.photos=await Promise.all([...i.files].slice(0,4).map(f=>resizeImg(f)));if(!persistCars()){c.photos=old;return toast('Storage full. Use fewer or smaller photos.')}route();toast('Photos saved')}catch(x){c.photos=old;toast('Could not read the image')}});
+  $$('[data-sold]').forEach(b=>b.onclick=()=>{const c=carById(b.dataset.sold);c.sold=!c.sold;persistCars();route();toast(c.sold?'Marked sold':'Back on sale')});
+  $$('[data-del]').forEach(b=>b.onclick=()=>{CARS=CARS.filter(c=>c.id!==b.dataset.del);persistCars();route()});
+  $('#exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(CARS,null,2)],{type:'application/json'}));a.download='stock.json';a.click()};
+  $('#rst').onclick=()=>{CARS=SEED.map(toCar);persistCars();route()};}
+function checkout(){
+  if(!cart.length)return `<div class="wrap empty"><h2>Your cart is empty</h2><a class="btn" href="#/cars">Browse cars</a></div>`;
+  const co=checkout.st=checkout.st||{ship:'home',pay:'card',dep:'full'};
+  const T=totals(co.ship==='home'),due=co.dep==='dep'&&hasCar()?CONFIG.deposit:T.total;
+  return `<div class="wrap"><div class="co"><form id="coForm" novalidate><div class="steps"><b>1 Contact</b> &rsaquo; <b>2 Delivery</b> &rsaquo; <b>3 Payment</b> &rsaquo; Confirmation</div>
+  <div class="guest"><b>Checking out as a guest.</b> No account needed. You can create one after your order if you want.</div>
+  <fieldset><legend>Contact</legend><div class="f"><label for="em">Email</label><input id="em" name="email" type="email" autocomplete="email" required><div class="err" id="e-em"></div></div>
+  <div class="two"><div class="f"><label for="fn">First name</label><input id="fn" autocomplete="given-name" required><div class="err" id="e-fn"></div></div><div class="f"><label for="ln">Last name</label><input id="ln" autocomplete="family-name" required><div class="err" id="e-ln"></div></div></div>
+  <div class="f"><label for="ph">Phone <i>(optional)</i></label><input id="ph" type="tel" autocomplete="tel"><small>Only used by the driver to schedule delivery.</small></div></fieldset>
+  <fieldset><legend>Delivery</legend><label class="choice"><input type="radio" name="ship" value="home" ${co.ship==='home'?'checked':''}><span><b>Home delivery - ${money(DELIV)}</b><small>Arrives ${deliveryDate()}</small></span></label><label class="choice"><input type="radio" name="ship" value="pick" ${co.ship==='pick'?'checked':''}><span><b>Collect from showroom - Free</b><small>Collect from ${esc(CONFIG.address)}. Bring a photo ID.</small></span></label>
+  <div id="addr" ${co.ship==='pick'?'hidden':''}><div class="f"><label for="ad">Street address</label><input id="ad" autocomplete="street-address"><div class="err" id="e-ad"></div></div><div class="two"><div class="f"><label for="ct">City</label><input id="ct" autocomplete="address-level2"><div class="err" id="e-ct"></div></div><div class="f"><label for="zp">ZIP code <i>(5 digits)</i></label><input id="zp" inputmode="numeric" maxlength="5" autocomplete="postal-code"><div class="err" id="e-zp"></div></div></div></div></fieldset>
+  <fieldset><legend>Payment</legend>${hasCar()?`<label class="choice"><input type="radio" name="dep" value="full" ${co.dep==='full'?'checked':''}><span><b>Pay in full today</b><small>${money(T.total)}</small></span></label><label class="choice"><input type="radio" name="dep" value="dep" ${co.dep==='dep'?'checked':''}><span><b>Reserve with ${money(CONFIG.deposit)} refundable deposit</b><small>Pay the rest before delivery. Fully refundable for ${CONFIG.returnDays} days.</small></span></label>`:''}
+  <label class="choice"><input type="radio" name="pay" value="card" ${co.pay==='card'?'checked':''}><span><b>Credit / debit card</b></span></label><label class="choice"><input type="radio" name="pay" value="wallet" ${co.pay==='wallet'?'checked':''}><span><b>Apple Pay / Google Pay</b><small>Demo only</small></span></label><label class="choice"><input type="radio" name="pay" value="fin" ${co.pay==='fin'?'checked':''}><span><b>Finance (pre-approval)</b><small>A specialist will call to complete approval.</small></span></label>
+  <div id="cardf" ${co.pay!=='card'?'hidden':''}><div class="f"><label for="cn">Card number</label><input id="cn" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242" maxlength="19"><div class="err" id="e-cn"></div></div><div class="two"><div class="f"><label for="ex">Expiry <i>(MM/YY)</i></label><input id="ex" autocomplete="cc-exp" placeholder="08/28" maxlength="5"><div class="err" id="e-ex"></div></div><div class="f"><label for="cv">CVC</label><input id="cv" inputmode="numeric" autocomplete="cc-csc" maxlength="4"><div class="err" id="e-cv"></div></div></div></div>
+  <p class="note">Demo store: no real payment is taken. Do not enter real card details.</p></fieldset>
+  <button class="btn block" type="submit">Place order - ${money(due)}</button></form>
+  <aside class="box sum"><b>Order summary</b>${cart.map(l=>{const c=l.type==='car'?carById(l.id):accById(l.id);return `<div class="line" style="grid-template-columns:70px 1fr auto"><div class="t ${l.type==='acc'?'acc':''}">${l.type==='car'?carSVG(c.body,COL[l.col][1],'side',c.name):c.ic}</div><div><b>${esc(c.name)}</b><div class="meta">${l.type==='car'?COL[l.col][0]+' &middot; '+TRIMS[l.trim][0]:'x'+l.qty}</div></div><b>${money(unit(l)*(l.qty||1))}</b></div>`}).join('')}
+  <div class="est" style="margin-top:8px"><div><span>Subtotal</span><span>${money(T.sub)}</span></div><div><span>Tax</span><span>${money(T.tax)}</span></div><div><span>Delivery</span><span>${T.del?money(T.del):'Free'}</span></div><div class="tot"><span>Total</span><span>${money(T.total)}</span></div>${hasCar()&&co.dep==='dep'?`<div><span>Due today</span><span>${money(due)}</span></div>`:''}</div><p class="note">${CONFIG.returnDays}-day free returns apply to every car.</p></aside></div></div>`;
+}
+function confirm(){
+  const o=store.get('apex.order',null);if(!o)return `<div class="wrap empty"><h2>No recent order</h2><a class="btn" href="#/cars">Browse cars</a></div>`;
+  return `<div class="wrap"><div class="conf"><div class="ok">&#10004;</div><h1>Thank you, ${esc(o.name)}!</h1><p>Order <b>${esc(o.no)}</b> is confirmed. A receipt was sent to <b>${esc(o.email)}</b>.</p><div class="box" style="text-align:left"><b>${o.ship==='home'?'Delivery window: '+esc(o.date):'Pickup ready in 3 days'}</b><br>Paid today: <b>${money(o.due)}</b>${o.due<o.total?`<br>Balance of ${money(o.total-o.due)} due before delivery.`:''}<br><span class="meta">Your ${CONFIG.returnDays}-day return window starts on delivery. We will call you to arrange handover.</span></div><p><a class="btn" href="#/cars">Keep browsing</a></p><p class="note">Demo store: this order is not real.</p></div></div>`;
+}
+
+/* ---------- cart drawer ---------- */
+function renderCart(){
+  const T=totals(true);
+  $('#cartPanel').innerHTML=`<header><h2>Your cart (${cart.reduce((n,l)=>n+(l.qty||1),0)})</h2><button class="iconbtn" id="closeCart" aria-label="Close cart">&times;</button></header>
+  <div class="items">${cart.length?cart.map((l,i)=>{const c=l.type==='car'?carById(l.id):accById(l.id);return `<div class="line"><div class="t ${l.type==='acc'?'acc':''}">${l.type==='car'?carSVG(c.body,COL[l.col][1],'side',c.name):c.ic}</div><div><b>${l.type==='car'?c.year+' ':''}${esc(c.name)}</b><div class="meta">${l.type==='car'?COL[l.col][0]+' &middot; '+TRIMS[l.trim][0]:''}</div>${l.type==='acc'?`<div class="qty"><button data-q="${i}" data-d="-1" aria-label="Decrease quantity">&minus;</button><span aria-live="polite">${l.qty}</span><button data-q="${i}" data-d="1" aria-label="Increase quantity">+</button></div>`:''} <button class="link" data-rm="${i}">Remove</button></div><b>${money(unit(l)*(l.qty||1))}</b></div>`}).join(''):'<div class="empty">Your cart is empty.<br><br><a class="btn" href="#/cars" data-close>Browse cars</a></div>'}
+  ${cart.length&&hasCar()?`<div class="box addons" style="margin-top:12px"><b>Popular add-ons</b>${ACC.filter(a=>!cart.some(l=>l.id===a.id)).slice(0,3).map(a=>`<label><span>${a.name}</span><b>${money(a.price)}</b><button class="btn ghost" style="padding:6px 12px" data-addacc="${a.id}">Add</button></label>`).join('')}</div>`:''}</div>
+  ${cart.length?`<footer><div class="est"><div><span>Subtotal</span><span>${money(T.sub)}</span></div><div><span>Est. tax</span><span>${money(T.tax)}</span></div><div><span>Delivery</span><span>${T.del?money(T.del):'Free'}</span></div><div class="tot"><span>Total</span><span>${money(T.total)}</span></div></div><p class="note">Guest checkout available. Free ${CONFIG.returnDays}-day returns.</p><a class="btn block" href="#/checkout" data-close>Checkout</a></footer>`:''}`;
+}
+const openCart=()=>{renderCart();$('#drawer').classList.add('open');$('#closeCart')?.focus()};
+const closeCart=()=>$('#drawer').classList.remove('open');
+
+/* ---------- router ---------- */
+function route(){
+  const h=location.hash.slice(1)||'/',path=h.split('?')[0],m=$('#main');
+  document.body.classList.toggle('pdp-page',path.startsWith('/car/'));
+  let html;
+  if(path==='/')html=home();else if(path==='/cars')html=list();else if(path.startsWith('/car/')){const id=path.split('/')[2];html=pdp(id);if(carById(id)){recent=[id,...recent.filter(x=>x!==id)].slice(0,6);save()}}
+  else if(path==='/sell')html=sellPage();else if(path==='/admin')html=adminPage();else if(path==='/checkout')html=checkout();else if(path==='/confirm')html=confirm();else html=home();
+  m.innerHTML=html;document.title=(path.startsWith('/car/')&&carById(path.split('/')[2])?carById(path.split('/')[2]).name+' - ':'')+'Apex Motors';
+  bind(path);
+}
+function setQ(mut){const p=parseQ();mut(p);const s=p.toString();location.hash='/cars'+(s?'?'+s:'')}
+function bind(path){
+  if(path==='/cars'){
+    $$('[data-f]').forEach(i=>i.onchange=()=>setQ(p=>{const k=i.dataset.f,cur=(p.get(k)||'').split(',').filter(Boolean),n=i.checked?[...cur,i.value]:cur.filter(v=>v!==i.value);n.length?p.set(k,n.join(',')):p.delete(k);p.delete('n')}));
+    const mx=$('#max');mx.oninput=()=>$('#maxv').textContent=money(mx.value);mx.onchange=()=>setQ(p=>{+mx.value>=CAPMAX?p.delete('max'):p.set('max',mx.value)});
+    $('#deals').onchange=e=>setQ(p=>e.target.checked?p.set('deals','1'):p.delete('deals'));
+    $('#sort').onchange=e=>setQ(p=>p.set('sort',e.target.value));
+    const clr=()=>{const q=parseQ().get('q');location.hash='/cars'+(q?'?q='+encodeURIComponent(q):'')};$('#clr').onclick=clr;$('#clr2')&&($('#clr2').onclick=clr);
+    $('#more')&&($('#more').onclick=()=>setQ(p=>p.set('n',(+p.get('n')||9)+9)));
+    $('#fbtn').onclick=()=>$('#filters').classList.toggle('open');
+  }
+  if(path.startsWith('/car/')&&pdp.st){
+    const st=pdp.st,rerender=()=>{const y=scrollY;$('#main').innerHTML=pdp(st.id);bind(path);scrollTo(0,y)};
+    $$('[data-view]').forEach(b=>b.onclick=()=>{st.view=b.dataset.view;rerender()});$$('[data-col]').forEach(b=>b.onclick=()=>{st.col=b.dataset.col;rerender()});$$('[data-trim]').forEach(b=>b.onclick=()=>{st.trim=+b.dataset.trim;rerender()});
+    $$('[data-add]').forEach(i=>i.onchange=()=>{st.add=i.checked?[...st.add,i.dataset.add]:st.add.filter(a=>a!==i.dataset.add);rerender()});
+    const c=carById(st.id),upd=()=>{const pr=c.price+TRIMS[st.trim][1];$('#dv').textContent=money(st.down);$('#tv').textContent=st.term+' months';$('#mv').textContent=money(monthly(pr,st.down,st.term))+'/mo'};
+    $('#down').oninput=e=>{st.down=+e.target.value;upd()};$('#term').oninput=e=>{st.term=+e.target.value;upd()};
+    const add=()=>{if(c.sold)return;if(cart.some(l=>l.type==='car'&&l.id===st.id))return openCart();cart=cart.filter(l=>l.type!=='car'||l.id!==st.id);cart.push({type:'car',id:st.id,col:st.col,trim:st.trim});st.add.forEach(a=>{const e=cart.find(l=>l.id===a);e?e.qty++:cart.push({type:'acc',id:a,qty:1})});save();toast('Added to cart');openCart()};
+    $('#addcar').onclick=add;$('#addcar2').onclick=add;$('#wishpdp').onclick=()=>{toggleWish(st.id);rerender()};
+  }
+  if(path==='/checkout'&&cart.length)bindCheckout();
+  if(path==='/admin')bindAdmin();
+  if(path==='/sell'){const f=$('#sellForm'),rq=(id,m,t)=>{if(!t){$('#e-'+id).textContent=m;$('#'+id).setAttribute('aria-invalid','true');return false}return true};
+    f.onsubmit=e=>{e.preventDefault();const l=readLead();const y=+$('#sy').value,k=$('#sk').value.replace(/\D/g,'');let ok=!!l;ok=rq('sm','Enter the make and model.',$('#sm').value.trim())&&ok;ok=rq('sy','Enter a 4-digit year, e.g. 2018.',y>=1980&&y<=new Date().getFullYear()+1)&&ok;ok=rq('sk','Enter the mileage as a number.',k)&&ok;if(!ok)return;addLead({...l,type:'Sell / trade-in',car:$('#sy').value+' '+$('#sm').value.trim(),note:k+' mi, '+$('#sc').value});f.reset();toast('Request sent. We will call you with an offer.')}}
+}
+function toggleWish(id){wish=wish.includes(id)?wish.filter(x=>x!==id):[...wish,id];save();toast(wish.includes(id)?'Saved. No login needed.':'Removed from saved')}
+function bindCheckout(){
+  const co=checkout.st,f=$('#coForm');
+  f.addEventListener('change',e=>{if(['ship','pay','dep'].includes(e.target.name)){co[e.target.name]=e.target.value;const v={};$$('input[type=text],input[type=email],input[type=tel],input:not([type])',f).forEach(i=>v[i.id]=i.value);$('#main').innerHTML=checkout();$$('input',$('#main')).forEach(i=>{if(v[i.id]!==undefined)i.value=v[i.id]});bindCheckout()}});
+  $('#cn').oninput=e=>e.target.value=e.target.value.replace(/\D/g,'').slice(0,16).replace(/(.{4})/g,'$1 ').trim();
+  $('#ex').oninput=e=>{let v=e.target.value.replace(/\D/g,'').slice(0,4);e.target.value=v.length>2?v.slice(0,2)+'/'+v.slice(2):v};
+  f.onsubmit=e=>{e.preventDefault();
+    const rules=[['em',v=>!v?'Enter your email so we can send your receipt.':!/^\S+@\S+\.\S+$/.test(v)?'That email looks incomplete. Use a format like name@example.com.':''],['fn',v=>v.trim()?'':'Enter your first name.'],['ln',v=>v.trim()?'':'Enter your last name.']];
+    if(co.ship==='home')rules.push(['ad',v=>v.trim().length<5?'Enter the street address for delivery.':''],['ct',v=>v.trim()?'':'Enter the delivery city.'],['zp',v=>/^\d{5}$/.test(v)?'':'ZIP code must be exactly 5 digits.']);
+    if(co.pay==='card')rules.push(['cn',v=>v.replace(/\s/g,'').length!==16?'Card number must be 16 digits (you entered '+v.replace(/\s/g,'').length+').':''],['ex',v=>{const m=v.match(/^(\d\d)\/(\d\d)$/);if(!m||+m[1]<1||+m[1]>12)return 'Enter expiry as MM/YY, for example 08/28.';return (+('20'+m[2])*12+ +m[1])<(new Date().getFullYear()*12+new Date().getMonth()+1)?'This card has expired. Use a card that is still valid.':''}],['cv',v=>/^\d{3,4}$/.test(v)?'':'CVC is the 3 or 4 digits on your card.']);
+    let first=null;$$('.err',f).forEach(x=>x.textContent='');$$('input',f).forEach(i=>i.removeAttribute('aria-invalid'));
+    rules.forEach(([id,fn])=>{const el=$('#'+id),msg=fn(el.value);if(msg){$('#e-'+id).textContent=msg;el.setAttribute('aria-invalid','true');first=first||el}});
+    if(first){first.focus();return}
+    const T=totals(co.ship==='home'),due=co.dep==='dep'&&hasCar()?CONFIG.deposit:T.total;
+    store.set('apex.order',{no:'AX-'+Math.random().toString(36).slice(2,8).toUpperCase(),name:$('#fn').value.trim(),email:$('#em').value.trim(),ship:co.ship,date:deliveryDate(),total:T.total,due});
+    cart.filter(l=>l.type==='car').forEach(l=>{const c=carById(l.id);if(c)c.sold=true});persistCars();cart=[];save();checkout.st=null;location.hash='/confirm';scrollTo(0,0)};
+}
+
+/* ---------- global events ---------- */
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button,a');if(!t)return;
+  if(t.dataset.wish){e.preventDefault();toggleWish(t.dataset.wish);const on=wish.includes(t.dataset.wish);t.setAttribute('aria-pressed',on);t.innerHTML=on?'&#9829;':'&#9825;'}
+  if(t.dataset.q!==undefined){const l=cart[+t.dataset.q];l.qty=Math.max(1,l.qty+ +t.dataset.d);save();renderCart()}
+  if(t.dataset.rm!==undefined){cart.splice(+t.dataset.rm,1);save();renderCart()}
+  if(t.dataset.addacc){const a=t.dataset.addacc,x=cart.find(l=>l.id===a);x?x.qty++:cart.push({type:'acc',id:a,qty:1});save();renderCart()}
+  if(t.dataset.close!==undefined)closeCart();
+  if(t.dataset.lead){e.preventDefault();const [k,id]=t.dataset.lead.split(':');leadModal(k,id)}
+  if(t.id==='closeCart'||t.id==='scrim')closeCart();
+  if(t.hasAttribute&&t.hasAttribute('data-faq')){e.preventDefault();toast('FAQ: 7-day returns, delivery in 5-9 days, 3-year warranty')}
+});
+$('#scrim').onclick=closeCart;$('#cartBtn').onclick=openCart;$('#wishBtn').onclick=()=>{if(!wish.length)return toast('No saved cars yet. Tap the heart on any car.');location.hash='/cars?q=';const ids=wish;$('#main').innerHTML=`<div class="wrap"><div class="crumbs"><a href="#/">Home</a> / Saved cars</div><h2 style="margin-top:12px">Saved cars (${ids.length})</h2><div class="grid">${ids.map(carById).filter(c=>c&&visible().includes(c)).map(card).join('')}</div></div>`;};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();$('#ac').style.display='none'}});
+/* search autocomplete */
+const q=$('#q'),ac=$('#ac');let acI=-1;
+function matches(v){v=v.toLowerCase().trim();if(!v)return[];const toks=v.split(/\s+/).map(t=>SYN[t]||t);return visible().filter(c=>{const h=(c.name+' '+c.make+' '+c.body+' '+c.fuel+' '+c.year).toLowerCase();return toks.every(t=>t==='deal'?c.was>c.price:h.includes(t.toLowerCase()))}).slice(0,6)}
+q.oninput=()=>{const m=matches(q.value);acI=-1;if(!q.value.trim()){ac.style.display='none';return}
+  ac.innerHTML=m.length?m.map((c,i)=>`<a href="#/car/${c.id}" role="option" id="ao${i}">${carSVG(c.body,COL[c.colors[0]][1],'side')}<span><b>${c.year} ${esc(c.name)}</b><br><small>${c.cond} &middot; ${c.fuel} &middot; ${money(c.price)}</small></span></a>`).join('')+`<a href="#/cars?q=${encodeURIComponent(q.value)}"><b>See all results for "${esc(q.value)}"</b></a>`:`<a href="#/cars?q=${encodeURIComponent(q.value)}">No instant match. Search all for "${esc(q.value)}"</a>`;ac.style.display='block'};
+q.onkeydown=e=>{const o=$$('a',ac);if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();acI=(acI+(e.key==='ArrowDown'?1:-1)+o.length)%o.length;o.forEach((a,i)=>a.setAttribute('aria-selected',i===acI))}
+  else if(e.key==='Enter'){e.preventDefault();ac.style.display='none';if(acI>=0&&o[acI])location.hash=o[acI].getAttribute('href').slice(1);else location.hash='/cars?q='+encodeURIComponent(q.value)}};
+document.addEventListener('click',e=>{if(!e.target.closest('.search'))ac.style.display='none';else if(e.target.closest('.ac a'))setTimeout(()=>{ac.style.display='none';q.value=''},0)});
+window.addEventListener('hashchange',()=>{route();scrollTo(0,0)});
+$('#logo').innerHTML=esc(CONFIG.name.toUpperCase()).replace(/\s+/,'<b>.</b>');
+$('#topbar').textContent='Free '+CONFIG.returnDays+'-day returns \u00b7 '+CONFIG.warranty+' \u00b7 200-point inspection';
+$('#foot').innerHTML=`<div><b>${esc(CONFIG.name)}</b>${esc(CONFIG.tagline)}<br>${esc(CONFIG.address)}<br>${esc(CONFIG.hours)}</div><div><b>Contact</b><a href="tel:${CONFIG.phone.replace(/\s/g,'')}">${esc(CONFIG.phone)}</a><a href="mailto:${esc(CONFIG.email)}">${esc(CONFIG.email)}</a><a target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}">WhatsApp</a></div><div><b>Buy</b><a href="#/cars">Browse all</a><a href="#/cars?deals=1">Deals</a><a href="#/sell">Sell your car</a></div><div><b>Trust</b>${CONFIG.returnDays}-day returns<br>${esc(CONFIG.warranty)}<br>Secure checkout<br><a href="#/admin">Dealer login</a></div>`;
+save();route();
+</script>
+</body>
+</html>
