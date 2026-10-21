@@ -46,3 +46,15 @@ Tested: visitor tracking -> lead records viewed cars -> owner/dev logins -> stat
 
 ## Happy Cars (second site)
 Live: https://divyansh9310tg-cpu.github.io/apex-motors-car-dealer-site/happy-cars/ (file: happy-cars/index.html). Updated: coloured 3D car on phones, own smooth anchor scroll, lighter phone CSS. Pending from Divyansh: owner login, gaps, animations, colour combo.
+
+
+## SESSION SAVE - 2026-10-21 night (Happy Cars + Happy Motors)
+Done today:
+- Happy Motors BUILD 6.3: real car photos in cart + checkout (was drawn SVG). Live + pushed. Local copy: Desktop\HappyMotors\ (+ HappyMotors-site.zip).
+- Happy Cars (Divyansh's other site, from Downloads\index (5).html) published at /happy-cars/ in the same repo: https://divyansh9310tg-cpu.github.io/apex-motors-car-dealer-site/happy-cars/
+  - Fixed: Browse cars / menu links did not scroll (Lenis never moved) -> own eased goTo() scroll.
+  - Fixed: 3D Ferrari was a flat WHITE shape on real phones -> on small/touch screens no reflection map + plain MeshStandardMaterial (helper phys()), red paint 0x9c0a14, calmer lights. Verified in a 390px iframe only; Divyansh's real phone screenshot (11:24 pm) showed white BEFORE this last fix.
+  - Smoother on phones: DPR cap 1.25 + adaptive drop, no AA on phones, no backdrop-filter/blob blur on phones.
+- WhatsApp: sent Divyansh the updated links (Happy Motors ?v=63, Happy Cars ?v=2 and ?v=3). WhatsApp Web rejects .html/.zip, so only links can be sent.
+Pending (Divyansh's feedback, 11:08 pm): owner login, loan-required field, gaps between sections, animations, 3D model/colour combo; plus top-bar email cut off + "Every car scored" chip overlapping the car on phone; contact form uses web3forms (key not checked).
+Next step tomorrow: open Divyansh's chat, look at his reply/screenshot to confirm the car is no longer white on his phone, then do the pending items, push to same repo, send links (user asked to send links after each round).
