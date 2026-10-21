@@ -2424,10 +2424,18 @@ function initScene(){
     const rt = new THREE.WebGLRenderTarget(8, 8);
     renderer.setRenderTarget(rt); renderer.render(probe, pc); renderer.setRenderTarget(null);
     const px = new Uint8Array(4); renderer.readRenderTargetPixels(rt, 4, 4, 1, 1, px);
-    envOK = px[0] + px[1] + px[2] > 12;
+    envOK = px[0] + px[1] + px[2] > 12 && px[0] + px[1] + px[2] < 740;   // too dark = broken map, near-white = blown-out map
     rt.dispose();
   }catch(e){ envOK = false; }
+  // Phones: the reflection map and clear-coat paint come out as a flat white shape on many mobile GPUs
+  // (half-float precision), so on small / touch screens use plain lit materials instead.
+  if (innerWidth < 820 || matchMedia("(pointer:coarse)").matches) envOK = false;
   if (!envOK) scene.environment = null;
+  const phys = p => {
+    if (envOK) return new THREE.MeshPhysicalMaterial(p);
+    const q = Object.assign({}, p); delete q.clearcoat; delete q.clearcoatRoughness;
+    return new THREE.MeshStandardMaterial(q);
+  };
 
   if (!envOK) renderer.toneMappingExposure = .8;
   const key = new THREE.DirectionalLight(0xffffff, envOK ? 1.2 : .9); key.position.set(4, 8, 6); scene.add(key);
@@ -2437,13 +2445,13 @@ function initScene(){
     scene.add(new THREE.AmbientLight(0x8a8fb8, .3));
   }
   scene.add(new THREE.HemisphereLight(0xbcd2ff, 0x1a1206, 0.5));
-  const warm = new THREE.PointLight(0x5e6ad2, 2.2, 14); warm.position.set(-4, 1.2, 3); scene.add(warm);
-  const cool = new THREE.PointLight(0x7ea6ff, 1.8, 14); cool.position.set(4, 1.6, -3); scene.add(cool);
+  const warm = new THREE.PointLight(0x5e6ad2, envOK ? 2.2 : 1.1, 14); warm.position.set(-4, 1.2, 3); scene.add(warm);
+  const cool = new THREE.PointLight(0x7ea6ff, envOK ? 1.8 : .9, 14); cool.position.set(4, 1.6, -3); scene.add(cool);
 
   // ---------- the car ----------
   const car = new THREE.Group();
-  const paint = new THREE.MeshPhysicalMaterial({color: paintState.color, metalness:.6, roughness:.26, clearcoat:1, clearcoatRoughness:.05, envMapIntensity:1.5});
-  const glass = new THREE.MeshPhysicalMaterial({color:0x05080e, metalness:.3, roughness:.04, clearcoat:1, envMapIntensity:1.8});
+  const paint = phys({color: paintState.color, metalness:.6, roughness:.26, clearcoat:1, clearcoatRoughness:.05, envMapIntensity:1.5});
+  const glass = phys({color:0x05080e, metalness:.3, roughness:.04, clearcoat:1, envMapIntensity:1.8});
   const black = new THREE.MeshStandardMaterial({color:0x0b0c0f, roughness:.85});
   const chrome = new THREE.MeshStandardMaterial({color:0xc9ced6, metalness:1, roughness:.2, envMapIntensity:1.4}); // brushed-silver rims and trim
 
@@ -2591,9 +2599,9 @@ function initScene(){
         });
         const m = gltf.scene.children[0];
         // deep Rosso red; without a reflection map (some phones) use a less metallic paint so lights do not wash it out to white
-        const body = new THREE.MeshPhysicalMaterial({color:0x9c0a14, metalness:envOK ? .55 : .25, roughness:envOK ? .3 : .42, clearcoat:envOK ? 1 : .6, clearcoatRoughness:.08, envMapIntensity:envOK ? 1.3 : 1});
+        const body = phys({color:0x9c0a14, metalness:envOK ? .55 : .25, roughness:envOK ? .3 : .42, clearcoat:envOK ? 1 : .6, clearcoatRoughness:.08, envMapIntensity:envOK ? 1.3 : 1});
         const details = new THREE.MeshStandardMaterial({color:0x2a2c33, metalness:1, roughness:.35, envMapIntensity:1.4});
-        const glassM = new THREE.MeshPhysicalMaterial({color:0x0b0c12, metalness:.9, roughness:.02, transparent:true, opacity:.62, envMapIntensity:2});
+        const glassM = phys({color:0x0b0c12, metalness:.9, roughness:.02, transparent:true, opacity:.62, envMapIntensity:2});
         const set = (n, mat) => { const o = m.getObjectByName(n); if (o) o.material = mat; };
         set("body", body); ["rim_fl","rim_fr","rim_rr","rim_rl","trim"].forEach(n => set(n, details)); set("glass", glassM);
         luxWheels = ["wheel_fl","wheel_fr","wheel_rl","wheel_rr"].map(n => m.getObjectByName(n)).filter(Boolean);
