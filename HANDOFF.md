@@ -42,3 +42,7 @@ Built (#/admin): owner PIN (CONFIG.adminPin, demo 1234) and developer PIN (CONFI
 Tested: visitor tracking -> lead records viewed cars -> owner/dev logins -> status change -> photo upload -> mobile 390px.
 **BIG LIMITATION:** data is per-browser (localStorage). For a real shared admin we need a backend - see BACKEND-SETUP.md (Supabase free tier; the user must create the project and share URL + anon key). PINs in source are not real security.
 **Next:** (1) ask the user about Supabase; (2) tell Divyansh the admin is ready (user said they are chatting with him directly now and told him the earlier replies were the AI - do NOT auto-message him; ask first); (3) optional subscription on/off switch.
+
+
+## Happy Cars (second site)
+Live: https://divyansh9310tg-cpu.github.io/apex-motors-car-dealer-site/happy-cars/ (file: happy-cars/index.html). Updated: coloured 3D car on phones, own smooth anchor scroll, lighter phone CSS. Pending from Divyansh: owner login, gaps, animations, colour combo.
