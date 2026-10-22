@@ -25,3 +25,11 @@ Alternatives if no Supabase: Firebase (Firestore+Auth+Storage), or Google Sheets
 
 ## Business notes (from the chat)
 Plan: sell the site to the dealer, host it ourselves, monthly payment; if unpaid, hosting is paused. GitHub Pages public repo is fine for the prototype; for real clients consider Netlify/Vercel/Cloudflare Pages under the developer's account, a custom domain, and a private repo.
+
+## Happy Cars (/happy-cars/) - same plan
+The Happy Cars page has the same limit: cars, leads, analytics and settings live in each browser's localStorage, and the owner password (default 1234) is checked in the browser. Needed for a real launch:
+- **Auth:** Supabase Auth email login for the owner (replaces the in-page password).
+- **Tables:** `cars` (public read, owner write), `site_config` (public read, owner write), `leads` (anon insert only, owner read/update), `events` (anon insert only, owner read), `likes` (anon insert, public counts).
+- **Storage:** `car-photos` bucket (public read, owner write) instead of photos stored inline in the browser.
+- **Code:** the page already routes every save through one `Store` object (saveCar, deleteCar, saveConfig, saveAll, savePhoto) and every lead through `saveLead()` and every event through `track()`, so switching to Supabase only means rewriting those functions.
+- Until then, set a Web3Forms access key in the owner panel so each enquiry is also emailed to the owner.
