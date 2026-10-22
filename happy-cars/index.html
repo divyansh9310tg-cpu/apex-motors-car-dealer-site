@@ -651,6 +651,68 @@ body.locked{overflow:hidden}
 @keyframes inLine{from{opacity:1;transform:translateY(105%) rotate(2deg)}to{opacity:1;transform:none}}
 @keyframes inStage{from{opacity:0;transform:translateX(-60px) scale(.94)}to{opacity:1;transform:none}}
 
+
+/* ---------- story (scrollytelling): sticky picture, steps scroll past it ---------- */
+.story-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.story-visual{position:sticky;top:calc(var(--hdr) + 24px);height:min(72vh,620px)}
+.sv-frame{position:relative;height:100%;border-radius:22px;overflow:hidden;background:var(--night);box-shadow:var(--shadow-2)}
+.sv-layer{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .7s var(--ease)}
+.sv-layer img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1.12 - var(--lp,0)*.08)) translateY(calc(var(--lp,0)*-14px));transition:transform .2s linear}
+.sv-layer::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55))}
+.sv-layer.on{opacity:1}
+.sv-card{position:absolute;z-index:2;left:20px;bottom:56px;display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 18px 40px rgba(0,0,0,.25);max-width:calc(100% - 40px);
+  opacity:0;transform:translateY(24px) scale(.97);transition:opacity .6s var(--ease),transform .7s var(--ease)}
+.sv-layer.on .sv-card{opacity:1;transform:none;transition-delay:.2s}
+.sv-card > span{display:grid;gap:3px}
+.sv-card small{font-size:.75rem;color:var(--muted)}
+.sv-card b{font:600 1rem/1.25 var(--f-head)}
+.sv-card .ok{color:var(--ok);font-weight:600}
+.sv-price{font:700 1.75rem/1.1 var(--f-body)!important;letter-spacing:-.02em}
+.sv-price small{font-size:.5em;font-weight:500}
+.sv-ring{width:64px;height:64px;border-radius:50%;display:grid!important;place-content:center;text-align:center;gap:0!important;background:conic-gradient(var(--blue) calc(var(--rp,0)*360deg),var(--surface-2) 0);position:relative}
+.sv-ring::before{content:"";position:absolute;inset:5px;border-radius:50%;background:#fff}
+.sv-ring > *{position:relative}
+.sv-ring b{font:700 1.1rem/1 var(--f-body)}
+.sv-ring small{font-size:.625rem}
+.sv-bars{display:grid!important;gap:4px;margin-top:4px;width:180px}
+.sv-bars i{display:block;height:4px;border-radius:2px;background:var(--surface-2);overflow:hidden;position:relative}
+.sv-bars i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease)}
+.sv-layer.on .sv-bars i::after{transform:scaleX(1);transition-delay:.45s}
+.sv-layer.on .sv-bars i:nth-child(2)::after{transition-delay:.55s}
+.sv-layer.on .sv-bars i:nth-child(3)::after{transition-delay:.65s}
+.sv-layer.on .sv-bars i:nth-child(4)::after{transition-delay:.75s}
+.sv-check{width:44px;height:44px;border-radius:50%;background:var(--ok);color:#fff;display:grid!important;place-items:center;flex:none}
+.sv-check svg{transform:scale(0);transition:transform .5s cubic-bezier(.34,1.56,.64,1) .45s}
+.sv-layer.on .sv-check svg{transform:none}
+.sv-prog{position:absolute;z-index:3;left:20px;right:20px;bottom:22px;height:3px;border-radius:2px;background:rgba(255,255,255,.25);overflow:hidden}
+.sv-prog i{position:absolute;inset:0;background:#fff;transform:scaleX(var(--sp,0));transform-origin:left}
+.sv-count{position:absolute;z-index:3;right:20px;top:18px;font-size:.8125rem;color:rgba(255,255,255,.75);font-variant-numeric:tabular-nums}
+.sv-count b{color:#fff;font-weight:700}
+.story-steps{list-style:none;margin:0;padding:0}
+.st{min-height:min(72vh,620px);display:flex;flex-direction:column;justify-content:center;gap:12px;padding:24px 0;opacity:.28;transform:translateX(12px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.st.on{opacity:1;transform:none}
+.st-n{font:700 .8125rem/1 var(--f-body);color:var(--blue);letter-spacing:.06em}
+.st h3{font:650 clamp(1.5rem,2.6vw,2.125rem)/1.15 var(--f-head);letter-spacing:-.02em;margin:0}
+.st p{margin:0;font-size:clamp(1rem,1.3vw,1.125rem);line-height:1.65;color:var(--muted);max-width:44ch}
+.st .btn{align-self:flex-start;margin-top:8px}
+.st:first-child{padding-top:0}
+@media (max-width:860px){
+  .story-grid{grid-template-columns:1fr;gap:0}
+  .story-visual{top:calc(var(--hdr) + 8px);height:42svh;z-index:3}
+  .story-steps{position:relative;z-index:1}
+  .st{min-height:58svh;justify-content:flex-start;padding:28px 0 0;transform:translateY(16px)}
+  .st:first-child{padding-top:28px}
+  .st:last-child{min-height:0;padding-bottom:32px}
+  .sv-card{left:12px;bottom:40px;padding:10px 14px;gap:10px}
+  .sv-prog{left:12px;right:12px;bottom:16px}
+  .sv-bars{width:140px}
+  .sv-price{font-size:1.4rem!important}
+}
+
+/* hero: as you scroll away the headline drifts up and fades (the 3D car turns with the scroll) */
+.hero .wrap > .label,.hero .h1,.hero .lead,.hero-ctas{transform:translateY(calc(var(--hs,0)*-60px));opacity:calc(1 - var(--hs,0)*1.1)}
+.hero .stage{transform:scale(calc(1 + var(--hs,0)*.06))}
+
 /* ---------- page transition curtain (section jumps, owner panel) ---------- */
 .pt{position:fixed;inset:0;z-index:140;pointer-events:none;visibility:hidden;background:#1D1D1F;color:#fff;display:grid;place-items:center;clip-path:inset(100% 0 0 0)}
 .pt.on{visibility:visible;pointer-events:auto}
@@ -1034,6 +1096,31 @@ html.io .rv.in{opacity:1;transform:none}
 </section>
 
 <!-- ================= FINANCE ================= -->
+<!-- ================= STORY: how buying works (scrollytelling) ================= -->
+<section class="sec story" id="story" aria-labelledby="storyTitle">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="label">How it works</p><h2 class="h2" id="storyTitle">From first look to your driveway.</h2></div></div>
+    <div class="story-grid">
+      <div class="story-visual" aria-hidden="true">
+        <div class="sv-frame">
+          <figure class="sv-layer" data-l="0"><img src="../assets/cars/about.jpg" alt="" loading="lazy"><div class="sv-card"><span class="sv-ring"><b id="svPoints">140</b><small>points</small></span><span><small>Inspection report</small><b>Engine · Body · Interior · Tyres</b><i class="sv-bars"><i style="--w:92%"></i><i style="--w:91%"></i><i style="--w:98%"></i><i style="--w:95%"></i></i></span></div></figure>
+          <figure class="sv-layer" data-l="1"><img id="svImg1" src="../assets/cars/creta.jpg" alt="" loading="lazy"><div class="sv-card"><span><small id="svName">2021 Hyundai Creta</small><b class="sv-price" id="svPrice">₹13.90 L</b><small>Price on the page · <span class="ok">Negotiable</span></small></span></div></figure>
+          <figure class="sv-layer" data-l="2"><img src="../assets/cars/xuv700.jpg" alt="" loading="lazy"><div class="sv-card"><span><small>Your EMI</small><b class="sv-price" id="svEmi">₹23,901<small>/mo</small></b><small>25% down · 5 years · old car taken in exchange</small></span></div></figure>
+          <figure class="sv-layer" data-l="3"><img src="../assets/cars/fortuner.jpg" alt="" loading="lazy"><div class="sv-card"><span class="sv-check"><svg width="20" height="20"><use href="#i-check"/></svg></span><span><small>Test drive booked</small><b>Your slot, your route</b><small>Papers and RC transfer handled by us</small></span></div></figure>
+          <div class="sv-prog"><i id="svProg"></i></div>
+          <span class="sv-count"><b id="svNum">01</b> / 04</span>
+        </div>
+      </div>
+      <ol class="story-steps">
+        <li class="st" data-s="0"><span class="st-n">01</span><h3>Inspected before it's listed</h3><p>Every car goes through our <b data-inspect>140</b>-point check. The condition score you see on each car comes from that report, not from a sales pitch.</p></li>
+        <li class="st" data-s="1"><span class="st-n">02</span><h3>The price is on the page</h3><p>Year, kilometres, owners, insurance and accident history sit next to the price. Compare up to three cars side by side before you call anyone.</p></li>
+        <li class="st" data-s="2"><span class="st-n">03</span><h3>Finance and exchange, sorted</h3><p>See your EMI before you visit, and bring your old car: we value it and adjust it against the new one in the same visit.</p></li>
+        <li class="st" data-s="3"><span class="st-n">04</span><h3>Test drive, then drive home</h3><p>Book a slot online, drive it on roads you know, and leave the RC transfer and paperwork to us.</p><a class="btn btn-primary" href="#inventory">Find your car</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="finance">
   <div class="wrap">
     <div class="sec-head rv"><div><p class="label">Finance</p><h2 class="h2">Know your EMI before you visit.</h2><p class="lead">Choose a car or enter a price, set your down payment and tenure, and see exactly what you pay and when you finish.</p></div></div>
@@ -2879,7 +2966,7 @@ function updateSEO(){
 /* ============================================================ refresh everything after data changes */
 function refreshAll(){
   applyConfig(); renderTypeChips(); renderInventory(); renderFeatured(); renderBrowse(); renderPremium(); renderFacts();
-  renderOffers(); renderReviews(); fillEmiSelect(); fillFinder(); refreshEnquiryCars(); syncCompare(); updateFavCount(); applySpin(); updateSEO();
+  renderOffers(); renderReviews(); renderStory(); fillEmiSelect(); fillFinder(); refreshEnquiryCars(); syncCompare(); updateFavCount(); applySpin(); updateSEO();
   if (ADMIN.unlocked && !$("#admin").hidden){ renderAdminCars(); $("#adMode").textContent = modeLabel(); }
 }
 
@@ -3025,7 +3112,9 @@ function initScene(){
     }
     if (!isFinite(angle)) angle = 0;
     hoverS += (hoverX - hoverS)*(1 - Math.pow(.02, dt));
-    rig.rotation.y = angle + (reduced ? 0 : hoverS*.18);
+    const sc = reduced ? 0 : SCROLLY.hero;   // scrolling out of the hero turns the car toward you
+    rig.rotation.y = angle + (reduced ? 0 : hoverS*.18) + sc*1.3;
+    rig.position.y = -sc*.25;
     if (carIn < 1){ carIn = Math.min(1, carIn + dt*(reduced ? 10 : 1.4)); const e = 1 - Math.pow(1 - carIn, 4); car.position.y = (1 - e)*.2; }
     // frame the car: fit its ~4.6-unit length to the stage width
     const tanHalf = Math.tan(THREE.MathUtils.degToRad(camera.fov/2));
@@ -3652,7 +3741,7 @@ function curtain(label, mid){
     return lift.finished;
   }).finally(() => { pt.classList.remove("on"); pt.getAnimations().forEach(a => a.cancel()); curtainBusy = false; });
 }
-const PAGE_NAMES = {top:"Home", inventory:"Inventory", sell:"Sell your car", finance:"Finance", about:"About us", contact:"Contact", featured:"Featured", arrivals:"New arrivals", browse:"Browse", premium:"Premium collection", offers:"Offers", services:"Services", reviews:"Reviews", find:"Search"};
+const PAGE_NAMES = {story:"How it works", top:"Home", inventory:"Inventory", sell:"Sell your car", finance:"Finance", about:"About us", contact:"Contact", featured:"Featured", arrivals:"New arrivals", browse:"Browse", premium:"Premium collection", offers:"Offers", services:"Services", reviews:"Reviews", find:"Search"};
 function pageTo(el, link){
   const dist = Math.abs(el.getBoundingClientRect().top);
   if (reduced || dist < innerHeight*1.4){ goTo(el); return; }
@@ -3686,6 +3775,60 @@ if (!reduced && !(window.CSS && CSS.supports && CSS.supports("animation-timeline
   const watch = () => $$(".rv:not(.in)").forEach(el => io.observe(el));
   watch(); new MutationObserver(watch).observe($("#main"), {childList:true, subtree:true});
 }
+
+
+/* ============================================================ scrollytelling
+   1) hero: the headline drifts away and the 3D car turns as you scroll out of it
+   2) "How it works": the picture stays pinned while four steps scroll past; each step swaps the
+      picture and its info card, and a bar shows how far through the story you are. */
+const SCROLLY = {hero:0};
+function renderStory(){
+  const c = CARS.find(x => x.featured && avail(x) && x.photoKey) || CARS.find(avail);
+  $("#svPoints").textContent = CONFIG.inspectPoints || 140;
+  $$("[data-inspect]").forEach(el => el.textContent = CONFIG.inspectPoints || 140);
+  if (!c) return;
+  $("#svName").textContent = `${c.year} ${c.make} ${c.model}`;
+  $("#svPrice").textContent = lakh(c.price);
+  $("#svImg1").src = c.photo || $("#svImg1").src;
+  $("#svEmi").innerHTML = `${inr(emiOf(c.price*.75, CONFIG.rate || 10.5, 60))}<small>/mo</small>`;
+}
+(() => {
+  const hero = $(".hero"), story = $("#story"), steps = $$(".st"), layers = $$(".sv-layer"), frame = $(".sv-frame");
+  let cur = -1, ticking = false;
+  function setStep(i){
+    if (i === cur) return; cur = i;
+    steps.forEach((s, k) => s.classList.toggle("on", k === i));
+    layers.forEach((l, k) => l.classList.toggle("on", k === i));
+    $("#svNum").textContent = String(i + 1).padStart(2, "0");
+  }
+  function update(){
+    ticking = false;
+    const vh = innerHeight;
+    // hero
+    const hs = Math.max(0, Math.min(1, scrollY/(vh*.8)));
+    SCROLLY.hero = hs;
+    if (!reduced) hero.style.setProperty("--hs", hs.toFixed(3));
+    // story
+    const r = story.getBoundingClientRect();
+    if (r.bottom < -50 || r.top > vh + 50) return;
+    const phone = innerWidth <= 860;
+    const vr = frame.getBoundingClientRect();
+    const target = phone ? vr.bottom + (vh - vr.bottom)*.35 : vh*.5;   // reading line
+    let best = 0, bestD = Infinity;
+    steps.forEach((s, k) => { const b = s.getBoundingClientRect(); const d = Math.abs((b.top + Math.min(b.height, 260)/2) - target); if (b.top < target + 40 && d < bestD){ bestD = d; best = k; } });
+    setStep(best);
+    const first = steps[0].getBoundingClientRect(), last = steps[steps.length - 1].getBoundingClientRect();
+    const sp = Math.max(0, Math.min(1, (target - first.top)/Math.max(1, last.top + 80 - first.top)));
+    frame.style.setProperty("--sp", sp.toFixed(3));
+    const b = steps[best].getBoundingClientRect();
+    const lp = Math.max(0, Math.min(1, (target - b.top)/Math.max(1, b.height)));
+    layers[best].style.setProperty("--lp", reduced ? 0 : lp.toFixed(3));
+    $(".sv-ring").style.setProperty("--rp", best > 0 ? 1 : Math.min(1, .25 + lp*1.4).toFixed(3));
+  }
+  const ask = () => { if (!ticking){ ticking = true; requestAnimationFrame(update); } };
+  addEventListener("scroll", ask, {passive:true}); addEventListener("resize", ask);
+  setStep(0); update();
+})();
 
 /* ============================================================ boot */
 Store.loadLocal();
