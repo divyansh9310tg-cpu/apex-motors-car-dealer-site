@@ -1,4 +1,4 @@
-# Happy Cars website (light redesign, build 4)
+# HS Cars website (formerly Happy Cars) (light redesign, build 4)
 
 Live: https://divyansh9310tg-cpu.github.io/apex-motors-car-dealer-site/happy-cars/
 Owner panel: add `#owner` to the link (demo password `1234`, change it in Settings).
